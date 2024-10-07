@@ -8,6 +8,9 @@ on:
         required: false
         default: 10000
 
+env:
+  AMOUNT_MONDOS: ${{ inputs.mondos_amount }}
+
 jobs:
   give-free-mondos:
     runs-on: ubuntu-latest
@@ -25,4 +28,4 @@ jobs:
         run: npm install
 
       - name: Run script
-        run: AMOUNT={{ inputs.mondos_amount }} node get-mondos.js
+        run: AMOUNT={{ env.AMOUNT_MONDOS }} node get-mondos.js
