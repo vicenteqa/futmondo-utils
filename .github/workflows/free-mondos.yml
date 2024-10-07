@@ -25,4 +25,4 @@ jobs:
         run: npm install
 
       - name: Run script
-        run: AMOUNT={{ github.event.inputs.mondos_amount }} node get-mondos.js
+        run: AMOUNT={{ inputs.mondos_amount }} node get-mondos.js
