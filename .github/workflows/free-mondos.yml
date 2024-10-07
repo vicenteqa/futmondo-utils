@@ -1,4 +1,4 @@
-name: Run Node.js Script
+name: Free Mondos
 
 on:
   workflow_dispatch:
