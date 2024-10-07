@@ -1,0 +1,28 @@
+name: Run Node.js Script
+
+on:
+  workflow_dispatch:
+    inputs:
+      mondos_amount:
+        description: 'Amount of mondos to give'
+        required: false
+        default: 10000
+
+jobs:
+  give-free-mondos:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run script
+        run: AMOUNT={{ github.event.inputs.mondos_amount }} node get-mondos.js
