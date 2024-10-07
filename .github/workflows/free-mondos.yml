@@ -28,4 +28,4 @@ jobs:
         run: npm install
 
       - name: Run script
-        run: AMOUNT={{ env.AMOUNT_MONDOS }} node get-mondos.js
+        run: node get-mondos.js
