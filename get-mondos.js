@@ -14,15 +14,15 @@ async function sendGetRequest(userId, n) {
 }
 
 const userIds = [
-  // { id: '6527bf532ccd69060ecc4da1' },
-  // { id: '6528485154e06a061637e257' },
-  // { id: '652862c8a0d05805de803447' },
-  // { id: '65284ad654e06a061637e420' },
+  { id: '6527bf532ccd69060ecc4da1' },
+  { id: '6528485154e06a061637e257' },
+  { id: '652862c8a0d05805de803447' },
+  { id: '65284ad654e06a061637e420' },
   { id: '652bc64b2ccd69060ecfb26e' },
-  // { id: '5d2356b8a9afa203db590592' },
-  // { id: '5d23526c7c5d5440102c3c6c' },
-  // { id: '66f9800749fb9a0d154cd190' },
-  // { id: '5d35cc288f613c24d052812e' },
+  { id: '5d2356b8a9afa203db590592' },
+  { id: '5d23526c7c5d5440102c3c6c' },
+  { id: '66f9800749fb9a0d154cd190' },
+  { id: '5d35cc288f613c24d052812e' },
 ];
 
 const amountOfMondos = process.env.AMOUNT;
