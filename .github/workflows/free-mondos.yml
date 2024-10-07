@@ -9,7 +9,7 @@ on:
         default: 10000
 
 env:
-  AMOUNT_MONDOS: ${{ inputs.mondos_amount }}
+  AMOUNT: ${{ inputs.mondos_amount }}
 
 jobs:
   give-free-mondos:
