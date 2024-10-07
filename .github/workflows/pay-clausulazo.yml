@@ -1,0 +1,29 @@
+name: Pay Clausulazo
+
+on:
+  workflow_dispatch:
+
+env:
+  TOKEN: ${{ env.TOKEN }}
+  PLAYER_ID: '64e7d0d92d022151504b7866'
+  PLAYER_SLUG: '18083611'
+  PRICE: 46001652
+
+jobs:
+  give-free-mondos:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run script
+        run: node pay-clausulazo/pay-clausulazo.js
