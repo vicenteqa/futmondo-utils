@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 env:
-  TOKEN: ${{ secrets.TOKEN }}
+  TOKEN: ${{ env.TOKEN }}
   PLAYER_ID: '64e7d0d92d022151504b7866'
   PLAYER_SLUG: '18083611'
   PRICE: 46001652
