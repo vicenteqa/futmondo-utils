@@ -35,4 +35,4 @@ jobs:
         run: npm install
 
       - name: Run script
-        run: node get-player-data.js
+        run: node pay-clausulazo/pay-clausulazo.js
