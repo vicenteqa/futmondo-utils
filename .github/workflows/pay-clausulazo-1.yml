@@ -6,6 +6,6 @@ on:
 
 jobs:
   invoke-template:
-    uses: ./.github/workflows/template/pay-clausulazo-template.yml
+    uses: ./.github/workflows/pay-clausulazo-template.yml
     with:
       player_id: ${{ secrets.PLAYER_ID1 }}
