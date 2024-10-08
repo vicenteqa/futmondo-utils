@@ -2,15 +2,24 @@ name: Pay Clausulazo
 
 on:
   workflow_dispatch:
-
+  inputs:
+    player_id:
+      description: 'Player ID'
+      required: true
+    player_slug:
+      description: 'Player Slug'
+      required: true
+    price:
+      description: 'Price'
+      required: true
 env:
   TOKEN: ${{ secrets.TOKEN }}
-  PLAYER_ID: '64e7d0d92d022151504b7866'
-  PLAYER_SLUG: '18083611'
-  PRICE: 46001652
+  PLAYER_ID: ${{ inputs.player_id }}
+  PLAYER_SLUG: ${{ inputs.player_slug }}
+  PRICE: ${{ inputs.price }}
 
 jobs:
-  give-free-mondos:
+  pay-clausulazo:
     runs-on: ubuntu-latest
 
     steps:
@@ -26,4 +35,4 @@ jobs:
         run: npm install
 
       - name: Run script
-        run: node pay-clausulazo/pay-clausulazo.js
+        run: node get-player-data.js
