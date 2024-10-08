@@ -4,8 +4,6 @@ import { getPlayerData } from './get-player-data.js';
 
 async function rosterClauseBody() {
   const playerData = await getPlayerData();
-  console.log(playerData);
-  console.log('______________');
   return {
     header: {
       token: process.env.TOKEN,
@@ -24,7 +22,6 @@ async function rosterClauseBody() {
 
 async function payClausula() {
   const body = await rosterClauseBody();
-  console.log(body);
 
   try {
     const response = await postData('/market/rosterclause', body);

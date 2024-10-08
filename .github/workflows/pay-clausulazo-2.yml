@@ -1,4 +1,4 @@
-name: PAY CLAUSULA PLAYER 1
+name: PAY CLAUSULA PLAYER 2
 on:
   workflow_dispatch:
   schedule:
@@ -8,6 +8,6 @@ jobs:
   invoke-template:
     uses: ./.github/workflows/pay-clausulazo-template.yml
     with:
-      player_id: ${{ vars.PLAYER_ID1 }}
+      player_id: ${{ vars.PLAYER_ID2 }}
     secrets:
       TOKEN: ${{ secrets.TOKEN }}
