@@ -2,16 +2,16 @@ name: Pay Clausulazo
 
 on:
   workflow_dispatch:
-  inputs:
-    player_id:
-      description: 'Player ID'
-      required: true
-    player_slug:
-      description: 'Player Slug'
-      required: true
-    price:
-      description: 'Price'
-      required: true
+    inputs:
+      player_id:
+        description: 'Player ID'
+        required: true
+      player_slug:
+        description: 'Player Slug'
+        required: true
+      price:
+        description: 'Price'
+        required: true
 env:
   TOKEN: ${{ secrets.TOKEN }}
   PLAYER_ID: ${{ inputs.player_id }}
