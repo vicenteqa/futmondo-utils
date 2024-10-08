@@ -9,3 +9,5 @@ jobs:
     uses: ./.github/workflows/pay-clausulazo-template.yml
     with:
       player_id: ${{ vars.PLAYER_ID1 }}
+    secrets:
+      TOKEN: ${{ secrets.TOKEN }}
