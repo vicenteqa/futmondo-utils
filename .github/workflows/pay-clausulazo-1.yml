@@ -4,12 +4,14 @@ on:
   schedule:
     - cron: '50 21 * * 6' # Runs every Saturday at 23:50h // 2h difference with server.
 
-env:
-  TOKEN: ${{ secrets.TOKEN }}
-  PLAYER_ID1: ${{ secrets.PLAYER_ID1 }}
-
 jobs:
   invoke-template:
-    uses: ./.github/workflows/pay-clausulazo-template.yml
-    with:
-      player_id: ${{ env.PLAYER_ID1 }}
+    steps:
+      - name: Set secret as variable
+        env:
+          PLAYER_ID1: ${{ secrets.PLAYER_ID1 }}
+        run: echo "MY_VARIABLE is set."
+      - name: Pay Clausulazo
+        uses: ./.github/workflows/pay-clausulazo-template.yml
+        with:
+          player_id: ${{ env.PLAYER_ID1 }}
