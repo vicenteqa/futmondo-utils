@@ -6,13 +6,6 @@ on:
 
 jobs:
   invoke-template:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Set secret as variable
-        env:
-          PLAYER_ID1: ${{ secrets.PLAYER_ID1 }}
-        run: echo "MY_VARIABLE is set."
-      - name: Pay Clausulazo
-        uses: ./.github/workflows/pay-clausulazo-template.yml
-        with:
-          player_id: ${{ env.PLAYER_ID1 }}
+    uses: ./.github/workflows/pay-clausulazo-template.yml
+    with:
+      player_id: ${{ vars.PLAYER_ID1 }}
