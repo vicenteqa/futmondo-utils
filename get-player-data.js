@@ -1,8 +1,7 @@
-import axios from 'axios';
+import { postData } from './src/services/apiServices.js';
+import 'dotenv/config';
 
-const url = 'https://api.futmondo.com/1/player/summary';
-
-async function getPlayerSummaryRequestBody(playerId) {
+function getPlayerSummaryRequestBody() {
   return {
     header: {
       token: process.env.TOKEN,
@@ -11,27 +10,29 @@ async function getPlayerSummaryRequestBody(playerId) {
     query: {
       championshipId: '6527184d361d0805fd6a729b',
       userteamId: '652bc9051485a17231213ec8',
-      playerId: playerId,
+      playerId: process.env.PLAYER_ID,
     },
     answer: {},
   };
 }
 
-async function getPlayerData(playerId) {
-  const body = getPlayerSummaryRequestBody(playerId);
-  const result = await axios
-    .post(url, body)
-    .then((response) => {
-      if (!response.data.answer.error) {
-        return {
-          slug: response.data.answer.data.slug,
-          price: response.data.answer.championship.clause.price,
-        };
-      } else return response.data.answer.code;
-    })
-    .catch((error) => console.error('Error:', error));
-  return result;
+async function getPlayerData() {
+  const body = getPlayerSummaryRequestBody();
+  try {
+    const response = await postData('/player/summary', body);
+    return handlePlayerDataResponse(response);
+  } catch (error) {
+    console.error('Error calling player summary endpoint:', error);
+  }
 }
 
-const result = await getPlayerData('644d90d4479a44042784eb9f');
-console.log(result);
+export { getPlayerData };
+
+async function handlePlayerDataResponse(response) {
+  if (!response.answer.error) {
+    return {
+      slug: response.answer.data.slug,
+      price: response.answer.championship.clause.price,
+    };
+  } else return response.answer.code;
+}

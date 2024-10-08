@@ -1,0 +1,48 @@
+name: Pay Clausulazo
+
+on:
+  workflow_call:
+    inputs:
+      player_id:
+        description: 'Player ID'
+        required: true
+        type: string
+
+env:
+  TOKEN: ${{ secrets.TOKEN }}
+  PLAYER_ID: ${{ inputs.player_id }}
+
+jobs:
+  pay-clausulazo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install
+      - name: Wait until 00:00
+        run: |
+          # Set the target time to 11:20 AM Madrid time for today
+          TARGET_TIME=$(TZ="Europe/Madrid" date -d "today 11:20" +%s)
+          # Get current time in seconds since epoch
+          CURRENT_TIMESTAMP=$(date +%s)
+          # Calculate the difference (sleep time in seconds)
+          SLEEP_TIME=$((TARGET_TIME - CURRENT_TIMESTAMP))
+          # Check if the target time is in the future
+          if [ "$SLEEP_TIME" -gt 0 ]; then
+            echo "Sleeping for $SLEEP_TIME seconds until 11:20 AM Madrid time..."
+            sleep "$SLEEP_TIME"
+          else
+            echo "Target time has already passed for today."
+          fi
+          # Continue execution after sleep
+          echo "Reached the target timestamp. Continuing execution..."
+      - name: Run script
+        run: node pay-clausulazo.js
