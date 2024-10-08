@@ -6,6 +6,7 @@ on:
 
 jobs:
   invoke-template:
+    runs-on: ubuntu-latest
     steps:
       - name: Set secret as variable
         env:
