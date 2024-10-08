@@ -18,6 +18,7 @@ function getPlayerSummaryRequestBody() {
 
 async function getPlayerData() {
   const body = getPlayerSummaryRequestBody();
+  console.log(body);
   try {
     const response = await postData('/player/summary', body);
     return handlePlayerDataResponse(response);
