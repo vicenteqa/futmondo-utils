@@ -2,11 +2,11 @@ name: Pay Clausulazo Test Job
 
 on:
   workflow_dispatch:
-  inputs:
-    player_id:
-      description: 'Player ID'
-      required: true
-      type: string
+    inputs:
+      player_id:
+        description: 'Player ID'
+        required: true
+        type: string
 
 env:
   TOKEN: ${{ secrets.TOKEN }}
