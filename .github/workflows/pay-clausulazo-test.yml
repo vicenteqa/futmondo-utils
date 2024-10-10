@@ -2,13 +2,18 @@ name: Pay Clausulazo Test Job
 
 on:
   workflow_dispatch:
+  inputs:
+    player_id:
+      description: 'Player ID'
+      required: true
+      type: string
 
 env:
   TOKEN: ${{ secrets.TOKEN }}
   CHAMPIONSHIP_ID: ${{ secrets.CHAMPIONSHIP_ID }}
   USER_TEAM_ID: ${{ secrets.USER_TEAM_ID }}
   USER_ID: ${{ secrets.USER_ID }}
-  PLAYER_ID: ${{ vars.PLAYER_ID1 }}
+  PLAYER_ID: ${{ inputs.player_id }}
 
 jobs:
   pay-clausulazo:
