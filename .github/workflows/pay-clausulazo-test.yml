@@ -1,7 +1,7 @@
 name: Pay Clausulazo Test Job
 
 on:
-  workflow_call:
+  workflow_dispatch:
 
 env:
   TOKEN: ${{ secrets.TOKEN }}
