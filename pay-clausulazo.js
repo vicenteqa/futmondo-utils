@@ -2,16 +2,19 @@ import { postData } from './src/services/apiServices.js';
 import 'dotenv/config';
 import { getPlayerData } from './get-player-data.js';
 
+let playerName = '';
+
 async function rosterClauseBody() {
   const playerData = await getPlayerData();
+  playerName = playerData.name;
   return {
     header: {
       token: process.env.TOKEN,
-      userid: '652bc64b2ccd69060ecfb26e',
+      userid: process.env.USER_ID,
     },
     query: {
-      championshipId: '6527184d361d0805fd6a729b',
-      userteamId: '652bc9051485a17231213ec8',
+      championshipId: process.env.CHAMPIONSHIP_ID,
+      userteamId: process.env.USER_TEAM_ID,
       player_slug: playerData.slug,
       player_id: process.env.PLAYER_ID,
       price: playerData.price,
@@ -32,9 +35,12 @@ async function payClausula() {
 }
 
 async function handleRosterClauseResponse(response) {
-  if (response.answer.error) return response.answer.code;
-  else return response;
+  if (response.answer.error) {
+    const errorCode = response.answer.code;
+    if (errorCode === 'api.error.max_clauses')
+      console.log('Máximas cláusulas pagadas');
+    else console.log(response.answer.code);
+  } else console.log(`Has pagado la claúsula de ${playerName}`);
 }
 
-const result = await payClausula();
-console.log(result);
+await payClausula();

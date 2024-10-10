@@ -10,9 +10,18 @@ on:
     secrets:
       TOKEN:
         required: true
+      CHAMPIONSHIP_ID:
+        required: true
+      USER_TEAM_ID:
+        required: true
+      USER_ID:
+        required: true
 
 env:
   TOKEN: ${{ secrets.TOKEN }}
+  CHAMPIONSHIP_ID: ${{ secrets.CHAMPIONSHIP_ID }}
+  USER_TEAM_ID: ${{ secrets.USER_TEAM_ID }}
+  USER_ID: ${{ secrets.USER_ID }}
   PLAYER_ID: ${{ inputs.player_id }}
 
 jobs:

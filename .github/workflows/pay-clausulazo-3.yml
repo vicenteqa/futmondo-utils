@@ -11,3 +11,6 @@ jobs:
       player_id: ${{ vars.PLAYER_ID3 }}
     secrets:
       TOKEN: ${{ secrets.TOKEN }}
+      CHAMPIONSHIP_ID: ${{ secrets.CHAMPIONSHIP_ID }}
+      USER_TEAM_ID: ${{ secrets.USER_TEAM_ID }}
+      USER_ID: ${{ secrets.USER_ID }}

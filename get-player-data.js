@@ -5,11 +5,11 @@ function getPlayerSummaryRequestBody() {
   return {
     header: {
       token: process.env.TOKEN,
-      userid: '652bc64b2ccd69060ecfb26e',
+      userid: process.env.USER_ID,
     },
     query: {
-      championshipId: '6527184d361d0805fd6a729b',
-      userteamId: '652bc9051485a17231213ec8',
+      championshipId: process.env.CHAMPIONSHIP_ID,
+      userteamId: process.env.USER_TEAM_ID,
       playerId: process.env.PLAYER_ID,
     },
     answer: {},
@@ -33,6 +33,7 @@ async function handlePlayerDataResponse(response) {
     return {
       slug: response.answer.data.slug,
       price: response.answer.championship.clause.price,
+      name: response.answer.data.name,
     };
   } else return response.answer.code;
 }
