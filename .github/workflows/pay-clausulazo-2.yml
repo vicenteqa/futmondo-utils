@@ -2,7 +2,7 @@ name: PAY CLAUSULA PLAYER 2
 on:
   workflow_dispatch:
   schedule:
-    - cron: '50 21 * * 2' # Runs every Sunday at 23:50h // 2h difference with server.
+    - cron: '50 21 * * 6' # Runs every Sunday at 23:50h // 2h difference with server.
 
 jobs:
   invoke-template:
