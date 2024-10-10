@@ -42,7 +42,7 @@ jobs:
       - name: Wait until 00:00
         run: |
           # Set the target time to 00:00 AM Madrid time for today
-          TARGET_TIME=$(TZ="Europe/Madrid" date -d "tomorrow 00:00" +%s)
+          TARGET_TIME=$(TZ="Europe/Madrid" date -d "today 11:22" +%s)
           # Get current time in seconds since epoch
           CURRENT_TIMESTAMP=$(date +%s)
           # Calculate the difference (sleep time in seconds)
