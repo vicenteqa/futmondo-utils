@@ -61,7 +61,7 @@ async function getPlayerData(playerId) {
   };
 }
 
-await sendBid('617db824fca9f703e07b2a81', 2101321);
+await sendBid('617db824fca9f703e07b2a81', 21004530);
 await sendBid('5c6843548953a6467168db95', 12400000);
 
 async function sendBid(playerId, amount) {
