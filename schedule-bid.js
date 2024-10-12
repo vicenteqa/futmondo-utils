@@ -44,11 +44,11 @@ const playersWithHighChange = market
     propietario: player.userTeam || 'Computer',
     cambio: formatCurrency(player.change),
     ofertas: player.numberOfBids || 0,
+    precio: formatCurrency(player.price),
+    id: player.id,
   }));
 
-console.log(playersWithHighChange);
-
-const wantedPlayers = [];
+// console.log(playersWithHighChange);
 
 async function getPlayerData(playerId) {
   const player = market.find((player) => player.id === playerId);
@@ -61,11 +61,13 @@ async function getPlayerData(playerId) {
   };
 }
 
-wantedPlayers.forEach(async (playerId) => {
+await sendBid('617db824fca9f703e07b2a81', 21000000);
+await sendBid('5c6843548953a6467168db95', 12400000);
+
+async function sendBid(playerId, amount) {
   const playerData = await getPlayerData(playerId);
 
   let bidBody;
-  let sendBid = true;
   if (playerData.bids === 0) {
     bidBody = await getBidBody(
       playerData.player_slug,
@@ -79,15 +81,13 @@ wantedPlayers.forEach(async (playerId) => {
       playerData.price + playerData.change * 2
     );
   } else {
-    bidBody = await getBidBody(playerData.player_slug, playerId, 21000000);
+    bidBody = await getBidBody(playerData.player_slug, playerId, amount);
   }
 
-  if (sendBid) {
-    const response = await submitBid(bidBody);
-    if (response.answer.code === 'api.general.ok')
-      console.log(`Has pujado por ${playerData.name}`);
-  }
-});
+  const response = await submitBid(bidBody);
+  if (response.answer.code === 'api.general.ok')
+    console.log(`Has pujado por ${playerData.name}`);
+}
 
 async function submitBid(bidBody) {
   try {
