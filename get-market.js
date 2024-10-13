@@ -1,14 +1,6 @@
 import { postData } from './src/services/apiServices.js';
 import 'dotenv/config';
 
-const formatCurrency = (amount) => {
-  return new Intl.NumberFormat('es-ES', {
-    style: 'currency',
-    currency: 'EUR',
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 0,
-  }).format(amount);
-};
 
 const getMarketBody = {
   header: {
@@ -33,16 +25,3 @@ export async function getMarket() {
     console.error('Error calling market endpoint:', error);
   }
 }
-
-const market = await getMarket();
-
-const playersWithHighChange = market
-  .filter((player) => player.change > 80000)
-  .map((player) => ({
-    jugador: player.name,
-    propietario: player.userTeam || 'Computer',
-    cambio: formatCurrency(player.change),
-    ofertas: player.numberOfBids || 0,
-    precio: formatCurrency(player.price),
-    id: player.id,
-  }));
