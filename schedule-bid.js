@@ -52,41 +52,45 @@ const playersWithHighChange = market
 
 async function getPlayerData(playerId) {
   const player = market.find((player) => player.id === playerId);
-  return {
-    name: player.name,
-    bids: player.numberOfBids,
-    price: player.price,
-    player_slug: player.slug,
-    change: player.change,
-  };
+  if (!player) return null;
+  else
+    return {
+      name: player.name,
+      bids: player.numberOfBids,
+      price: player.price,
+      player_slug: player.slug,
+      change: player.change,
+    };
 }
 
-await sendBid('617db824fca9f703e07b2a81', 21004530);
-await sendBid('5c6843548953a6467168db95', 12400000);
+await sendBid('63d8eb7b1d17ae5aff1f4c52', 23000000);
+await sendBid('611e6d65c6657008542a1453', 13000000);
 
 async function sendBid(playerId, amount) {
   const playerData = await getPlayerData(playerId);
+  if (playerData) {
+    let bidBody;
+    if (playerData.bids === 0) {
+      bidBody = await getBidBody(
+        playerData.player_slug,
+        playerId,
+        playerData.price
+      );
+    } else if (playerData.bids === 1) {
+      bidBody = await getBidBody(
+        playerData.player_slug,
+        playerId,
+        playerData.price + playerData.change * 2
+      );
+    } else {
+      bidBody = await getBidBody(playerData.player_slug, playerId, amount);
+    }
 
-  let bidBody;
-  if (playerData.bids === 0) {
-    bidBody = await getBidBody(
-      playerData.player_slug,
-      playerId,
-      playerData.price
-    );
-  } else if (playerData.bids === 1) {
-    bidBody = await getBidBody(
-      playerData.player_slug,
-      playerId,
-      playerData.price + playerData.change * 2
-    );
-  } else {
-    bidBody = await getBidBody(playerData.player_slug, playerId, amount);
-  }
-
-  const response = await submitBid(bidBody);
-  if (response.answer.code === 'api.general.ok')
-    console.log(`Has pujado por ${playerData.name}`);
+    const response = await submitBid(bidBody);
+    if (response.answer.code === 'api.general.ok')
+      console.log(`Has pujado por ${playerData.name}`);
+    else console.error(response.answer.code);
+  } else console.error('Player not found in Market');
 }
 
 async function submitBid(bidBody) {
