@@ -1,6 +1,8 @@
 name: Pay Clausulazo Test Job
 
 on:
+  schedule:
+    - cron: '55 19 * * 0' # Runs every Sunday at 23:50h // 2h difference with server.
   workflow_dispatch:
     inputs:
       player_id:
@@ -13,7 +15,7 @@ env:
   CHAMPIONSHIP_ID: ${{ secrets.CHAMPIONSHIP_ID }}
   USER_TEAM_ID: ${{ secrets.USER_TEAM_ID }}
   USER_ID: ${{ secrets.USER_ID }}
-  PLAYER_ID: ${{ inputs.player_id }}
+  PLAYER_ID: ${{ vars.PLAYER_ID1 }}
 
 jobs:
   pay-clausulazo:
