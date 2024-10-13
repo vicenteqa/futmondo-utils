@@ -20,15 +20,6 @@ async function getBidBody(playerSlug, playerId, price) {
   };
 }
 
-const formatCurrency = (amount) => {
-  return new Intl.NumberFormat('es-ES', {
-    style: 'currency',
-    currency: 'EUR',
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 0,
-  }).format(amount);
-};
-
 const market = await getMarket();
 
 async function getPlayerData(playerId) {
@@ -44,8 +35,7 @@ async function getPlayerData(playerId) {
     };
 }
 
-await sendBid('63d8eb7b1d17ae5aff1f4c52', 23000000);
-await sendBid('611e6d65c6657008542a1453', 13000000);
+await sendBid('63d8eb7b1d17ae5aff1f4c52', 12000000);
 
 async function sendBid(playerId, amount) {
   const playerData = await getPlayerData(playerId);
@@ -61,7 +51,7 @@ async function sendBid(playerId, amount) {
       bidBody = await getBidBody(
         playerData.player_slug,
         playerId,
-        playerData.price + playerData.change * 2
+        playerData.price + playerData.change
       );
     } else {
       bidBody = await getBidBody(playerData.player_slug, playerId, amount);
