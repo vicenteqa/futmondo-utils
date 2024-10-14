@@ -1,14 +1,6 @@
 import { getMarket } from './get-market.js';
+import { formatCurrency } from './format-currency.js';
 import 'dotenv/config';
-
-const formatCurrency = (amount) => {
-  return new Intl.NumberFormat('es-ES', {
-    style: 'currency',
-    currency: 'EUR',
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 0,
-  }).format(amount);
-};
 
 async function getPlayersWithHigherChange() {
   const market = await getMarket();
