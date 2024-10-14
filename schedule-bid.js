@@ -2,6 +2,15 @@ import { postData } from './src/services/apiServices.js';
 import { getMarket } from './get-market.js';
 import 'dotenv/config';
 
+const formatCurrency = (amount) => {
+  return new Intl.NumberFormat('es-ES', {
+    style: 'currency',
+    currency: 'EUR',
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  }).format(amount);
+};
+
 async function getBidBody(playerSlug, playerId, price) {
   return {
     header: {
@@ -35,36 +44,35 @@ async function getPlayerData(playerId) {
     };
 }
 
-await sendBid('63d8eb7b1d17ae5aff1f4c52', 12000000);
+await submitBid('66c9b0acf119260402e26288', 12000000);
 
-async function sendBid(playerId, amount) {
+async function setBidPrice(playerData, maxAmount) {
+  if (playerData.bids === 0) return playerData.price;
+  else if (playerData.bids === 1) return playerData.price + playerData.change;
+  else return maxAmount;
+}
+
+async function submitBid(playerId, maxAmount) {
   const playerData = await getPlayerData(playerId);
-  if (playerData) {
-    let bidBody;
-    if (playerData.bids === 0) {
-      bidBody = await getBidBody(
-        playerData.player_slug,
-        playerId,
-        playerData.price
-      );
-    } else if (playerData.bids === 1) {
-      bidBody = await getBidBody(
-        playerData.player_slug,
-        playerId,
-        playerData.price + playerData.change
-      );
-    } else {
-      bidBody = await getBidBody(playerData.player_slug, playerId, amount);
-    }
 
-    const response = await submitBid(bidBody);
+  if (playerData) {
+    const bidAmount = await setBidPrice(playerData, maxAmount);
+    const bidBody = await getBidBody(
+      playerData.player_slug,
+      playerId,
+      bidAmount
+    );
+    console.log(
+      `Vas a enviar una puja de ${formatCurrency(bidAmount)} por ${playerData.name}`
+    );
+    const response = await sendBidRequest(bidBody);
     if (response.answer.code === 'api.general.ok')
       console.log(`Has pujado por ${playerData.name}`);
     else console.error(response.answer.code);
   } else console.error('Player not found in Market');
 }
 
-async function submitBid(bidBody) {
+async function sendBidRequest(bidBody) {
   try {
     const response = await postData('/market/bid', bidBody);
     return response;
