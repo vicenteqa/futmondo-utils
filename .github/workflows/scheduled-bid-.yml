@@ -2,8 +2,7 @@ name: PUJA PROGRAMADA
 
 on:
   schedule:
-    - cron: '00 2,18 * * *'
-      timezone: Europe/Madrid
+    - cron: '35 17 * * *'
   workflow_dispatch:
 
 env:
