@@ -7,8 +7,8 @@ import cron from 'node-cron';
 cron.schedule(
   '00 02 * * *',
   async () => {
-    await submitBid('66c9b0acf119260402e26288', 12000000);
-    await submitBid('584521ee88569163361f22cc', 10000000);
+    await submitBid('66d248cb8fa6c103e3f7015f');
+    await submitBid('66c63be676de1f03e6d2b553');
   },
   { timezone: 'Europe/Madrid' }
 );
@@ -47,17 +47,10 @@ async function getPlayerData(playerId) {
     };
 }
 
-async function setBidAmount(playerData, maxAmount) {
-  if (playerData.bids === 0) return playerData.price;
-  else if (playerData.bids === 1) return playerData.price + playerData.change;
-  else return maxAmount;
-}
-
-async function submitBid(playerId, maxAmount) {
+async function submitBid(playerId) {
   const playerData = await getPlayerData(playerId);
-
   if (playerData) {
-    const bidAmount = await setBidAmount(playerData, maxAmount);
+    const bidAmount = playerData.price + playerData.change * playerData.bids;
     const bidBody = await getBidBody(
       playerData.player_slug,
       playerId,
