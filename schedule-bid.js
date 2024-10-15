@@ -1,15 +1,19 @@
 import { postData } from './src/services/apiServices.js';
 import { getMarket } from './get-market.js';
+import { formatCurrency } from './src/common/utils.js';
 import 'dotenv/config';
+import cron from 'node-cron';
 
-const formatCurrency = (amount) => {
-  return new Intl.NumberFormat('es-ES', {
-    style: 'currency',
-    currency: 'EUR',
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 0,
-  }).format(amount);
-};
+cron.schedule(
+  '00 02 * * *',
+  async () => {
+    await submitBid('66c9b0acf119260402e26288', 12000000);
+    await submitBid('584521ee88569163361f22cc', 10000000);
+  },
+  { timezone: 'Europe/Madrid' }
+);
+
+console.log('Task scheduled. Waiting for the specified time...');
 
 async function getBidBody(playerSlug, playerId, price) {
   return {
@@ -29,9 +33,8 @@ async function getBidBody(playerSlug, playerId, price) {
   };
 }
 
-const market = await getMarket();
-
 async function getPlayerData(playerId) {
+  const market = await getMarket();
   const player = market.find((player) => player.id === playerId);
   if (!player) return null;
   else
@@ -44,9 +47,7 @@ async function getPlayerData(playerId) {
     };
 }
 
-await submitBid('66c9b0acf119260402e26288', 12000000);
-
-async function setBidPrice(playerData, maxAmount) {
+async function setBidAmount(playerData, maxAmount) {
   if (playerData.bids === 0) return playerData.price;
   else if (playerData.bids === 1) return playerData.price + playerData.change;
   else return maxAmount;
@@ -56,7 +57,7 @@ async function submitBid(playerId, maxAmount) {
   const playerData = await getPlayerData(playerId);
 
   if (playerData) {
-    const bidAmount = await setBidPrice(playerData, maxAmount);
+    const bidAmount = await setBidAmount(playerData, maxAmount);
     const bidBody = await getBidBody(
       playerData.player_slug,
       playerId,
