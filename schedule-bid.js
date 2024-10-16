@@ -6,13 +6,16 @@ import 'dotenv/config';
 import cron from 'node-cron';
 import fs from 'fs';
 
+const lastAccessInfo = await getLastAccessInfo();
+console.log(lastAccessInfo);
+
 cron.schedule(
-  '13 22 * * *',
+  '00 02 * * *',
   async () => {
     const lastAccessInfo = await getLastAccessInfo();
     console.log(lastAccessInfo);
     fs.writeFileSync('last-access.json', JSON.stringify(lastAccessInfo));
-    await submitBidWithMaxPrice('65baa71ad859840e31ca03ff', 12000000);
+    await submitBidWithMaxPrice('574dc94bb9278bf5518b1e7b', 42000000);
   },
   { timezone: 'Europe/Madrid' }
 );
