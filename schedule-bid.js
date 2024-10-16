@@ -15,7 +15,7 @@ cron.schedule(
     const lastAccessInfo = await getLastAccessInfo();
     console.log(lastAccessInfo);
     fs.writeFileSync('last-access.json', JSON.stringify(lastAccessInfo));
-    await submitBidWithMaxPrice('574dc94bb9278bf5518b1e7b', 42000000);
+    await submitBidWithMaxPrice('574dc94bb9278bf5518b1e7b', 42070000);
   },
   { timezone: 'Europe/Madrid' }
 );
