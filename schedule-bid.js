@@ -57,7 +57,7 @@ async function submitBid(playerId) {
       bidAmount
     );
     console.log(
-      `Vas a enviar una puja de ${formatCurrency(bidAmount)} por ${playerData.name}`
+      `Vas a enviar una puja de ${formatCurrency(bidAmount)} por ${playerData.name}. Este jugador tiene actualmente ${playerData.bids} pujas.`
     );
     const response = await sendBidRequest(bidBody);
     if (response.answer.code === 'api.general.ok')
