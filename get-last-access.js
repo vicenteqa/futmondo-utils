@@ -343,7 +343,7 @@ import { getChampionshipInfo } from './src/endpoints/get-championship-info.js';
 dayjs.extend(utc);
 dayjs.extend(timezone);
 
-async function getLastAccess() {
+export async function getLastAccessInfo() {
   const info = await getChampionshipInfo();
 
   const teams = response.answer.teams;
@@ -395,9 +395,9 @@ function removeLastSurname(name) {
   return parts.join(' ');
 }
 
-async function main() {
-  const result = await getLastAccess();
-  console.log(result);
-}
+// async function main() {
+//   const result = await getLastAccess();
+//   console.log(result);
+// }
 
-main();
+// main();

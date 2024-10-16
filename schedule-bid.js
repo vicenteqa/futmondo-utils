@@ -1,19 +1,25 @@
 import { postData } from './src/services/apiServices.js';
 import { getMarket } from './get-market.js';
 import { formatCurrency } from './src/common/utils.js';
+import { getLastAccessInfo } from './get-last-access.js';
 import 'dotenv/config';
 import cron from 'node-cron';
 
 cron.schedule(
   '00 02 * * *',
   async () => {
-    await submitBid('66d248cb8fa6c103e3f7015f');
-    await submitBid('66c63be676de1f03e6d2b553');
+    const lastAccessInfo = await getLastAccessInfo();
+    console.log(lastAccessInfo);
+    await submitBid('574dc94bb9278bf5518b1e7b');
   },
   { timezone: 'Europe/Madrid' }
 );
 
 console.log('Task scheduled. Waiting for the specified time...');
+
+function roundToNearestTenThousand(num) {
+  return Math.ceil(num / 10000) * 10000;
+}
 
 async function getBidBody(playerSlug, playerId, price) {
   return {
@@ -44,32 +50,45 @@ async function getPlayerData(playerId) {
       price: player.price,
       player_slug: player.slug,
       change: player.change,
+      id: playerId,
     };
 }
 
 async function submitBid(playerId) {
   const playerData = await getPlayerData(playerId);
   if (playerData) {
-    const bidAmount = playerData.price + playerData.change * playerData.bids;
-    const bidBody = await getBidBody(
-      playerData.player_slug,
-      playerId,
-      bidAmount
-    );
-    console.log(
-      `Vas a enviar una puja de ${formatCurrency(bidAmount)} por ${playerData.name}. Este jugador tiene actualmente ${playerData.bids} pujas.`
-    );
-    const response = await sendBidRequest(bidBody);
-    if (response.answer.code === 'api.general.ok')
-      console.log(`Has pujado por ${playerData.name}`);
-    else console.error(response.answer.code);
+    let rawBidAmount = playerData.price + playerData.change * playerData.bids;
+
+    if (playerData.bids > 0)
+      rawBidAmount = roundToNearestTenThousand(rawBidAmount);
+    const bidAmount = rawBidAmount;
+    await sendBidRequest(playerData, bidAmount);
   } else console.error('Player not found in Market');
 }
 
-async function sendBidRequest(bidBody) {
+async function submitBidWithMaxPrice(playerId, maxPrice) {
+  const playerData = await getPlayerData(playerId);
+  if (playerData) {
+    const bidAmount = playerData.bids > 0 ? maxPrice : playerData.price;
+    await sendBidRequest(playerData, bidAmount);
+  } else console.error('Player not found in Market');
+}
+
+async function sendBidRequest(playerData, bidAmount) {
+  const bidBody = await getBidBody(
+    playerData.player_slug,
+    playerData.id,
+    bidAmount
+  );
+
+  console.log(
+    `Vas a enviar una puja de ${formatCurrency(bidAmount)} por ${playerData.name}. Este jugador tiene actualmente ${playerData.bids} pujas.`
+  );
   try {
     const response = await postData('/market/bid', bidBody);
-    return response;
+    if (response.answer.code === 'api.general.ok')
+      console.log(`Has pujado por ${playerData.name}`);
+    else console.error(response.answer.code);
   } catch (error) {
     console.error('Error calling market endpoint:', error);
   }
