@@ -7,7 +7,7 @@ import cron from 'node-cron';
 import fs from 'fs';
 
 cron.schedule(
-  '00 22 * * *',
+  '13 22 * * *',
   async () => {
     const lastAccessInfo = await getLastAccessInfo();
     console.log(lastAccessInfo);
