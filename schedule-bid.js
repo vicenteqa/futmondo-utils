@@ -7,12 +7,12 @@ import cron from 'node-cron';
 import fs from 'fs';
 
 cron.schedule(
-  '44 20 * * *',
+  '00 22 * * *',
   async () => {
     const lastAccessInfo = await getLastAccessInfo();
     console.log(lastAccessInfo);
     fs.writeFileSync('last-access.json', JSON.stringify(lastAccessInfo));
-    await submitBidWithMaxPrice('598f08ec4fa3d0fe127c1821', 12000000);
+    await submitBidWithMaxPrice('65baa71ad859840e31ca03ff', 12000000);
   },
   { timezone: 'Europe/Madrid' }
 );

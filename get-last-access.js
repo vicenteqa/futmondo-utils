@@ -61,5 +61,3 @@ async function main() {
   const result = await getLastAccessInfo();
   console.log(result);
 }
-
-main();
