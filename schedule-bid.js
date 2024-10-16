@@ -4,12 +4,14 @@ import { formatCurrency } from './src/common/utils.js';
 import { getLastAccessInfo } from './get-last-access.js';
 import 'dotenv/config';
 import cron from 'node-cron';
+import fs from 'fs';
 
 cron.schedule(
   '33 20 * * *',
   async () => {
     const lastAccessInfo = await getLastAccessInfo();
     console.log(lastAccessInfo);
+    fs.writeFileSync('last-access.json', JSON.stringify(lastAccessInfo));
     await submitBidWithMaxPrice('598f08ec4fa3d0fe127c1821', 12000000);
   },
   { timezone: 'Europe/Madrid' }

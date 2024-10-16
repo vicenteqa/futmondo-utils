@@ -1,7 +1,22 @@
-import { postData } from '../services/apiServices.js';
 import 'dotenv/config';
+import axios from 'axios';
 
-const endpoint = '/userteam/information';
+const apiClient = axios.create({
+  baseURL: 'https://api.futmondo.com/',
+  timeout: 5000,
+});
+
+async function postData(endpoint, data) {
+  try {
+    const response = await apiClient.post(endpoint, data);
+    return response.data;
+  } catch (error) {
+    console.error('POST API Error:', error);
+    throw error;
+  }
+}
+
+const endpoint = '/2/championship/teams';
 
 const body = {
   header: {
