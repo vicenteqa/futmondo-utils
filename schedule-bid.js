@@ -6,11 +6,11 @@ import 'dotenv/config';
 import cron from 'node-cron';
 
 cron.schedule(
-  '00 02 * * *',
+  '30 02 * * *',
   async () => {
     const lastAccessInfo = await getLastAccessInfo();
     console.log(lastAccessInfo);
-    await submitBid('574dc94bb9278bf5518b1e7b');
+    await submitBidWithMaxPrice('574dc94bb9278bf5518b1e7b', 12000000);
   },
   { timezone: 'Europe/Madrid' }
 );
