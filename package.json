@@ -7,6 +7,8 @@
     "mondos": "node src/features/dame-mondos.feat.js",
     "repite-ventas": "node src/features/repite-ventas.feat.js",
     "ultimo-acceso": "node src/features/ultimo-acceso.feat.js",
+    "mejores-mercado": "node src/features/mejores-mercado.feat.js",
+    "mercado-caros": "node src/features/mercado-caros.feat.js",
     "create-bids-file": "mkdir data && touch data/bids.txt"
   },
   "dependencies": {
