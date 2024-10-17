@@ -1,7 +1,7 @@
 import 'dotenv/config';
-import { getPlayerData } from './src/endpoints/get-player-data.js';
-import { payClausula } from './src/endpoints/pay-clausula.js';
-import { getNextCronExecution } from './src/common/get-next-cron-execution.js';
+import { getPlayerData } from '../endpoints/get-player-data.js';
+import { payClausula } from '../endpoints/pay-clausula.js';
+import { getNextCronExecution } from '../common/get-next-cron-execution.js';
 import 'dotenv/config';
 import cron from 'node-cron';
 

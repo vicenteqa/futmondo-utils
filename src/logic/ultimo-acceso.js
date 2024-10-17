@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc.js';
 import timezone from 'dayjs/plugin/timezone.js';
-import { getChampionshipInfo } from './src/endpoints/get-championship-info.js';
+import { getChampionshipInfo } from '../endpoints/get-championship-info.js';
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
@@ -50,10 +50,3 @@ function removeLastSurname(name) {
   if (parts.length > 2) parts.pop(); // Eliminar el último apellido
   return parts.join(' ');
 }
-
-async function main() {
-  const result = await getLastAccessInfo();
-  console.log(result);
-}
-
-main();

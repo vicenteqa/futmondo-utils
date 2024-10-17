@@ -1,9 +1,11 @@
-import { setNewBid } from './src/endpoints/set-new-bid.js';
-import { getMarket } from './src/endpoints/get-market.js';
-import { formatCurrency } from './src/common/utils.js';
-import { getNextCronExecution } from './src/common/get-next-cron-execution.js';
+import { setNewBid } from '../endpoints/set-new-bid.js';
+import { getMarket } from '../endpoints/get-market.js';
+import { formatCurrency } from '../common/utils.js';
+import { getNextCronExecution } from '../common/get-next-cron-execution.js';
+import { getLastAccessInfo } from '../logic/ultimo-acceso.js';
 import 'dotenv/config';
 import cron from 'node-cron';
+import fs from 'fs';
 
 puja();
 
@@ -13,13 +15,30 @@ async function puja(schedule = true) {
     const cronExpression = '00 02 * * *';
     const timezone = 'Europe/Madrid';
     const nextExecution = await getNextCronExecution(cronExpression, timezone);
-    console.log(`Clausulazo programado a las ${nextExecution}`);
-    cron.schedule(cronExpression, async () => await sendBidRequest(playerId), {
-      timezone: timezone,
-    });
+    console.log(`Puja programada a las ${nextExecution}`);
+    cron.schedule(
+      cronExpression,
+      async () => {
+        await sendBidRequest(playerId);
+        await logLastAccessInfo();
+        process.exit(0);
+      },
+      {
+        timezone: timezone,
+      }
+    );
   } else {
     await sendBidRequest(playerId);
   }
+}
+
+async function logLastAccessInfo() {
+  const lastAccessInfo = await getLastAccessInfo();
+  console.log(lastAccessInfo);
+  fs.writeFileSync(
+    'ultimo-acceso.json',
+    JSON.stringify(lastAccessInfo, null, 2)
+  );
 }
 
 function roundToNearestTenThousand(num) {

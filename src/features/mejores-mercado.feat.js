@@ -1,5 +1,5 @@
-import { getMarket } from './src/endpoints/get-market.js';
-import { formatCurrency } from './src/common/utils.js';
+import { getMarket } from '../endpoints/get-market.js';
+import { formatCurrency } from '../common/utils.js';
 
 async function getPlayersWithHigherChange() {
   const market = await getMarket();
