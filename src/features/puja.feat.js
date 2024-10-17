@@ -3,6 +3,7 @@ import { getMarket } from '../endpoints/get-market.js';
 import { formatCurrency } from '../common/utils.js';
 import { getNextCronExecution } from '../common/get-next-cron-execution.js';
 import { getLastAccessInfo } from '../logic/ultimo-acceso.js';
+import { parseBidsFile } from '../common/parse-bids-file.js';
 import 'dotenv/config';
 import cron from 'node-cron';
 import fs from 'fs';
@@ -10,7 +11,6 @@ import fs from 'fs';
 puja();
 
 async function puja(schedule = true) {
-  const playerId = '52358785c62c560a4a0009ab';
   if (schedule) {
     const cronExpression = '00 02 * * *';
     const timezone = 'Europe/Madrid';
@@ -19,16 +19,21 @@ async function puja(schedule = true) {
     cron.schedule(
       cronExpression,
       async () => {
-        await sendBidRequest(playerId);
+        await readBidsFileAndSendBids();
         await logLastAccessInfo();
-        process.exit(0);
       },
       {
         timezone: timezone,
       }
     );
-  } else {
-    await sendBidRequest(playerId);
+  } else await readBidsFileAndSendBids();
+}
+
+async function readBidsFileAndSendBids() {
+  const wantedBids = parseBidsFile();
+  for (let i = 0; i < wantedBids.length; i++) {
+    const bid = wantedBids[i];
+    await sendBidRequest(bid.playerId, bid.maxBidAmount);
   }
 }
 

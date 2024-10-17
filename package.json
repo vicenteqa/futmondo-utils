@@ -6,7 +6,8 @@
     "puja": "node src/features/puja.feat.js",
     "mondos": "node src/features/dame-mondos.feat.js",
     "repite-ventas": "node src/features/repite-ventas.feat.js",
-    "ultimo-acceso": "node src/features/ultimo-acceso.feat.js"
+    "ultimo-acceso": "node src/features/ultimo-acceso.feat.js",
+    "create-bids-file": "mkdir data && touch data/bids.txt"
   },
   "dependencies": {
     "axios": "^1.7.7",
