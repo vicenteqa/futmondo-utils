@@ -1,6 +1,5 @@
-import { getMarket } from './get-market.js';
-import { formatCurrency } from './src/common/utils.js';
-import 'dotenv/config';
+import { getMarket } from '../endpoints/get-market.js';
+import { formatCurrency } from '../common/utils.js';
 
 async function getPlayersWithHigherChange() {
   const market = await getMarket();

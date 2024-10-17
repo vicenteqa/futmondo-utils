@@ -1,29 +1,26 @@
 import { postData } from '../services/apiServices.js';
-import 'dotenv/config';
+import bodyTemplate from './body-template.js';
+import endpoints from './endpoints.js';
 
-const endpoint = '/market/cancelsell';
+const endpoint = endpoints.REMOVE_PLAYER_FROM_MARKET;
 
-async function setBodyRemovePlayerFromMarket(playerId) {
-  return {
-    header: {
-      token: process.env.TOKEN,
-      userid: process.env.USER_ID,
-    },
-    query: {
-      championshipId: process.env.CHAMPIONSHIP_ID,
-      userteamId: process.env.USER_TEAM_ID,
-      player_id: playerId,
-    },
-    answer: {},
-  };
+function setBody(playerId) {
+  const body = bodyTemplate;
+  body.query.player_id = playerId;
+  return body;
 }
 
 export async function removePlayerFromMarket(playerId) {
-  const body = await setBodyRemovePlayerFromMarket(playerId);
+  const body = setBody(playerId);
   try {
     const response = await postData(endpoint, body);
     return response;
   } catch (error) {
-    console.error('Error removing player from market:', error.status);
+    console.error(
+      'Error removing player from market:',
+      error.status,
+      error.code,
+      endpoint
+    );
   }
 }
