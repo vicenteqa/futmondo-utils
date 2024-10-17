@@ -1,37 +1,17 @@
-import 'dotenv/config';
-import axios from 'axios';
+import { postData } from '../services/apiServices.js';
+import endpoints from './endpoints.js';
+import bodyTemplate from './body-template.js';
 
-const apiClient = axios.create({
-  baseURL: 'https://api.futmondo.com/',
-  timeout: 5000,
-});
+const endpoint = endpoints.GET_CHAMPIONSHIP_INFO;
 
-async function postData(endpoint, data) {
-  try {
-    const response = await apiClient.post(endpoint, data);
-    return response.data;
-  } catch (error) {
-    console.error('POST API Error:', error);
-    throw error;
-  }
+function setBody() {
+  const body = bodyTemplate;
+  body.query.type = 'market';
+  return body;
 }
 
-const endpoint = '/2/championship/teams';
-
-const body = {
-  header: {
-    token: process.env.TOKEN,
-    userid: process.env.USER_ID,
-  },
-  query: {
-    championshipId: process.env.CHAMPIONSHIP_ID,
-    userteamId: process.env.USER_TEAM_ID,
-    type: 'market',
-  },
-  answer: {},
-};
-
 export async function getChampionshipInfo() {
+  const body = setBody();
   try {
     const response = await postData(endpoint, body);
     return response;

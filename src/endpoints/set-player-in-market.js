@@ -1,29 +1,18 @@
 import { postData } from '../services/apiServices.js';
-import 'dotenv/config';
+import bodyTemplate from './body-template.js';
+import endpoints from './endpoints.js';
 
-const endpoint = '/market/putonmarket';
+const endpoint = endpoints.SET_PLAYER_IN_MARKET;
 
-async function setBodyForPlayerInMarket(playerId, price) {
-  return {
-    header: {
-      token: process.env.TOKEN,
-      userid: process.env.USER_ID,
-    },
-    query: {
-      championshipId: process.env.CHAMPIONSHIP_ID,
-      userteamId: process.env.USER_TEAM_ID,
-      price: price,
-      player_id: playerId,
-      isClause: null,
-      mode: null,
-      toLoan: null,
-    },
-    answer: {},
-  };
+function setBody(playerId, price) {
+  const body = bodyTemplate;
+  body.query.player_id = playerId;
+  body.query.price = price;
+  return body;
 }
 
 export async function setPlayerInMarket(playerId, price) {
-  const body = await setBodyForPlayerInMarket(playerId, price);
+  const body = setBody(playerId, price);
   try {
     const response = await postData(endpoint, body);
     return response;

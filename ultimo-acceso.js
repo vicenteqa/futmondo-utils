@@ -29,15 +29,11 @@ export async function getLastAccessInfo() {
 
   // Ordenar por último acceso más reciente
   result.sort((a, b) => {
-    if (a.lastAccessUTC && b.lastAccessUTC) {
+    if (a.lastAccessUTC && b.lastAccessUTC)
       return b.lastAccessUTC - a.lastAccessUTC;
-    } else if (a.lastAccessUTC) {
-      return -1;
-    } else if (b.lastAccessUTC) {
-      return 1;
-    } else {
-      return 0;
-    }
+    else if (a.lastAccessUTC) return -1;
+    else if (b.lastAccessUTC) return 1;
+    else return 0;
   });
 
   // Eliminar el campo lastAccessUTC antes de devolver el resultado
@@ -51,9 +47,7 @@ function convertToLocalTime(utcDate) {
 
 function removeLastSurname(name) {
   const parts = name.split(' ');
-  if (parts.length > 2) {
-    parts.pop(); // Eliminar el último apellido
-  }
+  if (parts.length > 2) parts.pop(); // Eliminar el último apellido
   return parts.join(' ');
 }
 
@@ -61,3 +55,5 @@ async function main() {
   const result = await getLastAccessInfo();
   console.log(result);
 }
+
+main();

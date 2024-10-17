@@ -1,22 +1,17 @@
 import { postData } from '../services/apiServices.js';
-import 'dotenv/config';
+import endpoints from './endpoints.js';
+import bodyTemplate from './body-template.js';
 
-const endpoint = '/market/myplayers';
+const endpoint = endpoints.GET_MY_PLAYERS_IN_MARKET;
 
-const body = {
-  header: {
-    token: process.env.TOKEN,
-    userid: process.env.USER_ID,
-  },
-  query: {
-    championshipId: process.env.CHAMPIONSHIP_ID,
-    userteamId: process.env.USER_TEAM_ID,
-    type: 'market',
-  },
-  answer: {},
-};
+function setBody() {
+  const body = bodyTemplate;
+  body.query.type = 'market';
+  return body;
+}
 
 export async function getMyPlayersInMarket() {
+  const body = setBody();
   try {
     const response = await postData(endpoint, body);
     return response;

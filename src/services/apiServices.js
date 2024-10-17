@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const apiClient = axios.create({
-  baseURL: 'https://api.futmondo.com/1',
+  baseURL: 'https://api.futmondo.com',
   timeout: 5000,
 });
 
@@ -20,7 +20,7 @@ export async function postData(endpoint, data) {
     const response = await apiClient.post(endpoint, data);
     return response.data;
   } catch (error) {
-    console.error('POST API Error:', error);
+    console.error('');
     throw error;
   }
 }
