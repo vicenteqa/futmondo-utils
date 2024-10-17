@@ -10,7 +10,7 @@ const lastAccessInfo = await getLastAccessInfo();
 console.log(lastAccessInfo);
 
 cron.schedule(
-  '30 11 * * *',
+  '00 11 * * *',
   async () => {
     await submitBid('63d96cff1c9f9d5b13cf05a7');
     const lastAccessInfo = await getLastAccessInfo();
