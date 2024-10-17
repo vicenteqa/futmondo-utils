@@ -1,0 +1,3124 @@
+{
+  "answer": {
+    "news": [
+      {
+        "_id": "6710a1565b568d4ce812dc4b",
+        "created": "2024-10-17T05:32:06.901Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000d9",
+          "name": "Celta de Vigo",
+          "slug": "celta-de-vigo"
+        },
+        "_player": {
+          "_id": "635d3cab6b7e0c0865360f8d",
+          "slug": "2000106795",
+          "name": "Pablo Durán"
+        },
+        "_seller": {
+          "_id": "652863932d3fc549aa29e343",
+          "name": "T-MA FC"
+        },
+        "bids": [],
+        "price": 1225302
+      },
+      {
+        "_id": "6710988331949f4cc4e2d762",
+        "created": "2024-10-17T04:54:27.261Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000c7",
+          "name": "Barcelona",
+          "slug": "barcelona"
+        },
+        "_player": {
+          "_id": "5d630db9e7e62b777ebb59be",
+          "slug": "67276122",
+          "name": "Ansu Fati"
+        },
+        "_seller": {
+          "_id": "66f9809e5a28014b158e596c",
+          "name": "Alex Sánchez Salazar"
+        },
+        "bids": [],
+        "price": 4188623
+      },
+      {
+        "_id": "671098748630264cd1b605bb",
+        "created": "2024-10-17T04:54:12.055Z",
+        "_playerTeam": {
+          "_id": "52034b60904c0ca30b000010",
+          "name": "Las Palmas",
+          "slug": "ud-las-palmas"
+        },
+        "_player": {
+          "_id": "521464c030da10510200007d",
+          "name": "Álex Muñoz",
+          "slug": "67101620"
+        },
+        "_seller": {
+          "_id": "66f9809e5a28014b158e596c",
+          "name": "Alex Sánchez Salazar"
+        },
+        "bids": [],
+        "price": 1047521
+      },
+      {
+        "_id": "671092b4bdfd2c06dbbe34d0",
+        "created": "2024-10-17T04:29:40.961Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000d1",
+          "name": "Osasuna",
+          "slug": "osasuna"
+        },
+        "_player": {
+          "_id": "574dc94bb9278bf5518b1e7b",
+          "slug": "24003746",
+          "name": "Budimir"
+        },
+        "_buyer": {
+          "_id": "652863932d3fc549aa29e343",
+          "name": "T-MA FC"
+        },
+        "bids": [],
+        "price": 46006000
+      },
+      {
+        "_id": "671092b4a3feda06ed5f57fe",
+        "created": "2024-10-17T04:29:40.949Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000cb",
+          "name": "Valencia",
+          "slug": "valencia"
+        },
+        "_player": {
+          "_id": "5ac29d32c8bf976d1c180107",
+          "slug": "67274349",
+          "name": "Hugo Duro"
+        },
+        "_buyer": {
+          "_id": "652863932d3fc549aa29e343",
+          "name": "T-MA FC"
+        },
+        "bids": [],
+        "price": 33374952
+      },
+      {
+        "_id": "671092b44386d606fc828d8b",
+        "created": "2024-10-17T04:29:40.943Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000c9",
+          "name": "Athletic de Bilbao",
+          "slug": "athletic-de-bilbao"
+        },
+        "_player": {
+          "_id": "5590e613b804493642903d44",
+          "slug": "67192475",
+          "name": "Yeray"
+        },
+        "_buyer": {
+          "_id": "65284c0f2d3fc549aa29c1d7",
+          "name": "jordilo23"
+        },
+        "bids": [],
+        "price": 4125365
+      },
+      {
+        "_id": "670f766edf2ccf09c42cd402",
+        "created": "2024-10-16T08:16:46.386Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000ca",
+          "name": "Rayo Vallecano",
+          "slug": "rayo-vallecano"
+        },
+        "_player": {
+          "_id": "52017fd85687830d3400002c",
+          "name": "James",
+          "slug": "james-rodriguez"
+        },
+        "_seller": {
+          "_id": "652bc9051485a17231213ec8",
+          "name": "AFC Richmond"
+        },
+        "bids": [],
+        "price": 13456453
+      },
+      {
+        "_id": "670f7068df2ccf09c42cd24e",
+        "created": "2024-10-16T07:51:04.706Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000c9",
+          "name": "Athletic de Bilbao",
+          "slug": "athletic-de-bilbao"
+        },
+        "_player": {
+          "_id": "65b68e44017f760e15bff480",
+          "slug": "2000134186",
+          "name": "Jauregizar"
+        },
+        "_seller": {
+          "_id": "66f9809e5a28014b158e596c",
+          "name": "Alex Sánchez Salazar"
+        },
+        "bids": [],
+        "price": 1692118
+      },
+      {
+        "_id": "670f56c0205ea109b57386a3",
+        "created": "2024-10-16T06:01:36.610Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000cb",
+          "name": "Valencia",
+          "slug": "valencia"
+        },
+        "_player": {
+          "_id": "61122a78c7c51f5b9a6ca7c4",
+          "slug": "67207683",
+          "name": "Pepelu"
+        },
+        "_seller": {
+          "_id": "65284916b02b2049bf91f9bf",
+          "name": "carlospg10"
+        },
+        "bids": [],
+        "price": 39544687
+      },
+      {
+        "_id": "670f413bde058106e10ff8be",
+        "created": "2024-10-16T04:29:47.460Z",
+        "_playerTeam": {
+          "_id": "52034b60904c0ca30b000010",
+          "name": "Las Palmas",
+          "slug": "ud-las-palmas"
+        },
+        "_player": {
+          "_id": "66d248cb8fa6c103e3f7015f",
+          "slug": "2000087400",
+          "name": "Essugo"
+        },
+        "_buyer": {
+          "_id": "652bc9051485a17231213ec8",
+          "name": "AFC Richmond"
+        },
+        "bids": [],
+        "price": 7692978
+      },
+      {
+        "_id": "670f413beb300906da634f58",
+        "created": "2024-10-16T04:29:47.382Z",
+        "_playerTeam": {
+          "_id": "51b890f5b986415a2c000012",
+          "name": "Villarreal",
+          "slug": "villarreal"
+        },
+        "_player": {
+          "_id": "66c63be676de1f03e6d2b553",
+          "slug": "2000127926",
+          "name": "Barry"
+        },
+        "_buyer": {
+          "_id": "652bc9051485a17231213ec8",
+          "name": "AFC Richmond"
+        },
+        "bids": [],
+        "price": 9083860
+      },
+      {
+        "_id": "670edc3e1faa6d3b82db2bd1",
+        "created": "2024-10-15T21:18:54.316Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000d7",
+          "name": "Real Valladolid",
+          "slug": "valladolid"
+        },
+        "_player": {
+          "_id": "61efea4ec6dfbe0a4fa10b18",
+          "slug": "98033710",
+          "name": "Eray Cömert"
+        },
+        "_seller": {
+          "_id": "652863932d3fc549aa29e343",
+          "name": "T-MA FC"
+        },
+        "bids": [],
+        "price": 1164098
+      },
+      {
+        "_id": "670e69006df4863b5419cd47",
+        "created": "2024-10-15T13:07:12.533Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000cc",
+          "name": "Betis",
+          "slug": "betis"
+        },
+        "_player": {
+          "_id": "5442eeb84e1f41e97e000261",
+          "name": "Bellerin",
+          "slug": "28066082"
+        },
+        "_seller": {
+          "_id": "652bc9051485a17231213ec8",
+          "name": "AFC Richmond"
+        },
+        "bids": [],
+        "price": 2812787
+      },
+      {
+        "_id": "670e59b56df4863b5419c8c7",
+        "created": "2024-10-15T12:01:57.903Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000c7",
+          "name": "Barcelona",
+          "slug": "barcelona"
+        },
+        "_player": {
+          "_id": "62e39ff011f4242dbd725314",
+          "slug": "2000040347",
+          "name": "Pablo Torre"
+        },
+        "_seller": {
+          "_id": "652843e141dc7349b78ecc55",
+          "name": "davi.smith.vega"
+        },
+        "bids": [],
+        "price": 1234423
+      },
+      {
+        "_id": "670e47bd630be73b6ad7a063",
+        "created": "2024-10-15T10:45:17.590Z",
+        "_playerTeam": {
+          "_id": "51b890f5b986415a2c000012",
+          "name": "Villarreal",
+          "slug": "villarreal"
+        },
+        "_player": {
+          "_id": "5f496aba33a68903ecffc11e",
+          "slug": "67216538",
+          "name": "Diego Conde"
+        },
+        "_seller": {
+          "_id": "66f9809e5a28014b158e596c",
+          "name": "Alex Sánchez Salazar"
+        },
+        "bids": [],
+        "price": 12729766
+      },
+      {
+        "_id": "670dfaa5ea1ca73b5a27423c",
+        "created": "2024-10-15T05:16:21.744Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000d0",
+          "name": "Espanyol",
+          "slug": "espanyol"
+        },
+        "_player": {
+          "_id": "5d0220e0167d9e5eb611db94",
+          "slug": "67246431",
+          "name": "Pol Lozano"
+        },
+        "_seller": {
+          "_id": "652bc9051485a17231213ec8",
+          "name": "AFC Richmond"
+        },
+        "bids": [],
+        "price": 2065725
+      },
+      {
+        "_id": "670defa8a3feda06ed5e50f5",
+        "created": "2024-10-15T04:29:28.576Z",
+        "_playerTeam": {
+          "_id": "520347e4b8d07d930b00000f",
+          "name": "Girona",
+          "slug": "girona-cf"
+        },
+        "_player": {
+          "_id": "66c9b0acf119260402e26288",
+          "slug": "2000053239",
+          "name": "Asprilla"
+        },
+        "_buyer": {
+          "_id": "652bc9051485a17231213ec8",
+          "name": "AFC Richmond"
+        },
+        "bids": [],
+        "price": 9137375
+      },
+      {
+        "_id": "670defa8de058106e10f69f9",
+        "created": "2024-10-15T04:29:28.345Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000c8",
+          "name": "Atlético de Madrid",
+          "slug": "atletico-de-madrid"
+        },
+        "_player": {
+          "_id": "584521ee88569163361f22cc",
+          "slug": "67243881",
+          "name": "Javi Galán"
+        },
+        "_buyer": {
+          "_id": "652bc9051485a17231213ec8",
+          "name": "AFC Richmond"
+        },
+        "bids": [],
+        "price": 10069764
+      },
+      {
+        "_id": "670cc3f07aba0b56dd421f3f",
+        "created": "2024-10-14T07:10:40.101Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000c7",
+          "name": "Barcelona",
+          "slug": "barcelona"
+        },
+        "_player": {
+          "_id": "5f7c91e784180b4fc44cd0ee",
+          "slug": "19242277",
+          "name": "Raphinha"
+        },
+        "_buyer": {
+          "_id": "6527c04631079349c1155e0d",
+          "name": "Cormo United"
+        },
+        "_seller": {
+          "_id": "66f9809e5a28014b158e596c",
+          "name": "Alex Sánchez Salazar"
+        },
+        "bids": [],
+        "price": 105000000
+      },
+      {
+        "_id": "670cbafcf88df656f08c5fde",
+        "created": "2024-10-14T06:32:28.273Z",
+        "_playerTeam": {
+          "_id": "52034b60904c0ca30b000010",
+          "name": "Las Palmas",
+          "slug": "ud-las-palmas"
+        },
+        "_player": {
+          "_id": "5f67c6036a93e44a2fcc6c95",
+          "slug": "67277459",
+          "name": "Marvin Park"
+        },
+        "_seller": {
+          "_id": "6527c04631079349c1155e0d",
+          "name": "Cormo United"
+        },
+        "bids": [],
+        "price": 1099685
+      },
+      {
+        "_id": "670c9e2beb300906da623e35",
+        "created": "2024-10-14T04:29:31.129Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000d7",
+          "name": "Real Valladolid",
+          "slug": "valladolid"
+        },
+        "_player": {
+          "_id": "611e6d65c6657008542a1453",
+          "slug": "43612084",
+          "name": "Raúl Moro"
+        },
+        "_buyer": {
+          "_id": "66f9809e5a28014b158e596c",
+          "name": "Alex Sánchez Salazar"
+        },
+        "bids": [],
+        "price": 35100000
+      },
+      {
+        "_id": "670c44326f46a927a8ca314d",
+        "created": "2024-10-13T22:05:38.487Z",
+        "_playerTeam": {
+          "_id": "520347e4b8d07d930b00000f",
+          "name": "Girona",
+          "slug": "girona-cf"
+        },
+        "_player": {
+          "_id": "504f647e4d8bec9a67000484",
+          "name": "Stuani",
+          "slug": "78000806"
+        },
+        "_seller": {
+          "_id": "66f9809e5a28014b158e596c",
+          "name": "Alex Sánchez Salazar"
+        },
+        "bids": [],
+        "price": 848261
+      },
+      {
+        "_id": "670c439dd0778727b836b390",
+        "created": "2024-10-13T22:03:09.997Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000d2",
+          "name": "Mallorca",
+          "slug": "mallorca"
+        },
+        "_player": {
+          "_id": "63d006ea6c73eb03d65d7a5b",
+          "slug": "72044151",
+          "name": "Cyle Larin"
+        },
+        "_seller": {
+          "_id": "66f9809e5a28014b158e596c",
+          "name": "Alex Sánchez Salazar"
+        },
+        "bids": [],
+        "price": 4996821
+      },
+      {
+        "_id": "670b72990bba9c2795a1e95a",
+        "created": "2024-10-13T07:11:21.031Z",
+        "_playerTeam": {
+          "_id": "520347e4b8d07d930b00000f",
+          "name": "Girona",
+          "slug": "girona-cf"
+        },
+        "_player": {
+          "_id": "51c1fdeac7694f5f66000051",
+          "name": "David López",
+          "slug": "67155094"
+        },
+        "_seller": {
+          "_id": "6527c04631079349c1155e0d",
+          "name": "Cormo United"
+        },
+        "bids": [],
+        "price": 13451272
+      },
+      {
+        "_id": "670b4c9f4386d606fc8070eb",
+        "created": "2024-10-13T04:29:19.233Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000d5",
+          "name": "Sevilla",
+          "slug": "sevilla"
+        },
+        "_player": {
+          "_id": "5d36edd4da8d1a7ae4e2c30c",
+          "slug": "62013805",
+          "name": "Gudelj"
+        },
+        "_buyer": {
+          "_id": "6527c04631079349c1155e0d",
+          "name": "Cormo United"
+        },
+        "bids": [],
+        "price": 3888291
+      },
+      {
+        "_id": "670b4c9fdbd89f06e73caca0",
+        "created": "2024-10-13T04:29:19.230Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000cc",
+          "name": "Betis",
+          "slug": "betis"
+        },
+        "_player": {
+          "_id": "617db824fca9f703e07b2a81",
+          "slug": "2000054872",
+          "name": "Abde Ezzalzouli"
+        },
+        "_buyer": {
+          "_id": "66f9809e5a28014b158e596c",
+          "name": "Alex Sánchez Salazar"
+        },
+        "bids": [],
+        "price": 43108000
+      },
+      {
+        "_id": "670b4c9fde058106e10e5924",
+        "created": "2024-10-13T04:29:19.226Z",
+        "_playerTeam": {
+          "_id": "52034b60904c0ca30b000010",
+          "name": "Las Palmas",
+          "slug": "ud-las-palmas"
+        },
+        "_player": {
+          "_id": "596fc4490ef6710375cfbc85",
+          "slug": "67199309",
+          "name": "Javi Muñoz"
+        },
+        "_buyer": {
+          "_id": "6527c04631079349c1155e0d",
+          "name": "Cormo United"
+        },
+        "bids": [],
+        "price": 5380878
+      },
+      {
+        "_id": "670a20738fbd977c412a7d35",
+        "created": "2024-10-12T07:08:35.387Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000c8",
+          "name": "Atlético de Madrid",
+          "slug": "atletico-de-madrid"
+        },
+        "_player": {
+          "_id": "61f85cec51243b0a148473bf",
+          "slug": "13160655",
+          "name": "Reinildo"
+        },
+        "_seller": {
+          "_id": "66f9809e5a28014b158e596c",
+          "name": "Alex Sánchez Salazar"
+        },
+        "bids": [],
+        "price": 3923876
+      },
+      {
+        "_id": "670a1feb8fbd977c412a7cf6",
+        "created": "2024-10-12T07:06:19.579Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000c9",
+          "name": "Athletic de Bilbao",
+          "slug": "athletic-de-bilbao"
+        },
+        "_player": {
+          "_id": "6110e7e0c16ee36065aa49bd",
+          "slug": "67277830",
+          "name": "Agirrezabala"
+        },
+        "_seller": {
+          "_id": "66f9809e5a28014b158e596c",
+          "name": "Alex Sánchez Salazar"
+        },
+        "bids": [],
+        "price": 1555649
+      },
+      {
+        "_id": "6709fb1fdbd89f06e73c1c74",
+        "created": "2024-10-12T04:29:19.494Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000c6",
+          "name": "Real Madrid",
+          "slug": "real-madrid"
+        },
+        "_player": {
+          "_id": "612e5dd7c44d9506f10f8fed",
+          "slug": "49056243",
+          "name": "Camavinga"
+        },
+        "_buyer": {
+          "_id": "652843e141dc7349b78ecc55",
+          "name": "davi.smith.vega"
+        },
+        "bids": [],
+        "price": 31000000
+      },
+      {
+        "_id": "6709fb1f8bf44a06f4d9f90e",
+        "created": "2024-10-12T04:29:19.463Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000c9",
+          "name": "Athletic de Bilbao",
+          "slug": "athletic-de-bilbao"
+        },
+        "_player": {
+          "_id": "548336cc78a053bf06000ce5",
+          "name": "Iñaki Williams",
+          "slug": "67184349"
+        },
+        "_buyer": {
+          "_id": "66b88a121616a34d2df5aed6",
+          "name": "Daniel Gonzalez"
+        },
+        "bids": [],
+        "price": 65000000
+      },
+      {
+        "_id": "6709fb1fde058106e10dcabf",
+        "created": "2024-10-12T04:29:19.451Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000ca",
+          "name": "Rayo Vallecano",
+          "slug": "rayo-vallecano"
+        },
+        "_player": {
+          "_id": "52017fd85687830d3400002c",
+          "name": "James",
+          "slug": "james-rodriguez"
+        },
+        "_buyer": {
+          "_id": "652bc9051485a17231213ec8",
+          "name": "AFC Richmond"
+        },
+        "bids": [],
+        "price": 13432553
+      },
+      {
+        "_id": "6709fb1fe3757a0703ab2b7e",
+        "created": "2024-10-12T04:29:19.429Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000d7",
+          "name": "Real Valladolid",
+          "slug": "valladolid"
+        },
+        "_player": {
+          "_id": "63e28b338dfb2f5b07513995",
+          "slug": "28121290",
+          "name": "Karl Hein"
+        },
+        "_buyer": {
+          "_id": "652bc9051485a17231213ec8",
+          "name": "AFC Richmond"
+        },
+        "bids": [],
+        "price": 3600000
+      },
+      {
+        "_id": "67097c57c6cbac35d0ba02b3",
+        "created": "2024-10-11T19:28:23.214Z",
+        "_playerTeam": {
+          "_id": "51b890f5b986415a2c000012",
+          "name": "Villarreal",
+          "slug": "villarreal"
+        },
+        "_player": {
+          "_id": "5774e5ab27ae4bd9135ae2fa",
+          "slug": "67103536",
+          "name": "Bernat"
+        },
+        "_seller": {
+          "_id": "652bc9051485a17231213ec8",
+          "name": "AFC Richmond"
+        },
+        "bids": [],
+        "price": 944491
+      },
+      {
+        "_id": "6708a9ad8bf44a06f4d94904",
+        "created": "2024-10-11T04:29:33.374Z",
+        "_playerTeam": {
+          "_id": "51ffb6b7113981890700003a",
+          "name": "Leganés",
+          "slug": "cd-leganes"
+        },
+        "_player": {
+          "_id": "55b66bc6fe0ded1c22ebbd6d",
+          "slug": "62038612",
+          "name": "Dmitrovic"
+        },
+        "_buyer": {
+          "_id": "65284c0f2d3fc549aa29c1d7",
+          "name": "jordilo23"
+        },
+        "bids": [],
+        "price": 4000085
+      },
+      {
+        "_id": "6708a9ade3757a0703aa8948",
+        "created": "2024-10-11T04:29:33.364Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000d7",
+          "name": "Real Valladolid",
+          "slug": "valladolid"
+        },
+        "_player": {
+          "_id": "61efea4ec6dfbe0a4fa10b18",
+          "slug": "98033710",
+          "name": "Eray Cömert"
+        },
+        "_buyer": {
+          "_id": "652863932d3fc549aa29e343",
+          "name": "T-MA FC"
+        },
+        "bids": [],
+        "price": 1123495
+      },
+      {
+        "_id": "67084f99de058106e10ccc16",
+        "created": "2024-10-10T22:05:13.540Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000d0",
+          "name": "Espanyol",
+          "slug": "espanyol"
+        },
+        "_player": {
+          "_id": "61dcacebb6d6540425b75dce",
+          "slug": "67277675",
+          "name": "Joan García"
+        },
+        "_buyer": {
+          "_id": "65284c0f2d3fc549aa29c1d7",
+          "name": "jordilo23"
+        },
+        "_seller": {
+          "_id": "652bc9051485a17231213ec8",
+          "name": "AFC Richmond"
+        },
+        "bids": [],
+        "price": 35128917
+      },
+      {
+        "_id": "67084f99de058106e10ccc15",
+        "created": "2024-10-10T22:05:13.537Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000d5",
+          "name": "Sevilla",
+          "slug": "sevilla"
+        },
+        "_player": {
+          "_id": "6671ab8611ff341c4c5eac0d",
+          "slug": "13182752",
+          "name": "Chidera Ejuke"
+        },
+        "_buyer": {
+          "_id": "652863932d3fc549aa29e343",
+          "name": "T-MA FC"
+        },
+        "_seller": {
+          "_id": "65284916b02b2049bf91f9bf",
+          "name": "carlospg10"
+        },
+        "bids": [],
+        "price": 24355273
+      },
+      {
+        "_id": "67084f99dbd89f06e73b1d04",
+        "created": "2024-10-10T22:05:13.532Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000c7",
+          "name": "Barcelona",
+          "slug": "barcelona"
+        },
+        "_player": {
+          "_id": "5f7c91e784180b4fc44cd0ee",
+          "slug": "19242277",
+          "name": "Raphinha"
+        },
+        "_buyer": {
+          "_id": "66f9809e5a28014b158e596c",
+          "name": "Alex Sánchez Salazar"
+        },
+        "_seller": {
+          "_id": "66b88a121616a34d2df5aed6",
+          "name": "Daniel Gonzalez"
+        },
+        "bids": [],
+        "price": 92686698
+      },
+      {
+        "_id": "67084f99de058106e10ccc11",
+        "created": "2024-10-10T22:05:13.516Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000c7",
+          "name": "Barcelona",
+          "slug": "barcelona"
+        },
+        "_player": {
+          "_id": "51be2a920edbb52c1a00002a",
+          "name": "Lewandowski",
+          "slug": "719601"
+        },
+        "_buyer": {
+          "_id": "65284916b02b2049bf91f9bf",
+          "name": "carlospg10"
+        },
+        "_seller": {
+          "_id": "6527c04631079349c1155e0d",
+          "name": "Cormo United"
+        },
+        "bids": [],
+        "price": 137202896
+      },
+      {
+        "_id": "67084f99dbd89f06e73b1d00",
+        "created": "2024-10-10T22:05:13.503Z",
+        "_playerTeam": {
+          "_id": "52034b60904c0ca30b000010",
+          "name": "Las Palmas",
+          "slug": "ud-las-palmas"
+        },
+        "_player": {
+          "_id": "610ab7f51a405a604ca8c374",
+          "slug": "2000028320",
+          "name": "Moleiro"
+        },
+        "_buyer": {
+          "_id": "652bc9051485a17231213ec8",
+          "name": "AFC Richmond"
+        },
+        "_seller": {
+          "_id": "652863932d3fc549aa29e343",
+          "name": "T-MA FC"
+        },
+        "bids": [],
+        "price": 47742299
+      },
+      {
+        "_id": "67084f99e3757a0703aa3290",
+        "created": "2024-10-10T22:05:13.490Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000d2",
+          "name": "Mallorca",
+          "slug": "mallorca"
+        },
+        "_player": {
+          "_id": "5f5a930b58df197b1823bfe7",
+          "slug": "83206392",
+          "name": "Samú Costa"
+        },
+        "_buyer": {
+          "_id": "652863932d3fc549aa29e343",
+          "name": "T-MA FC"
+        },
+        "_seller": {
+          "_id": "652843e141dc7349b78ecc55",
+          "name": "davi.smith.vega"
+        },
+        "bids": [],
+        "price": 31992647
+      },
+      {
+        "_id": "67084f99e3757a0703aa3291",
+        "created": "2024-10-10T22:05:13.486Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000ce",
+          "name": "Real Sociedad",
+          "slug": "real-sociedad"
+        },
+        "_player": {
+          "_id": "5d51a593fbc39d3fa25f7eb0",
+          "slug": "67258414",
+          "name": "Sergio Gómez"
+        },
+        "_buyer": {
+          "_id": "652863932d3fc549aa29e343",
+          "name": "T-MA FC"
+        },
+        "_seller": {
+          "_id": "66f9809e5a28014b158e596c",
+          "name": "Alex Sánchez Salazar"
+        },
+        "bids": [],
+        "price": 37759920
+      },
+      {
+        "_id": "67084f99e3757a0703aa328f",
+        "created": "2024-10-10T22:05:13.484Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000d1",
+          "name": "Osasuna",
+          "slug": "osasuna"
+        },
+        "_player": {
+          "_id": "5f6fae0738429649dbf263d6",
+          "slug": "29219115",
+          "name": "Boyomo"
+        },
+        "_buyer": {
+          "_id": "66f9809e5a28014b158e596c",
+          "name": "Alex Sánchez Salazar"
+        },
+        "_seller": {
+          "_id": "65284c0f2d3fc549aa29c1d7",
+          "name": "jordilo23"
+        },
+        "bids": [],
+        "price": 29165325
+      },
+      {
+        "_id": "67084c20c8379c64d5927b9e",
+        "created": "2024-10-10T21:50:24.317Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000cc",
+          "name": "Betis",
+          "slug": "betis"
+        },
+        "_player": {
+          "_id": "522f8e353ce1ab673f00000b",
+          "name": "Bartra",
+          "slug": "67063004"
+        },
+        "_buyer": {
+          "_id": "65284c0f2d3fc549aa29c1d7",
+          "name": "jordilo23"
+        },
+        "_seller": {
+          "_id": "652863932d3fc549aa29e343",
+          "name": "T-MA FC"
+        },
+        "bids": [],
+        "price": 8065987
+      },
+      {
+        "_id": "67076f99a5811d64e831b733",
+        "created": "2024-10-10T06:09:29.910Z",
+        "_playerTeam": {
+          "_id": "51ffb6b7113981890700003a",
+          "name": "Leganés",
+          "slug": "cd-leganes"
+        },
+        "_player": {
+          "_id": "593d0e9420e76d7a050114bd",
+          "slug": "85051578",
+          "name": "Haller"
+        },
+        "_seller": {
+          "_id": "66c8e229c1b12f13dc43cbaa",
+          "name": "Situlot"
+        },
+        "bids": [],
+        "price": 10769839
+      },
+      {
+        "_id": "67076f8606724564ba4591bf",
+        "created": "2024-10-10T06:09:10.476Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000d0",
+          "name": "Espanyol",
+          "slug": "espanyol"
+        },
+        "_player": {
+          "_id": "64d2b9a613c6a63ccc32194e",
+          "slug": "2000096330",
+          "name": "Alejo Véliz"
+        },
+        "_seller": {
+          "_id": "66c8e229c1b12f13dc43cbaa",
+          "name": "Situlot"
+        },
+        "bids": [],
+        "price": 6683731
+      },
+      {
+        "_id": "6707611908f92664d3d9bea0",
+        "created": "2024-10-10T05:07:37.228Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000d0",
+          "name": "Espanyol",
+          "slug": "espanyol"
+        },
+        "_player": {
+          "_id": "5a3b62b3d0d31d7251b41bbd",
+          "slug": "67245476",
+          "name": "Álvaro Aguado"
+        },
+        "_seller": {
+          "_id": "66f9809e5a28014b158e596c",
+          "name": "Alex Sánchez Salazar"
+        },
+        "bids": [],
+        "price": 1354257
+      },
+      {
+        "_id": "6707582f4386d606fc7e8cea",
+        "created": "2024-10-10T04:29:35.130Z",
+        "_playerTeam": {
+          "_id": "51b890f5b986415a2c000012",
+          "name": "Villarreal",
+          "slug": "villarreal"
+        },
+        "_player": {
+          "_id": "5f496aba33a68903ecffc11e",
+          "slug": "67216538",
+          "name": "Diego Conde"
+        },
+        "_buyer": {
+          "_id": "66f9809e5a28014b158e596c",
+          "name": "Alex Sánchez Salazar"
+        },
+        "bids": [],
+        "price": 14500000
+      },
+      {
+        "_id": "6707582fe3757a0703a9e798",
+        "created": "2024-10-10T04:29:35.065Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000c9",
+          "name": "Athletic de Bilbao",
+          "slug": "athletic-de-bilbao"
+        },
+        "_player": {
+          "_id": "64d803c883596124e55c064f",
+          "slug": "2000065899",
+          "name": "Unai Gómez"
+        },
+        "_buyer": {
+          "_id": "65284916b02b2049bf91f9bf",
+          "name": "carlospg10"
+        },
+        "bids": [],
+        "price": 1314127
+      },
+      {
+        "_id": "6707582fde058106e10c81e2",
+        "created": "2024-10-10T04:29:35.065Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000d1",
+          "name": "Osasuna",
+          "slug": "osasuna"
+        },
+        "_player": {
+          "_id": "62ee482f2f093467dc60108e",
+          "slug": "2000033089",
+          "name": "Pablo Ibáñez"
+        },
+        "_buyer": {
+          "_id": "65284916b02b2049bf91f9bf",
+          "name": "carlospg10"
+        },
+        "bids": [],
+        "price": 1470816
+      },
+      {
+        "_id": "6707582fa3feda06ed5b683f",
+        "created": "2024-10-10T04:29:35.054Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000d9",
+          "name": "Celta de Vigo",
+          "slug": "celta-de-vigo"
+        },
+        "_player": {
+          "_id": "62adceb2b2a1132d77c95779",
+          "slug": "2000008568",
+          "name": "Swedberg"
+        },
+        "_buyer": {
+          "_id": "66f9809e5a28014b158e596c",
+          "name": "Alex Sánchez Salazar"
+        },
+        "bids": [],
+        "price": 10100000
+      },
+      {
+        "_id": "67060f307f096b5286d24ea9",
+        "created": "2024-10-09T05:05:52.085Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000ce",
+          "name": "Real Sociedad",
+          "slug": "real-sociedad"
+        },
+        "_player": {
+          "_id": "66d2486c099be403f1da8033",
+          "slug": "39062838",
+          "name": "Óskarsson"
+        },
+        "_seller": {
+          "_id": "652bc9051485a17231213ec8",
+          "name": "AFC Richmond"
+        },
+        "bids": [],
+        "price": 5211106
+      },
+      {
+        "_id": "67060acd79a4e7529fe15fda",
+        "created": "2024-10-09T04:47:09.492Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000c8",
+          "name": "Atlético de Madrid",
+          "slug": "atletico-de-madrid"
+        },
+        "_player": {
+          "_id": "504e58bb4d8bec9a67000187",
+          "name": "Koke",
+          "slug": "67047092"
+        },
+        "_seller": {
+          "_id": "66f9809e5a28014b158e596c",
+          "name": "Alex Sánchez Salazar"
+        },
+        "bids": [],
+        "price": 16994583
+      },
+      {
+        "_id": "670606a1eb300906da5f1ba0",
+        "created": "2024-10-09T04:29:21.256Z",
+        "_playerTeam": {
+          "_id": "52034b60904c0ca30b000010",
+          "name": "Las Palmas",
+          "slug": "ud-las-palmas"
+        },
+        "_player": {
+          "_id": "521464c030da10510200007d",
+          "name": "Álex Muñoz",
+          "slug": "67101620"
+        },
+        "_buyer": {
+          "_id": "66f9809e5a28014b158e596c",
+          "name": "Alex Sánchez Salazar"
+        },
+        "bids": [],
+        "price": 1000000
+      },
+      {
+        "_id": "670606a1e3757a0703a9364c",
+        "created": "2024-10-09T04:29:21.240Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000d5",
+          "name": "Sevilla",
+          "slug": "sevilla"
+        },
+        "_player": {
+          "_id": "62c81fc9deea5c2d8c81fe13",
+          "slug": "67295757",
+          "name": "Peque"
+        },
+        "_buyer": {
+          "_id": "652bc9051485a17231213ec8",
+          "name": "AFC Richmond"
+        },
+        "bids": [],
+        "price": 5500000
+      },
+      {
+        "_id": "6704b4fadbd89f06e739608b",
+        "created": "2024-10-08T04:28:42.223Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000c7",
+          "name": "Barcelona",
+          "slug": "barcelona"
+        },
+        "_player": {
+          "_id": "66aab2eac34e5603e02c010b",
+          "slug": "2000058198",
+          "name": "Marc Casadó"
+        },
+        "_buyer": {
+          "_id": "66f9809e5a28014b158e596c",
+          "name": "Alex Sánchez Salazar"
+        },
+        "bids": [],
+        "price": 16100000
+      },
+      {
+        "_id": "6704b4fa8bf44a06f4d732c1",
+        "created": "2024-10-08T04:28:42.221Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000ca",
+          "name": "Rayo Vallecano",
+          "slug": "rayo-vallecano"
+        },
+        "_player": {
+          "_id": "522ccdebe10a44087f0000ec",
+          "name": "Unai López",
+          "slug": "67145056"
+        },
+        "_buyer": {
+          "_id": "652863932d3fc549aa29e343",
+          "name": "T-MA FC"
+        },
+        "bids": [],
+        "price": 4500322
+      },
+      {
+        "_id": "6704b4fade058106e10b1fb5",
+        "created": "2024-10-08T04:28:42.218Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000c7",
+          "name": "Barcelona",
+          "slug": "barcelona"
+        },
+        "_player": {
+          "_id": "51cb698301d64ad4700000bc",
+          "name": "Szczesny",
+          "slug": "28009478"
+        },
+        "_buyer": {
+          "_id": "65284916b02b2049bf91f9bf",
+          "name": "carlospg10"
+        },
+        "bids": [],
+        "price": 17210000
+      },
+      {
+        "_id": "6704b4fae3757a0703a887d2",
+        "created": "2024-10-08T04:28:42.217Z",
+        "_playerTeam": {
+          "_id": "51b890f5b986415a2c000012",
+          "name": "Villarreal",
+          "slug": "villarreal"
+        },
+        "_player": {
+          "_id": "5d430d22b1b9c77b1c9551f7",
+          "slug": "85136376",
+          "name": "Nicolás Pépé"
+        },
+        "_buyer": {
+          "_id": "652843e141dc7349b78ecc55",
+          "name": "davi.smith.vega"
+        },
+        "bids": [],
+        "price": 18574399
+      },
+      {
+        "_id": "6704b4faeb300906da5e747f",
+        "created": "2024-10-08T04:28:42.211Z",
+        "_playerTeam": {
+          "_id": "520347e4b8d07d930b00000f",
+          "name": "Girona",
+          "slug": "girona-cf"
+        },
+        "_player": {
+          "_id": "504f647e4d8bec9a67000484",
+          "name": "Stuani",
+          "slug": "78000806"
+        },
+        "_buyer": {
+          "_id": "66f9809e5a28014b158e596c",
+          "name": "Alex Sánchez Salazar"
+        },
+        "bids": [],
+        "price": 1018071
+      },
+      {
+        "_id": "67044a3b6ce773332a02a77a",
+        "created": "2024-10-07T20:53:15.121Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000d2",
+          "name": "Mallorca",
+          "slug": "mallorca"
+        },
+        "_player": {
+          "_id": "5d69113cf91a3f7778179cb7",
+          "slug": "67272744",
+          "name": "Antonio Sánchez"
+        },
+        "_seller": {
+          "_id": "65284916b02b2049bf91f9bf",
+          "name": "carlospg10"
+        },
+        "bids": [],
+        "price": 1788428
+      },
+      {
+        "_id": "670400a31a925f3353f575eb",
+        "created": "2024-10-07T15:39:15.830Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000d9",
+          "name": "Celta de Vigo",
+          "slug": "celta-de-vigo"
+        },
+        "_player": {
+          "_id": "602833759c7d2b6c2de127f5",
+          "slug": "67279753",
+          "name": "Ilaix Moriba"
+        },
+        "_seller": {
+          "_id": "6527c04631079349c1155e0d",
+          "name": "Cormo United"
+        },
+        "bids": [],
+        "price": 1794278
+      },
+      {
+        "_id": "670380d392d3e633244d1466",
+        "created": "2024-10-07T06:33:55.174Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000c9",
+          "name": "Athletic de Bilbao",
+          "slug": "athletic-de-bilbao"
+        },
+        "_player": {
+          "_id": "5989a27fd094c1ec4bdbf741",
+          "slug": "67214595",
+          "name": "Unai Núñez"
+        },
+        "_seller": {
+          "_id": "652863932d3fc549aa29e343",
+          "name": "T-MA FC"
+        },
+        "bids": [],
+        "price": 1260517
+      },
+      {
+        "_id": "67037219fa87f23347b695f0",
+        "created": "2024-10-07T05:31:05.268Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000c6",
+          "name": "Real Madrid",
+          "slug": "real-madrid"
+        },
+        "_player": {
+          "_id": "51b8ab26e401a15f2c00016a",
+          "name": "Carvajal",
+          "slug": "67139735"
+        },
+        "_seller": {
+          "_id": "652bc9051485a17231213ec8",
+          "name": "AFC Richmond"
+        },
+        "bids": [],
+        "price": 47397744
+      },
+      {
+        "_id": "6703717f1a925f3353f43902",
+        "created": "2024-10-07T05:28:31.387Z",
+        "_playerTeam": {
+          "_id": "520347e4b8d07d930b00000f",
+          "name": "Girona",
+          "slug": "girona-cf"
+        },
+        "_player": {
+          "_id": "667ddd02cf0d0c4167933890",
+          "slug": "67245418",
+          "name": "Abel Ruiz"
+        },
+        "_seller": {
+          "_id": "66f9809e5a28014b158e596c",
+          "name": "Alex Sánchez Salazar"
+        },
+        "bids": [],
+        "price": 16498030
+      },
+      {
+        "_id": "67036c181a925f3353f43426",
+        "created": "2024-10-07T05:05:28.745Z",
+        "_playerTeam": {
+          "_id": "52034b60904c0ca30b000010",
+          "name": "Las Palmas",
+          "slug": "ud-las-palmas"
+        },
+        "_player": {
+          "_id": "57c1a177cf00ecbd0a681a97",
+          "slug": "29108066",
+          "name": "McBurnie"
+        },
+        "_seller": {
+          "_id": "66f9809e5a28014b158e596c",
+          "name": "Alex Sánchez Salazar"
+        },
+        "bids": [],
+        "price": 9412058
+      },
+      {
+        "_id": "67036b2dfa87f23347b68ff8",
+        "created": "2024-10-07T05:01:33.685Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000cd",
+          "name": "Getafe",
+          "slug": "getafe"
+        },
+        "_player": {
+          "_id": "5fecc9d86ede9207a9f2fcac",
+          "slug": "67235978",
+          "name": "Juan Iglesias"
+        },
+        "_seller": {
+          "_id": "65284c0f2d3fc549aa29c1d7",
+          "name": "jordilo23"
+        },
+        "bids": [],
+        "price": 11416534
+      },
+      {
+        "_id": "67036375de058106e10a8825",
+        "created": "2024-10-07T04:28:37.538Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000c7",
+          "name": "Barcelona",
+          "slug": "barcelona"
+        },
+        "_player": {
+          "_id": "66b69fb39e452303b3fc0b77",
+          "slug": "24048100",
+          "name": "Dani Olmo"
+        },
+        "_buyer": {
+          "_id": "65284c0f2d3fc549aa29c1d7",
+          "name": "jordilo23"
+        },
+        "bids": [],
+        "price": 73523658
+      },
+      {
+        "_id": "67036375dbd89f06e738ca7e",
+        "created": "2024-10-07T04:28:37.502Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000d9",
+          "name": "Celta de Vigo",
+          "slug": "celta-de-vigo"
+        },
+        "_player": {
+          "_id": "64d4d45594e9d33cda0d987d",
+          "slug": "93055760",
+          "name": "Starfelt"
+        },
+        "_buyer": {
+          "_id": "65284c0f2d3fc549aa29c1d7",
+          "name": "jordilo23"
+        },
+        "bids": [],
+        "price": 3658907
+      },
+      {
+        "_id": "67030b89cd5a1d2a59aff83a",
+        "created": "2024-10-06T22:13:29.991Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000d7",
+          "name": "Real Valladolid",
+          "slug": "valladolid"
+        },
+        "_player": {
+          "_id": "5eee88efecaba351ecafeb5e",
+          "slug": "67213140",
+          "name": "Kike Pérez"
+        },
+        "_seller": {
+          "_id": "652863932d3fc549aa29e343",
+          "name": "T-MA FC"
+        },
+        "bids": [],
+        "price": 2853639
+      },
+      {
+        "_id": "67030aeacd5a1d2a59aff560",
+        "created": "2024-10-06T22:10:50.785Z",
+        "_playerTeam": {
+          "_id": "52038563b8d07d930b00008a",
+          "name": "Alavés",
+          "slug": "deportivo-alaves"
+        },
+        "_player": {
+          "_id": "59ff3b0329d7bf994b9e01f0",
+          "slug": "14153906",
+          "name": "Tenaglia"
+        },
+        "_seller": {
+          "_id": "652863932d3fc549aa29e343",
+          "name": "T-MA FC"
+        },
+        "bids": [],
+        "price": 10713104
+      },
+      {
+        "_id": "6702e2fe7eaa8e2a4c6c7fcd",
+        "created": "2024-10-06T19:20:30.535Z",
+        "_playerTeam": {
+          "_id": "520347e4b8d07d930b00000f",
+          "name": "Girona",
+          "slug": "girona-cf"
+        },
+        "_player": {
+          "_id": "51cc092a01d64ad47000011a",
+          "name": "Oriol Romeu",
+          "slug": "67043255"
+        },
+        "_seller": {
+          "_id": "66b88a121616a34d2df5aed6",
+          "name": "Daniel Gonzalez"
+        },
+        "bids": [],
+        "price": 1141255
+      },
+      {
+        "_id": "6702e164cd5a1d2a59af754c",
+        "created": "2024-10-06T19:13:40.144Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000cc",
+          "name": "Betis",
+          "slug": "betis"
+        },
+        "_player": {
+          "_id": "64a7487e94e9d33cda0d9840",
+          "slug": "2000116169",
+          "name": "S. Altimira"
+        },
+        "_seller": {
+          "_id": "652bc9051485a17231213ec8",
+          "name": "AFC Richmond"
+        },
+        "bids": [],
+        "price": 3531099
+      },
+      {
+        "_id": "670237a8c156c42a7048e0e7",
+        "created": "2024-10-06T07:09:28.196Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000d9",
+          "name": "Celta de Vigo",
+          "slug": "celta-de-vigo"
+        },
+        "_player": {
+          "_id": "5f8b0f52406daa4fc599cfa0",
+          "slug": "67263766",
+          "name": "Carreira"
+        },
+        "_seller": {
+          "_id": "66f9809e5a28014b158e596c",
+          "name": "Alex Sánchez Salazar"
+        },
+        "bids": [],
+        "price": 1033686
+      },
+      {
+        "_id": "6702379c57c5522a67c174ea",
+        "created": "2024-10-06T07:09:16.285Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000cb",
+          "name": "Valencia",
+          "slug": "valencia"
+        },
+        "_player": {
+          "_id": "61e992558eed780b1c43eb0c",
+          "slug": "2000030816",
+          "name": "Mosquera"
+        },
+        "_seller": {
+          "_id": "66f9809e5a28014b158e596c",
+          "name": "Alex Sánchez Salazar"
+        },
+        "bids": [],
+        "price": 19061171
+      },
+      {
+        "_id": "670226044cfacc2a528af063",
+        "created": "2024-10-06T05:54:12.797Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000c8",
+          "name": "Atlético de Madrid",
+          "slug": "atletico-de-madrid"
+        },
+        "_player": {
+          "_id": "53df321ae5c94c6a08000200",
+          "name": "Marcos Llorente",
+          "slug": "67196198"
+        },
+        "_seller": {
+          "_id": "652bc9051485a17231213ec8",
+          "name": "AFC Richmond"
+        },
+        "bids": [],
+        "price": 41940398
+      },
+      {
+        "_id": "670211b2bdfd2c06dbb7b5aa",
+        "created": "2024-10-06T04:27:30.376Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000cd",
+          "name": "Getafe",
+          "slug": "getafe"
+        },
+        "_player": {
+          "_id": "599893cd0999c98e0c5fa382",
+          "slug": "67248397",
+          "name": "Berrocal"
+        },
+        "_buyer": {
+          "_id": "652863932d3fc549aa29e343",
+          "name": "T-MA FC"
+        },
+        "bids": [],
+        "price": 1912525
+      },
+      {
+        "_id": "670211b2eb300906da5d3cb6",
+        "created": "2024-10-06T04:27:30.361Z",
+        "_playerTeam": {
+          "_id": "51b890f5b986415a2c000012",
+          "name": "Villarreal",
+          "slug": "villarreal"
+        },
+        "_player": {
+          "_id": "61996290d61a5d094f43a4bd",
+          "slug": "2000056415",
+          "name": "Ilias Akhomach"
+        },
+        "_buyer": {
+          "_id": "65284c0f2d3fc549aa29c1d7",
+          "name": "jordilo23"
+        },
+        "bids": [],
+        "price": 7568965
+      },
+      {
+        "_id": "670211b2de058106e109eff3",
+        "created": "2024-10-06T04:27:30.336Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000d9",
+          "name": "Celta de Vigo",
+          "slug": "celta-de-vigo"
+        },
+        "_player": {
+          "_id": "635d3cab6b7e0c0865360f8d",
+          "slug": "2000106795",
+          "name": "Pablo Durán"
+        },
+        "_buyer": {
+          "_id": "652863932d3fc549aa29e343",
+          "name": "T-MA FC"
+        },
+        "bids": [],
+        "price": 1143339
+      },
+      {
+        "_id": "670211b2e3757a0703a756e2",
+        "created": "2024-10-06T04:27:30.332Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000d9",
+          "name": "Celta de Vigo",
+          "slug": "celta-de-vigo"
+        },
+        "_player": {
+          "_id": "51bcc43bb9eca82e1a000011",
+          "name": "Marcos Alonso",
+          "slug": "67080310"
+        },
+        "_buyer": {
+          "_id": "652bc9051485a17231213ec8",
+          "name": "AFC Richmond"
+        },
+        "bids": [],
+        "price": 5486896
+      },
+      {
+        "_id": "670211b2dbd89f06e7383519",
+        "created": "2024-10-06T04:27:30.331Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000c7",
+          "name": "Barcelona",
+          "slug": "barcelona"
+        },
+        "_player": {
+          "_id": "5d01a0892111645ef81548f8",
+          "slug": "37047745",
+          "name": "De Jong"
+        },
+        "_buyer": {
+          "_id": "65284c0f2d3fc549aa29c1d7",
+          "name": "jordilo23"
+        },
+        "bids": [],
+        "price": 28569656
+      },
+      {
+        "_id": "6700fbe1121709288e6152ea",
+        "created": "2024-10-05T08:42:09.167Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000ce",
+          "name": "Real Sociedad",
+          "slug": "real-sociedad"
+        },
+        "_player": {
+          "_id": "51fbe61c84dee7e33e000046",
+          "name": "Aritz",
+          "slug": "67190072"
+        },
+        "_seller": {
+          "_id": "66f9809e5a28014b158e596c",
+          "name": "Alex Sánchez Salazar"
+        },
+        "bids": [],
+        "price": 700001
+      },
+      {
+        "_id": "6700dcec2b445b286665aff1",
+        "created": "2024-10-05T06:30:04.119Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000c9",
+          "name": "Athletic de Bilbao",
+          "slug": "athletic-de-bilbao"
+        },
+        "_player": {
+          "_id": "62d034b9fbbaa82d7199978b",
+          "slug": "67277835",
+          "name": "Beñat Prados"
+        },
+        "_seller": {
+          "_id": "66b88a121616a34d2df5aed6",
+          "name": "Daniel Gonzalez"
+        },
+        "bids": [],
+        "price": 7943873
+      },
+      {
+        "_id": "6700c01cdbd89f06e7378909",
+        "created": "2024-10-05T04:27:08.685Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000cd",
+          "name": "Getafe",
+          "slug": "getafe"
+        },
+        "_player": {
+          "_id": "53b108ea1933f2de6f000907",
+          "name": "Diego Rico",
+          "slug": "67149986"
+        },
+        "_buyer": {
+          "_id": "66b88a121616a34d2df5aed6",
+          "name": "Daniel Gonzalez"
+        },
+        "bids": [],
+        "price": 20000000
+      },
+      {
+        "_id": "6700c01cde058106e10945d2",
+        "created": "2024-10-05T04:27:08.684Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000cd",
+          "name": "Getafe",
+          "slug": "getafe"
+        },
+        "_player": {
+          "_id": "598b0eb3fea48ace4b31a030",
+          "slug": "78064881",
+          "name": "Arambarri"
+        },
+        "_buyer": {
+          "_id": "652bc9051485a17231213ec8",
+          "name": "AFC Richmond"
+        },
+        "bids": [],
+        "price": 6600000
+      },
+      {
+        "_id": "6700c01ca3feda06ed582db2",
+        "created": "2024-10-05T04:27:08.678Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000ce",
+          "name": "Real Sociedad",
+          "slug": "real-sociedad"
+        },
+        "_player": {
+          "_id": "66ade7b9702b9203b99a16eb",
+          "slug": "16254093",
+          "name": "Luka Sucic"
+        },
+        "_buyer": {
+          "_id": "652bc9051485a17231213ec8",
+          "name": "AFC Richmond"
+        },
+        "bids": [],
+        "price": 10870118
+      },
+      {
+        "_id": "66ff6f4d9bbff106fcb7e2eb",
+        "created": "2024-10-04T04:30:05.737Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000ce",
+          "name": "Real Sociedad",
+          "slug": "real-sociedad"
+        },
+        "_player": {
+          "_id": "5d51a593fbc39d3fa25f7eb0",
+          "slug": "67258414",
+          "name": "Sergio Gómez"
+        },
+        "_buyer": {
+          "_id": "66f9809e5a28014b158e596c",
+          "name": "Alex Sánchez Salazar"
+        },
+        "bids": [],
+        "price": 25200000
+      },
+      {
+        "_id": "66ff15365bec9d06de71ed0a",
+        "created": "2024-10-03T22:05:42.722Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000c7",
+          "name": "Barcelona",
+          "slug": "barcelona"
+        },
+        "_player": {
+          "_id": "644d90d4479a44042784eb9f",
+          "slug": "2000256231",
+          "name": "Lamine Yamal"
+        },
+        "_buyer": {
+          "_id": "652bc9051485a17231213ec8",
+          "name": "AFC Richmond"
+        },
+        "_seller": {
+          "_id": "65284c0f2d3fc549aa29c1d7",
+          "name": "jordilo23"
+        },
+        "bids": [],
+        "price": 180004544
+      },
+      {
+        "_id": "66ff15366d88aa06f298e306",
+        "created": "2024-10-03T22:05:42.719Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000ca",
+          "name": "Rayo Vallecano",
+          "slug": "rayo-vallecano"
+        },
+        "_player": {
+          "_id": "66a3d3797fc6ff03fb06facd",
+          "name": "Batalla",
+          "slug": "14059327"
+        },
+        "_buyer": {
+          "_id": "6527c04631079349c1155e0d",
+          "name": "Cormo United"
+        },
+        "_seller": {
+          "_id": "652bc9051485a17231213ec8",
+          "name": "AFC Richmond"
+        },
+        "bids": [],
+        "price": 6353446
+      },
+      {
+        "_id": "66ff15365bec9d06de71ed07",
+        "created": "2024-10-03T22:05:42.706Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000d0",
+          "name": "Espanyol",
+          "slug": "espanyol"
+        },
+        "_player": {
+          "_id": "61dcacebb6d6540425b75dce",
+          "slug": "67277675",
+          "name": "Joan García"
+        },
+        "_buyer": {
+          "_id": "652bc9051485a17231213ec8",
+          "name": "AFC Richmond"
+        },
+        "_seller": {
+          "_id": "6527c04631079349c1155e0d",
+          "name": "Cormo United"
+        },
+        "bids": [],
+        "price": 23181373
+      },
+      {
+        "_id": "66ff1536face3806ddb9ebbc",
+        "created": "2024-10-03T22:05:42.670Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000d9",
+          "name": "Celta de Vigo",
+          "slug": "celta-de-vigo"
+        },
+        "_player": {
+          "_id": "504f65934d8bec9a670007ba",
+          "name": "Guaita",
+          "slug": "1510602"
+        },
+        "_buyer": {
+          "_id": "652bc9051485a17231213ec8",
+          "name": "AFC Richmond"
+        },
+        "_seller": {
+          "_id": "66b88a121616a34d2df5aed6",
+          "name": "Daniel Gonzalez"
+        },
+        "bids": [],
+        "price": 5568564
+      },
+      {
+        "_id": "66ff1536face3806ddb9ebb8",
+        "created": "2024-10-03T22:05:42.659Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000c7",
+          "name": "Barcelona",
+          "slug": "barcelona"
+        },
+        "_player": {
+          "_id": "5d4bf0557474677ad684915a",
+          "slug": "67293495",
+          "name": "Pedri"
+        },
+        "_buyer": {
+          "_id": "65284c0f2d3fc549aa29c1d7",
+          "name": "jordilo23"
+        },
+        "_seller": {
+          "_id": "652863932d3fc549aa29e343",
+          "name": "T-MA FC"
+        },
+        "bids": [],
+        "price": 83181467
+      },
+      {
+        "_id": "66ff153626f42306d74f9e9c",
+        "created": "2024-10-03T22:05:42.640Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000d2",
+          "name": "Mallorca",
+          "slug": "mallorca"
+        },
+        "_player": {
+          "_id": "61d98435c40342041fe941b4",
+          "slug": "2000028428",
+          "name": "Leo Román"
+        },
+        "_buyer": {
+          "_id": "652843e141dc7349b78ecc55",
+          "name": "davi.smith.vega"
+        },
+        "_seller": {
+          "_id": "66c8e229c1b12f13dc43cbaa",
+          "name": "Situlot"
+        },
+        "bids": [],
+        "price": 3239458
+      },
+      {
+        "_id": "66ff15369bbff106fcb79125",
+        "created": "2024-10-03T22:05:42.634Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000d1",
+          "name": "Osasuna",
+          "slug": "osasuna"
+        },
+        "_player": {
+          "_id": "5201061f19cbe478070000c6",
+          "name": "Sergio Herrera",
+          "slug": "67181753"
+        },
+        "_buyer": {
+          "_id": "6527c04631079349c1155e0d",
+          "name": "Cormo United"
+        },
+        "_seller": {
+          "_id": "652843e141dc7349b78ecc55",
+          "name": "davi.smith.vega"
+        },
+        "bids": [],
+        "price": 27616600
+      },
+      {
+        "_id": "66ff15369bbff106fcb79127",
+        "created": "2024-10-03T22:05:42.623Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000ce",
+          "name": "Real Sociedad",
+          "slug": "real-sociedad"
+        },
+        "_player": {
+          "_id": "5590e248b804493642903cdc",
+          "slug": "67183918",
+          "name": "Remiro"
+        },
+        "_buyer": {
+          "_id": "66b88a121616a34d2df5aed6",
+          "name": "Daniel Gonzalez"
+        },
+        "_seller": {
+          "_id": "65284916b02b2049bf91f9bf",
+          "name": "carlospg10"
+        },
+        "bids": [],
+        "price": 36328350
+      },
+      {
+        "_id": "66fe747e91509354ff47f26d",
+        "created": "2024-10-03T10:39:58.576Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000c6",
+          "name": "Real Madrid",
+          "slug": "real-madrid"
+        },
+        "_player": {
+          "_id": "62a67388de8e9e03e103990b",
+          "slug": "48042326",
+          "name": "Tchouameni"
+        },
+        "_buyer": {
+          "_id": "66f9809e5a28014b158e596c",
+          "name": "Alex Sánchez Salazar"
+        },
+        "_seller": {
+          "_id": "652843e141dc7349b78ecc55",
+          "name": "davi.smith.vega"
+        },
+        "bids": [],
+        "price": 27500000
+      },
+      {
+        "_id": "66fe26d95d45425512801dbe",
+        "created": "2024-10-03T05:08:41.659Z",
+        "_playerTeam": {
+          "_id": "52038563b8d07d930b00008a",
+          "name": "Alavés",
+          "slug": "deportivo-alaves"
+        },
+        "_player": {
+          "_id": "5ef3cb0336783f03c407832b",
+          "slug": "2000032231",
+          "name": "Luka Romero"
+        },
+        "_seller": {
+          "_id": "66f9809e5a28014b158e596c",
+          "name": "Alex Sánchez Salazar"
+        },
+        "bids": [],
+        "price": 949982
+      },
+      {
+        "_id": "66fe1dcb26f42306d74f5c78",
+        "created": "2024-10-03T04:30:04.002Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000ca",
+          "name": "Rayo Vallecano",
+          "slug": "rayo-vallecano"
+        },
+        "_player": {
+          "_id": "610abc4f328e98602847897f",
+          "slug": "67217491",
+          "name": "Ratiu"
+        },
+        "_buyer": {
+          "_id": "65284916b02b2049bf91f9bf",
+          "name": "carlospg10"
+        },
+        "bids": [],
+        "price": 10100000
+      },
+      {
+        "_id": "66fe1dcb6d88aa06f298a0bf",
+        "created": "2024-10-03T04:30:03.947Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000d2",
+          "name": "Mallorca",
+          "slug": "mallorca"
+        },
+        "_player": {
+          "_id": "5c0416954c47343bad939db8",
+          "slug": "67271151",
+          "name": "Valery Fernández"
+        },
+        "_buyer": {
+          "_id": "66c8e229c1b12f13dc43cbaa",
+          "name": "Situlot"
+        },
+        "bids": [],
+        "price": 2500000
+      },
+      {
+        "_id": "66fe1dcb9bbff106fcb74067",
+        "created": "2024-10-03T04:30:03.917Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000c8",
+          "name": "Atlético de Madrid",
+          "slug": "atletico-de-madrid"
+        },
+        "_player": {
+          "_id": "504e58bb4d8bec9a67000187",
+          "name": "Koke",
+          "slug": "67047092"
+        },
+        "_buyer": {
+          "_id": "66f9809e5a28014b158e596c",
+          "name": "Alex Sánchez Salazar"
+        },
+        "bids": [],
+        "price": 18100000
+      },
+      {
+        "_id": "66fcdc6758aa3b30206a8441",
+        "created": "2024-10-02T05:38:47.033Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000d9",
+          "name": "Celta de Vigo",
+          "slug": "celta-de-vigo"
+        },
+        "_player": {
+          "_id": "50cb02a490a912e0130005a8",
+          "name": "Manquillo",
+          "slug": "67141802"
+        },
+        "_seller": {
+          "_id": "66f9809e5a28014b158e596c",
+          "name": "Alex Sánchez Salazar"
+        },
+        "bids": [],
+        "price": 700001
+      },
+      {
+        "_id": "66fccc469bbff106fcb69cb7",
+        "created": "2024-10-02T04:29:58.559Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000cc",
+          "name": "Betis",
+          "slug": "betis"
+        },
+        "_player": {
+          "_id": "520355fc634ddea00b000025",
+          "name": "Rui Silva",
+          "slug": "55067163"
+        },
+        "_buyer": {
+          "_id": "652863932d3fc549aa29e343",
+          "name": "T-MA FC"
+        },
+        "bids": [],
+        "price": 7103000
+      },
+      {
+        "_id": "66fccc466d88aa06f297fd67",
+        "created": "2024-10-02T04:29:58.558Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000c7",
+          "name": "Barcelona",
+          "slug": "barcelona"
+        },
+        "_player": {
+          "_id": "5d630db9e7e62b777ebb59be",
+          "slug": "67276122",
+          "name": "Ansu Fati"
+        },
+        "_buyer": {
+          "_id": "66f9809e5a28014b158e596c",
+          "name": "Alex Sánchez Salazar"
+        },
+        "bids": [],
+        "price": 7500000
+      },
+      {
+        "_id": "66fccc464af04806f9990bf0",
+        "created": "2024-10-02T04:29:58.554Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000c6",
+          "name": "Real Madrid",
+          "slug": "real-madrid"
+        },
+        "_player": {
+          "_id": "5d0235d88721525ead8d96db",
+          "slug": "19273276",
+          "name": "Militao"
+        },
+        "_buyer": {
+          "_id": "66f9809e5a28014b158e596c",
+          "name": "Alex Sánchez Salazar"
+        },
+        "bids": [],
+        "price": 50010011
+      },
+      {
+        "_id": "66fccc464af04806f9990bec",
+        "created": "2024-10-02T04:29:58.468Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000c9",
+          "name": "Athletic de Bilbao",
+          "slug": "athletic-de-bilbao"
+        },
+        "_player": {
+          "_id": "5989a27fd094c1ec4bdbf741",
+          "slug": "67214595",
+          "name": "Unai Núñez"
+        },
+        "_buyer": {
+          "_id": "652863932d3fc549aa29e343",
+          "name": "T-MA FC"
+        },
+        "bids": [],
+        "price": 1044580
+      },
+      {
+        "_id": "66fccc465bec9d06de710070",
+        "created": "2024-10-02T04:29:58.428Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000d9",
+          "name": "Celta de Vigo",
+          "slug": "celta-de-vigo"
+        },
+        "_player": {
+          "_id": "504f50c54d8bec9a670003d1",
+          "name": "Iago Aspas",
+          "slug": "67010455"
+        },
+        "_buyer": {
+          "_id": "652863932d3fc549aa29e343",
+          "name": "T-MA FC"
+        },
+        "bids": [],
+        "price": 85000905
+      },
+      {
+        "_id": "66fb95e491f875717693df37",
+        "created": "2024-10-01T06:25:40.269Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000d5",
+          "name": "Sevilla",
+          "slug": "sevilla"
+        },
+        "_player": {
+          "_id": "62c81fc9deea5c2d8c81fe13",
+          "slug": "67295757",
+          "name": "Peque"
+        },
+        "_seller": {
+          "_id": "66f9809e5a28014b158e596c",
+          "name": "Alex Sánchez Salazar"
+        },
+        "bids": [],
+        "price": 2491053
+      },
+      {
+        "_id": "66fb8a261d1a45718d6e1692",
+        "created": "2024-10-01T05:35:34.272Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000ce",
+          "name": "Real Sociedad",
+          "slug": "real-sociedad"
+        },
+        "_player": {
+          "_id": "65a93fd7a5e82904a9be91dd",
+          "slug": "37027194",
+          "name": "Becker"
+        },
+        "_seller": {
+          "_id": "652863932d3fc549aa29e343",
+          "name": "T-MA FC"
+        },
+        "bids": [],
+        "price": 6135513
+      },
+      {
+        "_id": "66fb8a1f157ca6715ecacbd6",
+        "created": "2024-10-01T05:35:27.723Z",
+        "_playerTeam": {
+          "_id": "52038563b8d07d930b00008a",
+          "name": "Alavés",
+          "slug": "deportivo-alaves"
+        },
+        "_player": {
+          "_id": "5767a067e854a6271e7ff173",
+          "slug": "67216151",
+          "name": "Toni Martínez"
+        },
+        "_seller": {
+          "_id": "652863932d3fc549aa29e343",
+          "name": "T-MA FC"
+        },
+        "bids": [],
+        "price": 10806469
+      },
+      {
+        "_id": "66fb842d64dde9716be916f4",
+        "created": "2024-10-01T05:10:05.209Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000c7",
+          "name": "Barcelona",
+          "slug": "barcelona"
+        },
+        "_player": {
+          "_id": "66b69fb39e452303b3fc0b77",
+          "slug": "24048100",
+          "name": "Dani Olmo"
+        },
+        "_seller": {
+          "_id": "652bc9051485a17231213ec8",
+          "name": "AFC Richmond"
+        },
+        "bids": [],
+        "price": 55667917
+      },
+      {
+        "_id": "66fb7aa3face3806ddb83c04",
+        "created": "2024-10-01T04:29:23.299Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000c6",
+          "name": "Real Madrid",
+          "slug": "real-madrid"
+        },
+        "_player": {
+          "_id": "504f65574d8bec9a670006e3",
+          "name": "Modric",
+          "slug": "653054"
+        },
+        "_buyer": {
+          "_id": "66f9809e5a28014b158e596c",
+          "name": "Alex Sánchez Salazar"
+        },
+        "bids": [],
+        "price": 20000011
+      },
+      {
+        "_id": "66fb7aa3f2c12a06e477bdea",
+        "created": "2024-10-01T04:29:23.291Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000c9",
+          "name": "Athletic de Bilbao",
+          "slug": "athletic-de-bilbao"
+        },
+        "_player": {
+          "_id": "54b25febc9360f7e58002e7c",
+          "name": "Berenguer",
+          "slug": "67157520"
+        },
+        "_buyer": {
+          "_id": "652863932d3fc549aa29e343",
+          "name": "T-MA FC"
+        },
+        "bids": [],
+        "price": 12012012
+      },
+      {
+        "_id": "66fb7aa39bbff106fcb5c3aa",
+        "created": "2024-10-01T04:29:23.273Z",
+        "_playerTeam": {
+          "_id": "51b890f5b986415a2c000012",
+          "name": "Villarreal",
+          "slug": "villarreal"
+        },
+        "_player": {
+          "_id": "504f50d44d8bec9a6700040e",
+          "name": "Ayoze Pérez",
+          "slug": "67172040"
+        },
+        "_buyer": {
+          "_id": "66f9809e5a28014b158e596c",
+          "name": "Alex Sánchez Salazar"
+        },
+        "bids": [],
+        "price": 102000000
+      },
+      {
+        "_id": "66fb7aa326f42306d74dccce",
+        "created": "2024-10-01T04:29:23.258Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000c8",
+          "name": "Atlético de Madrid",
+          "slug": "atletico-de-madrid"
+        },
+        "_player": {
+          "_id": "61f85cec51243b0a148473bf",
+          "slug": "13160655",
+          "name": "Reinildo"
+        },
+        "_buyer": {
+          "_id": "66f9809e5a28014b158e596c",
+          "name": "Alex Sánchez Salazar"
+        },
+        "bids": [],
+        "price": 5236132
+      },
+      {
+        "_id": "66fb7aa36d88aa06f297240b",
+        "created": "2024-10-01T04:29:23.253Z",
+        "_playerTeam": {
+          "_id": "51b890f5b986415a2c000012",
+          "name": "Villarreal",
+          "slug": "villarreal"
+        },
+        "_player": {
+          "_id": "66b5e9d5e0157a03f87fcb93",
+          "slug": "67295644",
+          "name": "Iker Álvarez"
+        },
+        "_buyer": {
+          "_id": "652843e141dc7349b78ecc55",
+          "name": "davi.smith.vega"
+        },
+        "bids": [],
+        "price": 1000003
+      },
+      {
+        "_id": "66fad3ccb464563aca7aeaac",
+        "created": "2024-09-30T16:37:32.926Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000d2",
+          "name": "Mallorca",
+          "slug": "mallorca"
+        },
+        "_player": {
+          "_id": "60d6578de348bc03e95ba4b2",
+          "slug": "67257035",
+          "name": "Copete"
+        },
+        "_seller": {
+          "_id": "66f9809e5a28014b158e596c",
+          "name": "Alex Sánchez Salazar"
+        },
+        "bids": [],
+        "price": 769914
+      },
+      {
+        "_id": "66fa83e93e25553aebc25bd4",
+        "created": "2024-09-30T10:56:41.553Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000d5",
+          "name": "Sevilla",
+          "slug": "sevilla"
+        },
+        "_player": {
+          "_id": "5c0eea87e3eca97d26f62cee",
+          "slug": "95035991",
+          "name": "Pedrosa"
+        },
+        "_seller": {
+          "_id": "65284916b02b2049bf91f9bf",
+          "name": "carlospg10"
+        },
+        "bids": [],
+        "price": 5728742
+      },
+      {
+        "_id": "66fa83aaa240553ad05d4457",
+        "created": "2024-09-30T10:55:38.732Z",
+        "_playerTeam": {
+          "_id": "52034b60904c0ca30b000010",
+          "name": "Las Palmas",
+          "slug": "ud-las-palmas"
+        },
+        "_player": {
+          "_id": "596fc4490ef6710375cfbc85",
+          "slug": "67199309",
+          "name": "Javi Muñoz"
+        },
+        "_seller": {
+          "_id": "65284916b02b2049bf91f9bf",
+          "name": "carlospg10"
+        },
+        "bids": [],
+        "price": 8777657
+      },
+      {
+        "_id": "66fa73debbb2273ac3dd3873",
+        "created": "2024-09-30T09:48:14.004Z",
+        "_playerTeam": {
+          "_id": "51ffb6b7113981890700003a",
+          "name": "Leganés",
+          "slug": "cd-leganes"
+        },
+        "_player": {
+          "_id": "5954d03ae7e76f204af1b497",
+          "slug": "67231278",
+          "name": "Franquesa"
+        },
+        "_seller": {
+          "_id": "65284c0f2d3fc549aa29c1d7",
+          "name": "jordilo23"
+        },
+        "bids": [],
+        "price": 9187040
+      },
+      {
+        "_id": "66fa28f95bec9d06de6f6f9f",
+        "created": "2024-09-30T04:28:41.199Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000d0",
+          "name": "Espanyol",
+          "slug": "espanyol"
+        },
+        "_player": {
+          "_id": "5d0220e0167d9e5eb611db94",
+          "slug": "67246431",
+          "name": "Pol Lozano"
+        },
+        "_buyer": {
+          "_id": "652bc9051485a17231213ec8",
+          "name": "AFC Richmond"
+        },
+        "bids": [],
+        "price": 1220523
+      },
+      {
+        "_id": "66fa28f9face3806ddb78268",
+        "created": "2024-09-30T04:28:41.198Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000ce",
+          "name": "Real Sociedad",
+          "slug": "real-sociedad"
+        },
+        "_player": {
+          "_id": "65ac4fa5fa23880455a78f95",
+          "slug": "86080170",
+          "name": "Aramburu"
+        },
+        "_buyer": {
+          "_id": "65284916b02b2049bf91f9bf",
+          "name": "carlospg10"
+        },
+        "bids": [],
+        "price": 2100000
+      },
+      {
+        "_id": "66f9b4fe3af7804afa2da784",
+        "created": "2024-09-29T20:13:50.078Z",
+        "_playerTeam": {
+          "_id": "51ffb6b7113981890700003a",
+          "name": "Leganés",
+          "slug": "cd-leganes"
+        },
+        "_player": {
+          "_id": "57b032e020aa5ca26063be22",
+          "slug": "67193103",
+          "name": "Juan Soriano"
+        },
+        "_seller": {
+          "_id": "652bc9051485a17231213ec8",
+          "name": "AFC Richmond"
+        },
+        "bids": [],
+        "price": 9010761
+      },
+      {
+        "_id": "66f9b4dd5a28014b158ee9b3",
+        "created": "2024-09-29T20:13:17.655Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000c6",
+          "name": "Real Madrid",
+          "slug": "real-madrid"
+        },
+        "_player": {
+          "_id": "64a6fcb014cd337373737ba9",
+          "slug": "2000077193",
+          "name": "Güler"
+        },
+        "_seller": {
+          "_id": "652bc9051485a17231213ec8",
+          "name": "AFC Richmond"
+        },
+        "bids": [],
+        "price": 13183897
+      },
+      {
+        "_id": "66f9a7cfb64e624af40973dc",
+        "created": "2024-09-29T19:17:35.718Z",
+        "_playerTeam": {
+          "_id": "52038563b8d07d930b00008a",
+          "name": "Alavés",
+          "slug": "deportivo-alaves"
+        },
+        "_player": {
+          "_id": "6080ace3876c8206f41c4197",
+          "slug": "67256515",
+          "name": "Blanco"
+        },
+        "_seller": {
+          "_id": "652843e141dc7349b78ecc55",
+          "name": "davi.smith.vega"
+        },
+        "bids": [],
+        "price": 6252229
+      },
+      {
+        "_id": "66f99a7e7a84184b0e4227da",
+        "created": "2024-09-29T18:20:46.829Z",
+        "_playerTeam": {
+          "_id": "52034b60904c0ca30b000010",
+          "name": "Las Palmas",
+          "slug": "ud-las-palmas"
+        },
+        "_player": {
+          "_id": "57c1a177cf00ecbd0a681a97",
+          "slug": "29108066",
+          "name": "McBurnie"
+        },
+        "_buyer": {
+          "_id": "66f9809e5a28014b158e596c",
+          "name": "Alex Sánchez Salazar"
+        },
+        "_seller": {
+          "_id": "652bc9051485a17231213ec8",
+          "name": "AFC Richmond"
+        },
+        "bids": [],
+        "price": 11500000
+      },
+      {
+        "_id": "66f8d7599bbff106fcb469a2",
+        "created": "2024-09-29T04:28:09.433Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000ce",
+          "name": "Real Sociedad",
+          "slug": "real-sociedad"
+        },
+        "_player": {
+          "_id": "66d2486c099be403f1da8033",
+          "slug": "39062838",
+          "name": "Óskarsson"
+        },
+        "_buyer": {
+          "_id": "652bc9051485a17231213ec8",
+          "name": "AFC Richmond"
+        },
+        "bids": [],
+        "price": 6000000
+      },
+      {
+        "_id": "66f8d759f2c12a06e4766596",
+        "created": "2024-09-29T04:28:09.412Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000d9",
+          "name": "Celta de Vigo",
+          "slug": "celta-de-vigo"
+        },
+        "_player": {
+          "_id": "57b94cfee3480bb6049eb14b",
+          "slug": "67232115",
+          "name": "Fran Beltrán"
+        },
+        "_buyer": {
+          "_id": "6527c04631079349c1155e0d",
+          "name": "Cormo United"
+        },
+        "bids": [],
+        "price": 6729515
+      },
+      {
+        "_id": "66f8d7595bec9d06de6ec72c",
+        "created": "2024-09-29T04:28:09.401Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000cc",
+          "name": "Betis",
+          "slug": "betis"
+        },
+        "_player": {
+          "_id": "64d156d341f8d73d235026fb",
+          "slug": "19351985",
+          "name": "Natan"
+        },
+        "_buyer": {
+          "_id": "65284c0f2d3fc549aa29c1d7",
+          "name": "jordilo23"
+        },
+        "bids": [],
+        "price": 3659856
+      },
+      {
+        "_id": "66f8d75926f42306d74c7217",
+        "created": "2024-09-29T04:28:09.373Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000c8",
+          "name": "Atlético de Madrid",
+          "slug": "atletico-de-madrid"
+        },
+        "_player": {
+          "_id": "53df321ae5c94c6a08000200",
+          "name": "Marcos Llorente",
+          "slug": "67196198"
+        },
+        "_buyer": {
+          "_id": "652bc9051485a17231213ec8",
+          "name": "AFC Richmond"
+        },
+        "bids": [],
+        "price": 41790808
+      },
+      {
+        "_id": "66f811a0d713416b6b3d8bb0",
+        "created": "2024-09-28T14:24:32.084Z",
+        "_playerTeam": {
+          "_id": "52038563b8d07d930b00008a",
+          "name": "Alavés",
+          "slug": "deportivo-alaves"
+        },
+        "_player": {
+          "_id": "577fc0cd5f7416bb4e63934e",
+          "slug": "14096400",
+          "name": "Conechny"
+        },
+        "_seller": {
+          "_id": "652bc9051485a17231213ec8",
+          "name": "AFC Richmond"
+        },
+        "bids": [],
+        "price": 3262659
+      },
+      {
+        "_id": "66f7d2617aace86b7ede34a4",
+        "created": "2024-09-28T09:54:41.178Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000cc",
+          "name": "Betis",
+          "slug": "betis"
+        },
+        "_player": {
+          "_id": "5b89b1161c0c9f16f9678cba",
+          "slug": "14108651",
+          "name": "Lo Celso"
+        },
+        "_seller": {
+          "_id": "652bc9051485a17231213ec8",
+          "name": "AFC Richmond"
+        },
+        "bids": [],
+        "price": 20277119
+      },
+      {
+        "_id": "66f785c8face3806ddb623ed",
+        "created": "2024-09-28T04:27:52.890Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000c7",
+          "name": "Barcelona",
+          "slug": "barcelona"
+        },
+        "_player": {
+          "_id": "62e39ff011f4242dbd725314",
+          "slug": "2000040347",
+          "name": "Pablo Torre"
+        },
+        "_buyer": {
+          "_id": "652843e141dc7349b78ecc55",
+          "name": "davi.smith.vega"
+        },
+        "bids": [],
+        "price": 1459997
+      },
+      {
+        "_id": "66f709c182059e347d5975fa",
+        "created": "2024-09-27T19:38:41.331Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000cd",
+          "name": "Getafe",
+          "slug": "getafe"
+        },
+        "_player": {
+          "_id": "544dfb9b322ce8ed010002bf",
+          "name": "Djené",
+          "slug": "211232"
+        },
+        "_seller": {
+          "_id": "652bc9051485a17231213ec8",
+          "name": "AFC Richmond"
+        },
+        "bids": [],
+        "price": 14739205
+      },
+      {
+        "_id": "66f67ce2588ed734963086c7",
+        "created": "2024-09-27T09:37:38.445Z",
+        "loanType": "start",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000d5",
+          "name": "Sevilla",
+          "slug": "sevilla"
+        },
+        "_player": {
+          "_id": "577aa03229312f3d1dd21205",
+          "slug": "53004955",
+          "name": "Nyland "
+        },
+        "_buyer": {
+          "_id": "65284c0f2d3fc549aa29c1d7",
+          "name": "jordilo23"
+        },
+        "_seller": {
+          "_id": "6527c04631079349c1155e0d",
+          "name": "Cormo United"
+        },
+        "bids": [],
+        "price": 3000000
+      },
+      {
+        "_id": "66f5daacf2c12a06e4712d4a",
+        "created": "2024-09-26T22:05:32.694Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000c6",
+          "name": "Real Madrid",
+          "slug": "real-madrid"
+        },
+        "_player": {
+          "_id": "5d0236a3167d9e5eb611db9b",
+          "slug": "19306929",
+          "name": "Rodrygo"
+        },
+        "_buyer": {
+          "_id": "66c8e229c1b12f13dc43cbaa",
+          "name": "Situlot"
+        },
+        "_seller": {
+          "_id": "6527c04631079349c1155e0d",
+          "name": "Cormo United"
+        },
+        "bids": [],
+        "price": 115256269
+      },
+      {
+        "_id": "66f5daacf2c12a06e4712d49",
+        "created": "2024-09-26T22:05:32.693Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000c6",
+          "name": "Real Madrid",
+          "slug": "real-madrid"
+        },
+        "_player": {
+          "_id": "594d11088a928dbb0555e5a6",
+          "slug": "78074594",
+          "name": "Fede Valverde"
+        },
+        "_buyer": {
+          "_id": "6527c04631079349c1155e0d",
+          "name": "Cormo United"
+        },
+        "_seller": {
+          "_id": "652bc9051485a17231213ec8",
+          "name": "AFC Richmond"
+        },
+        "bids": [],
+        "price": 114354758
+      },
+      {
+        "_id": "66f5daac6d88aa06f2908e9a",
+        "created": "2024-09-26T22:05:32.690Z",
+        "_playerTeam": {
+          "_id": "52038563b8d07d930b00008a",
+          "name": "Alavés",
+          "slug": "deportivo-alaves"
+        },
+        "_player": {
+          "_id": "64993b61faaab71e5cd22671",
+          "slug": "67258842",
+          "name": "Carlos Vicente"
+        },
+        "_buyer": {
+          "_id": "66c8e229c1b12f13dc43cbaa",
+          "name": "Situlot"
+        },
+        "_seller": {
+          "_id": "652863932d3fc549aa29e343",
+          "name": "T-MA FC"
+        },
+        "bids": [],
+        "price": 52775400
+      },
+      {
+        "_id": "66f5daac4af04806f991b0c5",
+        "created": "2024-09-26T22:05:32.681Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000d0",
+          "name": "Espanyol",
+          "slug": "espanyol"
+        },
+        "_player": {
+          "_id": "61dcacebb6d6540425b75dce",
+          "slug": "67277675",
+          "name": "Joan García"
+        },
+        "_buyer": {
+          "_id": "6527c04631079349c1155e0d",
+          "name": "Cormo United"
+        },
+        "_seller": {
+          "_id": "65284c0f2d3fc549aa29c1d7",
+          "name": "jordilo23"
+        },
+        "bids": [],
+        "price": 14218162
+      },
+      {
+        "_id": "66f5daacf2c12a06e4712d48",
+        "created": "2024-09-26T22:05:32.679Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000d1",
+          "name": "Osasuna",
+          "slug": "osasuna"
+        },
+        "_player": {
+          "_id": "5f14b970f8e4ae03c1f96475",
+          "slug": "67276375",
+          "name": "Aimar Oroz"
+        },
+        "_buyer": {
+          "_id": "66b88a121616a34d2df5aed6",
+          "name": "Daniel Gonzalez"
+        },
+        "_seller": {
+          "_id": "65284916b02b2049bf91f9bf",
+          "name": "carlospg10"
+        },
+        "bids": [],
+        "price": 35808679
+      },
+      {
+        "_id": "66f5daac4af04806f991b0c4",
+        "created": "2024-09-26T22:05:32.673Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000d5",
+          "name": "Sevilla",
+          "slug": "sevilla"
+        },
+        "_player": {
+          "_id": "64e7d0d92d022151504b7866",
+          "slug": "18083611",
+          "name": "Lukebakio"
+        },
+        "_buyer": {
+          "_id": "65284916b02b2049bf91f9bf",
+          "name": "carlospg10"
+        },
+        "_seller": {
+          "_id": "66b88a121616a34d2df5aed6",
+          "name": "Daniel Gonzalez"
+        },
+        "bids": [],
+        "price": 31599121
+      },
+      {
+        "_id": "66f5bc0ba7713f55aa2a6d97",
+        "created": "2024-09-26T19:54:51.866Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000ca",
+          "name": "Rayo Vallecano",
+          "slug": "rayo-vallecano"
+        },
+        "_player": {
+          "_id": "522ccdebe10a44087f0000ec",
+          "name": "Unai López",
+          "slug": "67145056"
+        },
+        "_seller": {
+          "_id": "66b88a121616a34d2df5aed6",
+          "name": "Daniel Gonzalez"
+        },
+        "bids": [],
+        "price": 4797919
+      },
+      {
+        "_id": "66f4eab544a28a55a445fe18",
+        "created": "2024-09-26T05:01:41.431Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000d7",
+          "name": "Real Valladolid",
+          "slug": "valladolid"
+        },
+        "_player": {
+          "_id": "63504c556f04de1b6964f496",
+          "slug": "19303820",
+          "name": "Lucas Rosa"
+        },
+        "_seller": {
+          "_id": "652bc9051485a17231213ec8",
+          "name": "AFC Richmond"
+        },
+        "bids": [],
+        "price": 4230559
+      },
+      {
+        "_id": "66f4e2a626f42306d746ed28",
+        "created": "2024-09-26T04:27:18.287Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000c6",
+          "name": "Real Madrid",
+          "slug": "real-madrid"
+        },
+        "_player": {
+          "_id": "64a6fcb014cd337373737ba9",
+          "slug": "2000077193",
+          "name": "Güler"
+        },
+        "_buyer": {
+          "_id": "652bc9051485a17231213ec8",
+          "name": "AFC Richmond"
+        },
+        "bids": [],
+        "price": 14038838
+      },
+      {
+        "_id": "66f39f1eface3806ddb0b3f3",
+        "created": "2024-09-25T05:26:54.451Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000cd",
+          "name": "Getafe",
+          "slug": "getafe"
+        },
+        "_player": {
+          "_id": "544dfb9b322ce8ed010002bf",
+          "name": "Djené",
+          "slug": "211232"
+        },
+        "_buyer": {
+          "_id": "652bc9051485a17231213ec8",
+          "name": "AFC Richmond"
+        },
+        "bids": [],
+        "price": 14046587
+      },
+      {
+        "_id": "66f39f1e4af04806f990c460",
+        "created": "2024-09-25T05:26:54.450Z",
+        "_playerTeam": {
+          "_id": "520347e4b8d07d930b00000f",
+          "name": "Girona",
+          "slug": "girona-cf"
+        },
+        "_player": {
+          "_id": "5c3f61fd864c2103cbcfdd31",
+          "slug": "86047272",
+          "name": "Yangel Herrera"
+        },
+        "_buyer": {
+          "_id": "65284c0f2d3fc549aa29c1d7",
+          "name": "jordilo23"
+        },
+        "bids": [],
+        "price": 28000001
+      },
+      {
+        "_id": "66f39f1e9bbff106fcae38a6",
+        "created": "2024-09-25T05:26:54.441Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000cb",
+          "name": "Valencia",
+          "slug": "valencia"
+        },
+        "_player": {
+          "_id": "520d201ca776cc826b000029",
+          "name": "Luis Rioja",
+          "slug": "67196000"
+        },
+        "_buyer": {
+          "_id": "65284916b02b2049bf91f9bf",
+          "name": "carlospg10"
+        },
+        "bids": [],
+        "price": 26100000
+      },
+      {
+        "_id": "66f25212cce1da0fc14c306e",
+        "created": "2024-09-24T05:45:54.502Z",
+        "_playerTeam": {
+          "_id": "52034b60904c0ca30b000010",
+          "name": "Las Palmas",
+          "slug": "ud-las-palmas"
+        },
+        "_player": {
+          "_id": "57c1a177cf00ecbd0a681a97",
+          "slug": "29108066",
+          "name": "McBurnie"
+        },
+        "_buyer": {
+          "_id": "652bc9051485a17231213ec8",
+          "name": "AFC Richmond"
+        },
+        "bids": [],
+        "price": 12228106
+      },
+      {
+        "_id": "66f25212a087e60fa7fd7706",
+        "created": "2024-09-24T05:45:54.336Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000d7",
+          "name": "Real Valladolid",
+          "slug": "valladolid"
+        },
+        "_player": {
+          "_id": "63504c556f04de1b6964f496",
+          "slug": "19303820",
+          "name": "Lucas Rosa"
+        },
+        "_buyer": {
+          "_id": "652bc9051485a17231213ec8",
+          "name": "AFC Richmond"
+        },
+        "bids": [],
+        "price": 4146522
+      },
+      {
+        "_id": "66f25212cce1da0fc14c3067",
+        "created": "2024-09-24T05:45:54.314Z",
+        "_playerTeam": {
+          "_id": "504e581e4d8bec9a670000ca",
+          "name": "Rayo Vallecano",
+          "slug": "rayo-vallecano"
+        },
+        "_player": {
+          "_id": "5d17ceb62cef430674ec2674",
+          "slug": "67173045",
+          "name": "Isi Palazón"
+        },
+        "_buyer": {
+          "_id": "66b88a121616a34d2df5aed6",
+          "name": "Daniel Gonzalez"
+        },
+        "bids": [],
+        "price": 32000000
+      }
+    ],
+    "isAdmin": true
+  },
+  "query": {
+    "championshipId": "6527184d361d0805fd6a729b",
+    "from": ""
+  },
+  "header": {
+    "token": "77e5_a4b68b2abeeb4b544b99d816249adc6c",
+    "userid": "652bc64b2ccd69060ecfb26e"
+  }
+}
