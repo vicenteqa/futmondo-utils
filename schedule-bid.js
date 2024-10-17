@@ -10,12 +10,12 @@ const lastAccessInfo = await getLastAccessInfo();
 console.log(lastAccessInfo);
 
 cron.schedule(
-  '00 02 * * *',
+  '30 11 * * *',
   async () => {
+    await submitBid('63d96cff1c9f9d5b13cf05a7');
     const lastAccessInfo = await getLastAccessInfo();
     console.log(lastAccessInfo);
     fs.writeFileSync('last-access.json', JSON.stringify(lastAccessInfo));
-    await submitBidWithMaxPrice('574dc94bb9278bf5518b1e7b', 42000000);
   },
   { timezone: 'Europe/Madrid' }
 );
