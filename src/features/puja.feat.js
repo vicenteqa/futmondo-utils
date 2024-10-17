@@ -12,7 +12,7 @@ puja();
 async function puja(schedule = true) {
   const playerId = '52358785c62c560a4a0009ab';
   if (schedule) {
-    const cronExpression = '00 02 * * *';
+    const cronExpression = '30 15 * * *';
     const timezone = 'Europe/Madrid';
     const nextExecution = await getNextCronExecution(cronExpression, timezone);
     console.log(`Puja programada a las ${nextExecution}`);
