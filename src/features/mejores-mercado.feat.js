@@ -1,7 +1,7 @@
 import { getMarket } from '../endpoints/get-market.js';
 import { formatCurrency } from '../common/utils.js';
 
-async function getPlayersWithHigherChange() {
+export async function getPlayersWithHigherChange() {
   const market = await getMarket();
   const sortedMarket = market.sort((a, b) => b.change - a.change);
 
