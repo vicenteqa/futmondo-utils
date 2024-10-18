@@ -2,9 +2,10 @@ import { Telegraf } from 'telegraf';
 import { getPlayersWithHigherChange } from './src/features/mejores-mercado.feat.js';
 import { getCurrentMarket } from './src/features/mercado-caros.feat.js';
 import { getLastAccessInfo } from './src/logic/ultimo-acceso.js';
+import 'dotenv/config';
 
 // Reemplaza 'YOUR_BOT_TOKEN' con el token de tu bot
-const bot = new Telegraf('6868170300:AAFd1r7zT50Dnjaal36w6-YCe7Kg-MZG5YU');
+const bot = new Telegraf(process.env.TELEGRAM_TOKEN);
 
 // Manejar el comando /start
 bot.start((ctx) =>
