@@ -8,8 +8,6 @@ import 'dotenv/config';
 import cron from 'node-cron';
 import fs from 'fs';
 
-puja();
-
 async function puja(schedule = true) {
   if (schedule) {
     const cronExpression = '00 02 * * *';
@@ -75,7 +73,7 @@ function calculateBidAmount(playerData, maxBidAmount) {
   } else return playerData.bids > 0 ? maxBidAmount : playerData.price;
 }
 
-async function sendBidRequest(playerId, maxBidAmount) {
+export async function sendBidRequest(playerId, maxBidAmount) {
   const playerData = await getDataFromPlayerInMarket(playerId);
   const bidAmount = calculateBidAmount(playerData, maxBidAmount);
   console.log(
@@ -83,7 +81,9 @@ async function sendBidRequest(playerId, maxBidAmount) {
   );
   const response = await setNewBid(playerData.player_slug, playerId, bidAmount);
   if (response.answer.error)
-    console.log(`Error al realizar la puja: ${response.answer.code}`);
+    if (response.answer.code === 'api.market.max_number_players_in_roster')
+      return 'Has alcanzado el número máximo de jugadores';
+    else return `Error al realizar la puja: ${response.answer.code}`;
   else if (response.answer.code === 'api.general.ok')
-    console.log(`Has pujado por ${playerData.name}`);
+    return `Has pujado por ${playerData.name}`;
 }

@@ -14,6 +14,3 @@ export async function getCurrentMarket(amount = 5) {
   }));
   return sortedMarket.slice(0, amount);
 }
-
-const market = await getCurrentMarket();
-console.log(market);

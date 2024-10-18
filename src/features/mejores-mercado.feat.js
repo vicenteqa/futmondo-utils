@@ -29,5 +29,3 @@ async function getBestPlayersFromMarket() {
   const bestMarket = await getPlayersWithHigherChange();
   console.log(bestMarket);
 }
-
-getBestPlayersFromMarket();
