@@ -47,7 +47,7 @@ function formatBestPlayerDataToString(players) {
   return answer;
 }
 
-function formatExpensivePlayerDataToString(players) {
+function formatExpensivePlayerDataToString(players, showId) {
   let answer = '';
   players.forEach((player) => {
     answer += `${player.jugador}\n`;
@@ -55,7 +55,7 @@ function formatExpensivePlayerDataToString(players) {
     answer += `Cambio: ${player.cambio}\n`;
     answer += `Ofertas: ${player.ofertas}\n`;
     answer += `Precio: ${player.precio}\n`;
-    answer += `ID: ${player.id}\n\n`;
+    answer += showId ? `\nID: ${player.id}` : '' + '\n\n\n';
   });
   return answer;
 }
@@ -63,9 +63,9 @@ function formatExpensivePlayerDataToString(players) {
 bot.command('caros', async (ctx) => {
   const message = ctx.message.text;
   const args = message.split(' ');
-  const amount = args[1];
+  const showId = args[1] === 'id';
   const players = await getCurrentMarket(amount);
-  const answer = formatExpensivePlayerDataToString(players);
+  const answer = formatExpensivePlayerDataToString(players, showId);
   ctx.reply(answer);
 });
 
