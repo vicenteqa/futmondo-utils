@@ -21,6 +21,6 @@ async function handlePayClauseResponse(response, playerName) {
     const errorCode = response.answer.code;
     if (errorCode === 'api.error.max_clauses')
       return 'Máximas cláusulas pagadas';
-    else return response.answer.code;
+    else return `*Error ${errorCode}*`;
   } else return `Has pagado la claúsula de *${playerName}*`;
 }

@@ -5,7 +5,7 @@ import bodyTemplate from './body-template.js';
 const endpoint = endpoints.GET_TEAM_PLAYERS;
 
 function setBody(teamId) {
-  const body = bodyTemplate;
+  const body = JSON.parse(JSON.stringify(bodyTemplate));
   body.query.userteamId = teamId;
   return body;
 }
@@ -30,42 +30,3 @@ export async function getTeamPlayers(teamId) {
     return response.answer.error;
   }
 }
-
-async function getAllPlayers() {
-  const players = [];
-
-  // Usar Promise.all para esperar a que todas las promesas se resuelvan
-  const responses = await Promise.all(
-    TEAMS.map(async (team) => {
-      const response = await getTeamPlayers(team);
-      return response.answer;
-    })
-  );
-
-  // Aplanar el array de respuestas y añadirlo a players
-  responses.forEach((response) => {
-    players.push(...response);
-  });
-
-  return players;
-}
-
-async function filterPlayers() {
-  const players = await getAllPlayers();
-  return players.filter((player) => {
-    const clausePriceWithinRange = player.clause.price <= player.value * 1.4;
-    const averageLastFiveAboveThreshold = player.average.averageLastFive >= 7;
-    const changeAboveThreshold = player.change > 30000;
-
-    return (
-      clausePriceWithinRange &&
-      averageLastFiveAboveThreshold &&
-      changeAboveThreshold
-    );
-  });
-}
-
-const filteredPlayers = await filterPlayers();
-filteredPlayers.forEach((player) => {
-  console.log(player.name);
-});

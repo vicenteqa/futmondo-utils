@@ -4,6 +4,7 @@ import { getLastAccessInfo } from './src/logic/ultimo-acceso.js';
 import { sendBidRequest } from './src/logic/puja.js';
 import { formatCurrency } from './src/common/utils.js';
 import { getPlayerDataAndPayClausula } from './src/logic/clausulazo.js';
+import { getPlayersFromSpecificUser } from './src/logic/get-teams-players.js';
 import 'dotenv/config';
 
 const bot = new Telegraf(process.env.TELEGRAM_TOKEN);
@@ -15,6 +16,15 @@ bot.help((ctx) =>
     'Puedes usar los siguientes comandos:\n/start - Iniciar el bot\n/help - Obtener ayuda\n/puja {id} {cantidad} - Pujar por un jugador\n/mejores - Obtener los mejores jugadores del mercado\n/mejores id - Obtener los mejores jugadores del mercado con su id\n/caros - Obtener los jugadores más caros del mercado\n/caros id - Obtener los jugadores más caros del mercado con su id\n'
   )
 );
+
+bot.command('team', async (ctx) => {
+  const message = ctx.message.text;
+  const args = message.split(' ');
+  const team = args[1];
+  const players = await getPlayersFromSpecificUser(team);
+  const answer = formatTeamPlayersDataToString(players, true);
+  ctx.reply(answer, { parse_mode: 'Markdown' });
+});
 
 bot.command('puja', async (ctx) => {
   const message = ctx.message.text;
@@ -44,6 +54,24 @@ function formatMarketDataToString(players, showId) {
     answer += `Cambio: ${formatCurrency(player.cambio)}\n`;
     answer += `Pujas: ${player.pujas}\n`;
     answer += `Precio: ${formatCurrency(player.precio)}\n`;
+    answer += `Media: ${player.media}\n`;
+    answer += `Forma: ${player.forma}\n`;
+    if (showId) {
+      answer += `\n\`${player.id}\`\n\n\n`; // Mostrar el ID solo si showId es true
+    }
+    answer += '\n\n';
+  });
+  return answer;
+}
+
+function formatTeamPlayersDataToString(players, showId) {
+  let answer = '';
+  players.forEach((player) => {
+    answer += `*${player.jugador}* ${player.lesionado ? '🏥' : ''}\n`;
+    answer += `${player.propietario}\n`;
+    answer += `Cambio: ${formatCurrency(player.cambio)}\n`;
+    answer += `Pujas: ${player.pujas}\n`;
+    answer += `Cláusula: ${formatCurrency(player.clausula)}\n`;
     answer += `Media: ${player.media}\n`;
     answer += `Forma: ${player.forma}\n`;
     if (showId) {
