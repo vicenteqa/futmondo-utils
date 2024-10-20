@@ -8,4 +8,5 @@ export default {
   GET_PLAYER_DATA: '/1/player/summary',
   PAY_PLAYER_CLAUSE: '/1/market/rosterclause',
   SET_BID: '/1/market/bid',
+  GET_TEAM_PLAYERS: '/1/userteam/roster',
 };
