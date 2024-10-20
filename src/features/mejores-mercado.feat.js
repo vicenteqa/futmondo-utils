@@ -1,30 +1,28 @@
 import { getMarket } from '../endpoints/get-market.js';
 import { formatCurrency } from '../common/utils.js';
 
-export async function getPlayersWithHigherChange() {
+export async function getSortedMarket(sortingMethod = 'cambio') {
+  if (!['cambio', 'pujas', 'precio', 'forma', 'media'].includes(sortingMethod))
+    sortingMethod = 'cambio';
   const market = await getMarket();
-  const sortedMarket = market.sort((a, b) => b.change - a.change);
 
-  const bestOfMarket = sortedMarket.map((player) => ({
-    jugador: player.name,
-    propietario: player.userTeam || 'Computer',
-    cambio: formatCurrency(player.change),
-    ofertas: player.numberOfBids || 0,
-    precio: formatCurrency(player.price),
-    medias: {
-      total: player.average.average,
-      media_casa: player.average.homeAverage,
-      media_fuera: player.average.awayAverage,
-      media_cinco: player.average.averageLastFive,
-      forma: JSON.stringify(player.average.fitness),
-    },
-    id: player.id,
-  }));
-
-  return bestOfMarket;
+  return market
+    .map((player) => ({
+      jugador: player.name,
+      lesionado: player.status.includes('injured'),
+      propietario: player.userTeam || 'Computer',
+      cambio: player.change,
+      pujas: player.numberOfBids || 0,
+      precio: player.price,
+      media: player.average.average,
+      forma: getAverageLastThreeMatches(player.average.fitness),
+      id: player.id,
+    }))
+    .sort((a, b) => a[sortingMethod] - b[sortingMethod]);
 }
 
-async function getBestPlayersFromMarket() {
-  const bestMarket = await getPlayersWithHigherChange();
-  console.log(bestMarket);
+function getAverageLastThreeMatches(lastFiveMatches) {
+  const lastThreeMatches = lastFiveMatches.slice(2);
+  const average = lastThreeMatches.reduce((acc, match) => acc + match, 0) / 3;
+  return Math.round(average * 2) / 2;
 }

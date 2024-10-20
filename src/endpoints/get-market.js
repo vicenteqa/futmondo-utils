@@ -14,18 +14,18 @@ async function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-export async function getMarket(tries = 10) {
+export async function getMarket(retries = 10) {
   const body = setBody();
   try {
     const response = await postData(endpoint, body);
     if (response.answer.length > 15) return response.answer;
     else console.log(response.answer.code);
   } catch (error) {
-    if (tries > 0) {
-      tries--;
-      console.log(`Retrying ${endpoint} ${tries} more times`);
+    if (retries > 0) {
+      retries--;
+      console.log(`Retrying ${endpoint} ${retries} more times`);
       await sleep(2000);
-      await getMarket(tries);
-    } else console.log(`${endpoint} giving ${error.status}`);
+      await getMarket(retries);
+    } else return `${endpoint} giving ${error.status}`;
   }
 }

@@ -3,12 +3,9 @@
   "scripts": {
     "acceso": "node src/features/ultimo-acceso.feat.js",
     "clausulazo": "node src/features/clausulazo.feat.js",
-    "puja": "node src/features/puja.feat.js",
     "mondos": "node src/features/dame-mondos.feat.js",
     "repite-ventas": "node src/features/repetir-ventas.feat.js",
     "ultimo-acceso": "node src/features/ultimo-acceso.feat.js",
-    "mejores-mercado": "node src/features/mejores-mercado.feat.js",
-    "mercado-caros": "node src/features/mercado-caros.feat.js",
     "create-bids-file": "mkdir data && touch data/bids.txt"
   },
   "dependencies": {

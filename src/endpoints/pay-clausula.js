@@ -18,6 +18,6 @@ export async function payClausula(playerSlug, playerPrice, playerId) {
     const response = await postData(endpoint, body);
     return response;
   } catch (error) {
-    console.error('Error calling player summary endpoint:', error);
+    return `Error calling player summary endpoint: ${error.status}`;
   }
 }

@@ -18,6 +18,6 @@ export async function setNewBid(playerSlug, playerId, price) {
     const response = await postData(endpoint, body);
     return response;
   } catch (error) {
-    console.error('Error setting player in market:', error.status);
+    return `Error setting player in market: ${error.status}`;
   }
 }
