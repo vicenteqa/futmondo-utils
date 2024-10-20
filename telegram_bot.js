@@ -1,7 +1,7 @@
 import { Telegraf } from 'telegraf';
 import { getSortedMarket } from './src/features/mejores-mercado.feat.js';
 import { getLastAccessInfo } from './src/logic/ultimo-acceso.js';
-import { sendBidRequest } from './src/logic/puja.js';
+import { setBid } from './src/logic/puja.js';
 import { formatCurrency } from './src/common/utils.js';
 import { getPlayerDataAndPayClausula } from './src/logic/clausulazo.js';
 import { getPlayersFromSpecificUser } from './src/logic/get-teams-players.js';
@@ -31,7 +31,7 @@ bot.command('puja', async (ctx) => {
   const args = message.split(' ');
   const id = args[1];
   const amount = args[2];
-  const response = await sendBidRequest(id, amount);
+  const response = await setBid(id, amount);
   ctx.reply(response, { parse_mode: 'Markdown' });
 });
 
