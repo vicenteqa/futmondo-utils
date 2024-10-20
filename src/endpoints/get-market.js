@@ -16,16 +16,26 @@ async function sleep(ms) {
 
 export async function getMarket(retries = 10) {
   const body = setBody();
-  try {
-    const response = await postData(endpoint, body);
-    if (response.answer.length > 15) return response.answer;
-    else console.log(response.answer.code);
-  } catch (error) {
-    if (retries > 0) {
-      retries--;
-      console.log(`Retrying ${endpoint} ${retries} more times`);
+  if (retries > 0) {
+    try {
+      const response = await postData(endpoint, body);
+      if (response.answer.error) {
+        console.log(
+          `API error: ${response.answer.code}. Retrying ${retries - 1} more times`
+        );
+        await sleep(2000);
+        return await getMarket(retries - 1);
+      } else {
+        return response.answer;
+      }
+    } catch (error) {
+      console.log(
+        `Request error: ${error.message}. Retrying ${retries - 1} more times`
+      );
       await sleep(2000);
-      await getMarket(retries);
-    } else return `${endpoint} giving ${error.status}`;
+      return await getMarket(retries - 1);
+    }
+  } else {
+    return undefined;
   }
 }

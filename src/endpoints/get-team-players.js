@@ -27,6 +27,6 @@ export async function getTeamPlayers(teamId) {
     const response = await postData(endpoint, body);
     return response;
   } catch (error) {
-    return response.answer.error;
+    return error.status;
   }
 }
