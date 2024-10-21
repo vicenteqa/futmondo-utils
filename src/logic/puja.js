@@ -7,21 +7,32 @@ function roundToNearestTenThousand(num) {
 }
 
 async function getDataFromPlayerInMarket(playerId) {
-  const market = await getMarket();
-  if (market !== undefined) {
-    const player = market.find((player) => player.id === playerId);
-    if (!player) return undefined;
-    else
-      return {
-        name: player.name,
-        bids: player.numberOfBids,
-        price: player.price,
-        player_slug: player.slug,
-        change: player.change,
-        id: playerId,
-        bid: player.bid !== undefined ? player.bid.id : undefined,
-      };
-  } else return undefined;
+  const retries = 5;
+  while (retries > 0) {
+    try {
+      const market = await getMarket();
+      if (market !== undefined) {
+        const player = market.find((player) => player.id === playerId);
+        if (!player) {
+          return undefined;
+        } else {
+          return {
+            name: player.name,
+            bids: player.numberOfBids,
+            price: player.price,
+            player_slug: player.slug,
+            change: player.change,
+            id: playerId,
+            bid: player.bid !== undefined ? player.bid.id : undefined,
+          };
+        }
+      }
+    } catch (error) {
+      console.error(`Error fetching market data: ${error.message}`);
+    }
+    retries--;
+  }
+  return undefined;
 }
 
 function calculateBidAmount(playerData, maxBidAmount) {
