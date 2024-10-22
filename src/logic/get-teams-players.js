@@ -3,14 +3,15 @@ import { getTeamPlayers } from '../endpoints/get-team-players.js';
 
 export async function getTeams() {
   const championshipInfoResponse = await getChampionshipInfo();
-  if (championshipInfoResponse.answer.error === true)
+  if (championshipInfoResponse === undefined)
+    return 'Error calling championship info endpoint';
+  else if (championshipInfoResponse.answer.error === true)
     return 'Error calling championship info endpoint';
   else {
     const teamsInfo = championshipInfoResponse.answer.teams;
     return teamsInfo;
   }
 }
-const teamsInfo = await getTeams();
 
 async function getAllPlayers() {
   const teamsInfo = await getTeams();
@@ -38,8 +39,6 @@ async function getAllPlayers() {
 
   return allPlayers;
 }
-
-const petaPlayers = await getPlayersFromSpecificUser('peta');
 
 export async function getPlayersFromSpecificUser(user) {
   const allPlayers = await getAllPlayers();

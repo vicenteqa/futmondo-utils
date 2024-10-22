@@ -16,6 +16,6 @@ export async function getChampionshipInfo() {
     const response = await postData(endpoint, body);
     return response;
   } catch (error) {
-    return `Error calling championship info endpoint: ${error}`;
+    return undefined;
   }
 }

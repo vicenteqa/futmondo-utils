@@ -42,7 +42,10 @@ bot.command('market', async (ctx) => {
   let showId = false;
   if (args.length === 2) showId = true;
   const players = await getSortedMarket(sortingMethod);
-  const answer = formatMarketDataToString(players, showId);
+  let answer = '';
+  if (players === undefined)
+    answer = 'No se han podido obtener los datos del mercado';
+  else answer = formatMarketDataToString(players, showId);
   ctx.reply(answer, { parse_mode: 'Markdown' });
 });
 

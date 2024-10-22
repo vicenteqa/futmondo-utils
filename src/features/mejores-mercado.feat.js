@@ -1,24 +1,26 @@
 import { getMarket } from '../endpoints/get-market.js';
-import { formatCurrency } from '../common/utils.js';
 
 export async function getSortedMarket(sortingMethod = 'cambio') {
   if (!['cambio', 'pujas', 'precio', 'forma', 'media'].includes(sortingMethod))
     sortingMethod = 'cambio';
   const market = await getMarket();
 
-  return market
-    .map((player) => ({
-      jugador: player.name,
-      lesionado: player.status.includes('injured'),
-      propietario: player.userTeam || 'Computer',
-      cambio: player.change,
-      pujas: player.numberOfBids || 0,
-      precio: player.price,
-      media: player.average.average,
-      forma: getAverageLastThreeMatches(player.average.fitness),
-      id: player.id,
-    }))
-    .sort((a, b) => a[sortingMethod] - b[sortingMethod]);
+  if (market === undefined) return undefined;
+  else {
+    return market
+      .map((player) => ({
+        jugador: player.name,
+        lesionado: player.status.includes('injured'),
+        propietario: player.userTeam || 'Computer',
+        cambio: player.change,
+        pujas: player.numberOfBids || 0,
+        precio: player.price,
+        media: player.average.average,
+        forma: getAverageLastThreeMatches(player.average.fitness),
+        id: player.id,
+      }))
+      .sort((a, b) => a[sortingMethod] - b[sortingMethod]);
+  }
 }
 
 function getAverageLastThreeMatches(lastFiveMatches) {
