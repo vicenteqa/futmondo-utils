@@ -7,7 +7,7 @@ function roundToNearestTenThousand(num) {
 }
 
 async function getDataFromPlayerInMarket(playerId) {
-  const retries = 5;
+  let retries = 5;
   while (retries > 0) {
     try {
       const market = await getMarket();
