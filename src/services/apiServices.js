@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const apiClient = axios.create({
   baseURL: 'https://api.futmondo.com',
-  timeout: 10000,
+  timeout: 20000,
 });
 
 export async function postData(endpoint, data) {
