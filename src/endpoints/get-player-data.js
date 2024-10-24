@@ -16,6 +16,6 @@ export async function getPlayerData(playerId) {
     const response = await postData(endpoint, body);
     return response;
   } catch (error) {
-    return `Error calling player summary endpoint: ${error.status}`;
+    return undefined;
   }
 }

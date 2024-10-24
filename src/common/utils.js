@@ -6,3 +6,7 @@ export const formatCurrency = (amount) => {
     maximumFractionDigits: 0,
   }).format(amount);
 };
+
+export async function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}

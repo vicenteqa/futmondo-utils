@@ -1,26 +1,54 @@
 import 'dotenv/config';
 import { getPlayerData } from '../endpoints/get-player-data.js';
 import { payClausula } from '../endpoints/pay-clausula.js';
+import { sleep } from '../common/utils.js';
 import 'dotenv/config';
 
 //Obtiene los datos del jugador y paga la cláusula
 export async function getPlayerDataAndPayClausula(playerId) {
-  const response = await getPlayerData(playerId);
-  if (response.answer.error !== true) {
+  const response = await retry(() => getPlayerData(playerId));
+  if (response === undefined)
+    return 'No se han podido obtener los datos del mercado';
+  else {
     const playerSlug = response.answer.data.slug;
     const price = response.answer.championship.clause.price;
     const playerName = response.answer.data.name;
-    const payClauseResponse = await payClausula(playerSlug, price, playerId);
-    return await handlePayClauseResponse(payClauseResponse, playerName);
-  } else return 'No se ha encontrado el jugador';
+    const payClauseResponse = await retry(() =>
+      payClausula(playerSlug, price, playerId)
+    );
+    if (payClauseResponse === undefined)
+      return 'Error al llamar al endpoint para pagar la cláusula';
+    else
+      return await handlePayClauseResponse(
+        payClauseResponse,
+        playerName,
+        price
+      );
+  }
+}
+
+async function retry(fn, retries = 5, delay = 2000) {
+  while (retries > 0) {
+    try {
+      return await fn();
+    } catch (error) {
+      console.error(
+        `Error: ${error.message}. Retrying ${retries - 1} more times`
+      );
+      retries--;
+      if (retries > 0) await sleep(delay);
+    }
+  }
+  return undefined;
 }
 
 //Maneja la respuesta del pago de la cláusula
-async function handlePayClauseResponse(response, playerName) {
+async function handlePayClauseResponse(response, playerName, price) {
   if (response.answer.error) {
     const errorCode = response.answer.code;
     if (errorCode === 'api.error.max_clauses')
       return 'Máximas cláusulas pagadas';
-    else return `*Error ${errorCode}*`;
-  } else return `Has pagado la claúsula de *${playerName}*`;
+    else return undefined;
+  } else
+    return `Has pagado la claúsula de *${playerName}* de *${formatCurrency(price)}*`;
 }

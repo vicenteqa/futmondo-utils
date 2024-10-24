@@ -2,10 +2,16 @@ import { Telegraf } from 'telegraf';
 import { getSortedMarket } from './src/features/mejores-mercado.feat.js';
 import { getLastAccessInfo } from './src/logic/ultimo-acceso.js';
 import { setBid } from './src/logic/puja.js';
-import { formatCurrency } from './src/common/utils.js';
+import { formatCurrency, sleep } from './src/common/utils.js';
 import { getPlayerDataAndPayClausula } from './src/logic/clausulazo.js';
 import { getPlayersFromSpecificUser } from './src/logic/get-teams-players.js';
+import dayjs from 'dayjs';
 import 'dotenv/config';
+import utc from 'dayjs/plugin/utc.js';
+import timezone from 'dayjs/plugin/timezone.js';
+import cron from 'node-cron';
+dayjs.extend(utc);
+dayjs.extend(timezone);
 
 const bot = new Telegraf(process.env.TELEGRAM_TOKEN);
 
@@ -92,10 +98,21 @@ bot.command('conexiones', async (ctx) => {
 });
 
 bot.command('clausulazo', async (ctx) => {
+  const beforeClausulazo = dayjs()
+    .tz(dayjs.tz.guess())
+    .format('DD/MM/YYYY HH:mm:ss');
+  ctx.reply(beforeClausulazo, { parse_mode: 'Markdown' });
   const args = getArgs(ctx);
   const playerId = args[1];
-  const answer = await getPlayerDataAndPayClausula(playerId);
-  ctx.reply(answer, { parse_mode: 'Markdown' });
+  let answer = '';
+  cron.schedule('01 00 00 * * *', async () => {
+    answer = await getPlayerDataAndPayClausula(playerId);
+    const afterClausulazo = dayjs()
+      .tz(dayjs.tz.guess())
+      .format('DD/MM/YYYY HH:mm:ss');
+    ctx.reply(answer, { parse_mode: 'Markdown' });
+    ctx.reply(afterClausulazo, { parse_mode: 'Markdown' });
+  });
 });
 function getArgs(ctx) {
   const message = ctx.message.text;
