@@ -98,18 +98,18 @@ bot.command('conexiones', async (ctx) => {
 });
 
 bot.command('clausulazo', async (ctx) => {
-  const beforeClausulazo = dayjs()
-    .tz(dayjs.tz.guess())
-    .format('DD/MM/YYYY HH:mm:ss');
-  ctx.reply(beforeClausulazo, { parse_mode: 'Markdown' });
   const args = getArgs(ctx);
   const playerId = args[1];
   let answer = '';
-  cron.schedule('00 45 15 * * *', async () => {
+  cron.schedule('01 00 00 * * *', async () => {
+    const beforeClausulazo = dayjs()
+      .tz(dayjs.tz.guess())
+      .format('DD/MM/YYYY HH:mm:ss');
     answer = await getPlayerDataAndPayClausula(playerId);
     const afterClausulazo = dayjs()
       .tz(dayjs.tz.guess())
       .format('DD/MM/YYYY HH:mm:ss');
+    ctx.reply(beforeClausulazo, { parse_mode: 'Markdown' });
     ctx.reply(answer, { parse_mode: 'Markdown' });
     ctx.reply(afterClausulazo, { parse_mode: 'Markdown' });
   });
