@@ -105,7 +105,7 @@ bot.command('clausulazo', async (ctx) => {
   const args = getArgs(ctx);
   const playerId = args[1];
   let answer = '';
-  cron.schedule('01 00 00 * * *', async () => {
+  cron.schedule('00 45 15 * * *', async () => {
     answer = await getPlayerDataAndPayClausula(playerId);
     const afterClausulazo = dayjs()
       .tz(dayjs.tz.guess())
