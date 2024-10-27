@@ -120,6 +120,20 @@ bot.command('clausulazo', async (ctx) => {
     ctx.reply(afterClausulazo, { parse_mode: 'Markdown' });
   });
 });
+
+bot.command('clausulazoya', async (ctx) => {
+  const args = getArgs(ctx);
+  const playerId = args[1];
+  let answer = '';
+
+  answer = await getPlayerDataAndPayClausula(playerId);
+  const afterClausulazo = dayjs()
+    .tz(dayjs.tz.guess())
+    .format('DD/MM/YYYY HH:mm:ss');
+  ctx.reply(answer, { parse_mode: 'Markdown' });
+  ctx.reply(afterClausulazo, { parse_mode: 'Markdown' });
+});
+
 function getArgs(ctx) {
   const message = ctx.message.text;
   return message.split(' ');
