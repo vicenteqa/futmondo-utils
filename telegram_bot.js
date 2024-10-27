@@ -5,6 +5,7 @@ import { setBid } from './src/logic/puja.js';
 import { formatCurrency, sleep } from './src/common/utils.js';
 import { getPlayerDataAndPayClausula } from './src/logic/clausulazo.js';
 import { getPlayersFromSpecificUser } from './src/logic/get-teams-players.js';
+import { getNextCronExecution } from './src/common/get-next-cron-execution.js';
 import dayjs from 'dayjs';
 import 'dotenv/config';
 import utc from 'dayjs/plugin/utc.js';
@@ -98,10 +99,15 @@ bot.command('conexiones', async (ctx) => {
 });
 
 bot.command('clausulazo', async (ctx) => {
+  const cronExpression = '01 00 00 * * *';
+  const timezone = 'Europe/Madrid';
+  const nextExecution = await getNextCronExecution(cronExpression, timezone);
+  ctx.reply(`Clausulazo programado a las ${nextExecution}`);
+
   const args = getArgs(ctx);
   const playerId = args[1];
   let answer = '';
-  cron.schedule('01 00 00 * * *', async () => {
+  cron.schedule(cronExpression, async () => {
     const beforeClausulazo = dayjs()
       .tz(dayjs.tz.guess())
       .format('DD/MM/YYYY HH:mm:ss');
