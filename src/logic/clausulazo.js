@@ -5,7 +5,10 @@ import { sleep } from '../common/utils.js';
 import 'dotenv/config';
 
 //Obtiene los datos del jugador y paga la cláusula
-export async function getPlayerDataAndPayClausula(playerId) {
+export async function getPlayerDataAndPayClausula(
+  playerId,
+  retriesMaxClauses = 5
+) {
   const response = await retry(() => getPlayerData(playerId));
   if (response === undefined)
     return 'No se han podido obtener los datos del mercado';
@@ -13,12 +16,24 @@ export async function getPlayerDataAndPayClausula(playerId) {
     const playerSlug = response.answer.data.slug;
     const price = response.answer.championship.clause.price;
     const playerName = response.answer.data.name;
+
     const payClauseResponse = await retry(() =>
       payClausula(playerSlug, price, playerId)
     );
+
     if (payClauseResponse === undefined)
       return 'Error al llamar al endpoint para pagar la cláusula';
-    else
+    else if (
+      payClauseResponse.answer.code === 'api.error.max_clauses' &&
+      retriesMaxClauses > 0
+    ) {
+      retriesMaxClauses--;
+      console.log(
+        `Máximas cláusulas pagadas por ${playerName}. Esperando 2 segundos para reintentar...`
+      );
+      await sleep(2000);
+      return getPlayerDataAndPayClausula(playerId, retriesMaxClauses);
+    } else
       return await handlePayClauseResponse(
         payClauseResponse,
         playerName,
@@ -46,9 +61,10 @@ async function retry(fn, retries = 5, delay = 2000) {
 async function handlePayClauseResponse(response, playerName, price) {
   if (response.answer.error) {
     const errorCode = response.answer.code;
-    if (errorCode === 'api.error.max_clauses')
+    if (errorCode === 'api.error.max_clauses') {
+      console.log(`Máximas cláusulas pagadas por ${playerName}`);
       return 'Máximas cláusulas pagadas';
-    else return undefined;
+    } else return undefined;
   } else
     return `Has pagado la claúsula de *${playerName}* de *${formatCurrency(price)}*`;
 }
