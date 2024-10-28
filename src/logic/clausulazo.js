@@ -7,7 +7,7 @@ import 'dotenv/config';
 //Obtiene los datos del jugador y paga la cláusula
 export async function getPlayerDataAndPayClausula(
   playerId,
-  retriesMaxClauses = 5
+  retriesMaxClauses = 10
 ) {
   const response = await retry(() => getPlayerData(playerId));
   if (response === undefined)
@@ -31,7 +31,7 @@ export async function getPlayerDataAndPayClausula(
       console.log(
         `Máximas cláusulas pagadas por ${playerName}. Esperando 2 segundos para reintentar...`
       );
-      await sleep(2000);
+      await sleep(3000);
       return getPlayerDataAndPayClausula(playerId, retriesMaxClauses);
     } else
       return await handlePayClauseResponse(
