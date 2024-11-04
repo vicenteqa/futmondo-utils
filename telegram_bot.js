@@ -6,6 +6,8 @@ import { formatCurrency, sleep } from './src/common/utils.js';
 import { getPlayerDataAndPayClausula } from './src/logic/clausulazo.js';
 import { getPlayersFromSpecificUser } from './src/logic/get-teams-players.js';
 import { getNextCronExecution } from './src/common/get-next-cron-execution.js';
+import { getChampionshipInfo } from './src/endpoints/get-championship-info.js';
+
 import dayjs from 'dayjs';
 import 'dotenv/config';
 import utc from 'dayjs/plugin/utc.js';
@@ -43,8 +45,7 @@ bot.command('puja', async (ctx) => {
 });
 
 bot.command('market', async (ctx) => {
-  const message = ctx.message.text;
-  const args = message.split(' ');
+  const args = getArgs(ctx);
   let sortingMethod = args[1];
   let showId = false;
   if (args.length === 2) showId = true;
@@ -98,40 +99,12 @@ bot.command('conexiones', async (ctx) => {
   ctx.reply(answer, { parse_mode: 'Markdown' });
 });
 
-bot.command('clausulazo', async (ctx) => {
-  const cronExpression = '01 00 00 * * *';
-  const timezone = 'Europe/Madrid';
-  const nextExecution = await getNextCronExecution(cronExpression, timezone);
-  ctx.reply(`Clausulazo programado a las ${nextExecution}`);
-
-  const args = getArgs(ctx);
-  const playerId = args[1];
-  let answer = '';
-  cron.schedule(cronExpression, async () => {
-    const beforeClausulazo = dayjs()
-      .tz(dayjs.tz.guess())
-      .format('DD/MM/YYYY HH:mm:ss');
-    answer = await getPlayerDataAndPayClausula(playerId);
-    const afterClausulazo = dayjs()
-      .tz(dayjs.tz.guess())
-      .format('DD/MM/YYYY HH:mm:ss');
-    ctx.reply(beforeClausulazo, { parse_mode: 'Markdown' });
-    ctx.reply(answer, { parse_mode: 'Markdown' });
-    ctx.reply(afterClausulazo, { parse_mode: 'Markdown' });
-  });
-});
-
-bot.command('clausulazoya', async (ctx) => {
-  const args = getArgs(ctx);
-  const playerId = args[1];
-  let answer = '';
-
-  answer = await getPlayerDataAndPayClausula(playerId);
-  const afterClausulazo = dayjs()
-    .tz(dayjs.tz.guess())
-    .format('DD/MM/YYYY HH:mm:ss');
-  ctx.reply(answer, { parse_mode: 'Markdown' });
-  ctx.reply(afterClausulazo, { parse_mode: 'Markdown' });
+cron.schedule('*/3 * * * *', async () => {
+  const chatId = process.env.CHATID;
+  const championshipInfoResponse = await getChampionshipInfo();
+  const amountOfTeams = championshipInfoResponse.answer.teams.length;
+  if (amountOfTeams > 8)
+    bot.telegram.sendMessage(chatId, `Hay un nuevo equipo en la liga!`);
 });
 
 function getArgs(ctx) {
