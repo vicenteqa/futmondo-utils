@@ -102,10 +102,17 @@ cron.schedule('*/3 * * * *', async () => {
   const championshipInfoResponse = await getChampionshipInfo();
   const amountOfTeams = championshipInfoResponse.answer.teams.length;
   if (amountOfTeams > 9)
-    bot.telegram.sendMessage(chatId, `Hay un nuevo equipo en la liga!`);
+    bot.telegram.sendMessage(chatId, 'Hay un nuevo equipo en la liga!');
 });
 
-cron.schedule('8 15 * * *', async () => {
+cron.schedule('00 00 * * *', async () => {
+  await sleep(1000);
+  const currentTime = dayjs().tz('Europe/Madrid').format('HH:mm:ss');
+  const message = `La hora actual es: ${currentTime}. Esto podría ser un clausulazo`;
+  bot.telegram.sendMessage(chatId, message);
+});
+
+cron.schedule('45 06 * * *', async () => {
   const players = await getSortedMarket('cambio');
   bot.telegram.sendMessage(
     process.env.CHATID,
