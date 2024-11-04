@@ -3,9 +3,7 @@ import { getSortedMarket } from './src/features/mejores-mercado.feat.js';
 import { getLastAccessInfo } from './src/logic/ultimo-acceso.js';
 import { setBid } from './src/logic/puja.js';
 import { formatCurrency, sleep } from './src/common/utils.js';
-import { getPlayerDataAndPayClausula } from './src/logic/clausulazo.js';
 import { getPlayersFromSpecificUser } from './src/logic/get-teams-players.js';
-import { getNextCronExecution } from './src/common/get-next-cron-execution.js';
 import { getChampionshipInfo } from './src/endpoints/get-championship-info.js';
 
 import dayjs from 'dayjs';
@@ -57,7 +55,7 @@ bot.command('market', async (ctx) => {
   ctx.reply(answer, { parse_mode: 'Markdown' });
 });
 
-function formatMarketDataToString(players, showId) {
+function formatMarketDataToString(players, showId = true) {
   let answer = '';
   players.forEach((player) => {
     answer += `*${player.jugador}* ${player.lesionado ? '🏥' : ''}\n`;
@@ -103,8 +101,17 @@ cron.schedule('*/3 * * * *', async () => {
   const chatId = process.env.CHATID;
   const championshipInfoResponse = await getChampionshipInfo();
   const amountOfTeams = championshipInfoResponse.answer.teams.length;
-  if (amountOfTeams > 8)
+  if (amountOfTeams > 9)
     bot.telegram.sendMessage(chatId, `Hay un nuevo equipo en la liga!`);
+});
+
+cron.schedule('8 15 * * *', async () => {
+  const players = await getSortedMarket('cambio');
+  bot.telegram.sendMessage(
+    process.env.CHATID,
+    formatMarketDataToString(players),
+    { parse_mode: 'Markdown' }
+  );
 });
 
 function getArgs(ctx) {
