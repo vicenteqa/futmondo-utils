@@ -105,6 +105,12 @@ cron.schedule('00 00 * * *', async () => {
   bot.telegram.sendMessage(chatId, message);
 });
 
+bot.command('hora', async (ctx) => {
+  await sleep(1000);
+  const currentTime = dayjs().tz('Europe/Madrid').format('HH:mm:ss');
+  ctx.reply(`La hora actual es: ${currentTime}`);
+});
+
 cron.schedule('45 06 * * *', async () => {
   const chatId = process.env.CHATID;
   const players = await getSortedMarket('cambio');
