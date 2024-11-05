@@ -97,15 +97,7 @@ bot.command('conexiones', async (ctx) => {
   ctx.reply(answer, { parse_mode: 'Markdown' });
 });
 
-cron.schedule('*/3 * * * *', async () => {
-  const chatId = process.env.CHATID;
-  const championshipInfoResponse = await getChampionshipInfo();
-  const amountOfTeams = championshipInfoResponse.answer.teams.length;
-  if (amountOfTeams > 9)
-    bot.telegram.sendMessage(chatId, 'Hay un nuevo equipo en la liga!');
-});
-
-cron.schedule('00 00 * * *', async () => {
+cron.schedule('0 8 * * *', async () => {
   await sleep(1000);
   const currentTime = dayjs().tz('Europe/Madrid').format('HH:mm:ss');
   const message = `La hora actual es: ${currentTime}. Esto podría ser un clausulazo`;
@@ -113,12 +105,10 @@ cron.schedule('00 00 * * *', async () => {
 });
 
 cron.schedule('45 06 * * *', async () => {
+  const chatId = process.env.CHATID;
   const players = await getSortedMarket('cambio');
-  bot.telegram.sendMessage(
-    process.env.CHATID,
-    formatMarketDataToString(players),
-    { parse_mode: 'Markdown' }
-  );
+  const message = formatMarketDataToString(players);
+  bot.telegram.sendMessage(chatId, message, { parse_mode: 'Markdown' });
 });
 
 function getArgs(ctx) {
