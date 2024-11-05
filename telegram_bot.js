@@ -97,7 +97,8 @@ bot.command('conexiones', async (ctx) => {
   ctx.reply(answer, { parse_mode: 'Markdown' });
 });
 
-cron.schedule('05 08 * * *', async () => {
+cron.schedule('00 00 * * *', async () => {
+  const chatId = process.env.CHATID;
   await sleep(1000);
   const currentTime = dayjs().tz('Europe/Madrid').format('HH:mm:ss');
   const message = `La hora actual es: ${currentTime}. Esto podría ser un clausulazo`;
