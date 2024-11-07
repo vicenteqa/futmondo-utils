@@ -23,6 +23,7 @@ async function getAllPlayers() {
     const teamPlayers = response.answer;
     const players = teamPlayers.map((player) => ({
       jugador: player.name,
+      slug: player.slug,
       lesionado: player.status.includes('injured'),
       propietario: team.name,
       cambio: player.change,
@@ -50,6 +51,7 @@ export async function getPlayersFromSpecificUser(user) {
   else if (user === 'dami') user = 'Damián';
   else if (user === 'herrero') user = 'Davido';
   else if (user === 'situ') user = 'Manchester Situ';
+  else if (user === 'pop') user = 'Rubén Tenor';
   else return 'Necesitas especificar un usuario';
 
   const playersFromUser = allPlayers.filter(
