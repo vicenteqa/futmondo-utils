@@ -113,18 +113,38 @@ bot.command('clausulazo', async (ctx) => {
   }
 });
 
+bot.command('clausulazoya', async (ctx) => {
+  const args = getArgs(ctx);
+  if (args.length !== 5)
+    return ctx.reply(
+      'Debes especificar los datos necesarios para realizar un clausulazo'
+    );
+  else {
+    const playerSlug = args[1];
+    const playerPrice = args[2];
+    const playerId = args[3];
+    await sleep(1000);
+    const response = await payClausula(playerSlug, playerPrice, playerId);
+    const currentTime = dayjs().tz('Europe/Madrid').format('HH:mm:ss');
+
+    if (response.answer.error)
+      ctx.reply(
+        `${currentTime} Clausulazo ${args[4]}: ${response.answer.code}`
+      );
+    else
+      ctx.reply(
+        `${currentTime} Clausulazo ${args[4]}: ${JSON.stringify(response.answer)}`,
+        {
+          parse_mode: 'Markdown',
+        }
+      );
+  }
+});
+
 bot.command('conexiones', async (ctx) => {
   const lastUserConnections = await getLastAccessInfo();
   const answer = formatLastAccessDataToString(lastUserConnections);
   ctx.reply(answer, { parse_mode: 'Markdown' });
-});
-
-cron.schedule('00 00 * * *', async () => {
-  const chatId = process.env.CHATID;
-  await sleep(1000);
-  const currentTime = dayjs().tz('Europe/Madrid').format('HH:mm:ss');
-  const message = `La hora actual es: ${currentTime}. Esto podría ser un clausulazo`;
-  bot.telegram.sendMessage(chatId, message);
 });
 
 cron.schedule('45 06 * * *', async () => {
