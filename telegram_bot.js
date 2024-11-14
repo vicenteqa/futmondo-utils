@@ -1,16 +1,16 @@
 import { Telegraf } from 'telegraf';
 import { payClausula } from './src/endpoints/pay-clausula.js';
 import { getSortedMarket } from './src/features/mejores-mercado.feat.js';
+import { getBestMarket } from './src/features/mejores-mercado.feat.js';
 import { getLastAccessInfo } from './src/logic/ultimo-acceso.js';
 import { setBid } from './src/logic/puja.js';
 import { formatCurrency, sleep } from './src/common/utils.js';
 import { getPlayersFromSpecificUser } from './src/logic/get-teams-players.js';
-
 import dayjs from 'dayjs';
-import 'dotenv/config';
 import utc from 'dayjs/plugin/utc.js';
 import timezone from 'dayjs/plugin/timezone.js';
 import cron from 'node-cron';
+
 dayjs.extend(utc);
 dayjs.extend(timezone);
 
@@ -53,7 +53,35 @@ bot.command('market', async (ctx) => {
   ctx.reply(answer, { parse_mode: 'Markdown' });
 });
 
-function formatMarketDataToString(players, showId = true) {
+bot.command('wanted', async (ctx) => {
+  const args = getArgs(ctx);
+  let sortingMethod = args[1];
+  const players = await getBestMarket(sortingMethod);
+  let answer = '';
+  if (players === undefined)
+    answer = 'No se han podido obtener los datos del mercado';
+  else answer = formatMarketDataToString(players);
+  ctx.reply(answer, { parse_mode: 'Markdown' });
+});
+
+cron.schedule('30 3 * * *', async () => {
+  const chatId = process.env.CHAT_ID;
+  const players = await getBestMarket('cambio');
+  if (players.length === 0) return;
+  else {
+    for (let i = 0; i < players.length; i++) {
+      if (
+        players[i].team !== 'Betis' &&
+        players[i].propietario === 'Computer'
+      ) {
+        const bidResult = await setBid(players[i].id);
+        bot.telegram.sendMessage(chatId, bidResult, { parse_mode: 'Markdown' });
+      }
+    }
+  }
+});
+
+function formatMarketDataToString(players) {
   let answer = '';
   players.forEach((player) => {
     answer += `*${player.jugador}* ${player.lesionado ? '🏥' : ''}\n`;
@@ -83,6 +111,44 @@ function formatTeamPlayersDataToString(players) {
   return answer;
 }
 
+cron.schedule('0 0 * * *', async () => {
+  await sleep(500);
+  const chatId = process.env.CHAT_ID;
+  const RuiSilva = payClausula(
+    '55067163',
+    '22252110',
+    '520355fc634ddea00b000025'
+  );
+  const VitorRoque = payClausula(
+    '2000095783',
+    '47210229',
+    '6593d8f92ea4e76ff9ce4d44'
+  );
+
+  const Bartra = payClausula(
+    '67063004',
+    '35725060',
+    '522f8e353ce1ab673f00000b'
+  );
+
+  await Promise.all([RuiSilva, VitorRoque, Bartra]).then((values) => {
+    const currentTime = dayjs().tz('Europe/Madrid').format('HH:mm:ss');
+    values.forEach((response) => {
+      if (response.answer.error)
+        bot.telegram.sendMessage(
+          chatId,
+          `${currentTime} Clausulazo: ${response.answer.code}`
+        );
+      else
+        bot.telegram.sendMessage(
+          chatId,
+          `${currentTime} Clausulazo: ${JSON.stringify(response.answer)}`,
+          { parse_mode: 'Markdown' }
+        );
+    });
+  });
+});
+
 bot.command('clausulazo', async (ctx) => {
   const args = getArgs(ctx);
   if (args.length !== 5)
@@ -93,7 +159,7 @@ bot.command('clausulazo', async (ctx) => {
     const playerSlug = args[1];
     const playerPrice = args[2];
     const playerId = args[3];
-    cron.schedule('00 00 * * *', async () => {
+    cron.schedule('0 0 * * 1', async () => {
       await sleep(1000);
       const response = await payClausula(playerSlug, playerPrice, playerId);
       const currentTime = dayjs().tz('Europe/Madrid').format('HH:mm:ss');
@@ -148,10 +214,16 @@ bot.command('conexiones', async (ctx) => {
 });
 
 cron.schedule('45 06 * * *', async () => {
-  const chatId = process.env.CHATID;
-  const players = await getSortedMarket('cambio');
-  const message = formatMarketDataToString(players);
-  bot.telegram.sendMessage(chatId, message, { parse_mode: 'Markdown' });
+  const chatId = process.env.CHAT_ID;
+  const players = await getBestMarket('cambio');
+  const betisPlayers = players.filter((player) =>
+    player.equipo.includes('Betis')
+  );
+  if (betisPlayers.length === 0) return;
+  else {
+    const message = formatMarketDataToString(players);
+    bot.telegram.sendMessage(chatId, message, { parse_mode: 'Markdown' });
+  }
 });
 
 function getArgs(ctx) {

@@ -1,4 +1,9 @@
-import 'dotenv/config';
+import path from 'path';
+import dotenv from 'dotenv';
+
+const envFile =
+  process.env.NODE_ENV === undefined ? '.env' : `.env.${process.env.NODE_ENV}`;
+dotenv.config({ path: path.resolve(process.cwd(), envFile) });
 
 export default {
   header: {

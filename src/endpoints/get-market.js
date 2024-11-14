@@ -10,10 +10,6 @@ function setBody() {
   return body;
 }
 
-async function sleep(ms) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
-
 export async function getMarket() {
   const body = setBody();
   try {
