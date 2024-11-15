@@ -111,9 +111,10 @@ function formatTeamPlayersDataToString(players) {
   return answer;
 }
 
-cron.schedule('52 7 * * *', async () => {
+cron.schedule('58 7 * * *', async () => {
+  const currentTime = dayjs().tz('Europe/Madrid').format('HH:mm:ss');
+
   await sleep(500);
-  const chatId = process.env.CHAT_ID;
   const RuiSilva = payClausula(
     '55067163',
     '22252110',
@@ -132,16 +133,15 @@ cron.schedule('52 7 * * *', async () => {
   );
 
   await Promise.all([RuiSilva, VitorRoque, Bartra]).then((values) => {
-    const currentTime = dayjs().tz('Europe/Madrid').format('HH:mm:ss');
     values.forEach((response) => {
       if (response.answer.error)
         bot.telegram.sendMessage(
-          chatId,
+          process.env.CHAT_ID,
           `${currentTime} Clausulazo: ${response.answer.code}`
         );
       else
         bot.telegram.sendMessage(
-          chatId,
+          process.env.CHAT_ID,
           `${currentTime} Clausulazo: ${JSON.stringify(response.answer)}`,
           { parse_mode: 'Markdown' }
         );
