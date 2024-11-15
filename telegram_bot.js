@@ -111,7 +111,7 @@ function formatTeamPlayersDataToString(players) {
   return answer;
 }
 
-cron.schedule('0 0 * * *', async () => {
+cron.schedule('52 7 * * *', async () => {
   await sleep(500);
   const chatId = process.env.CHAT_ID;
   const RuiSilva = payClausula(
