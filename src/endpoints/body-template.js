@@ -5,6 +5,8 @@ const envFile =
   process.env.NODE_ENV === undefined ? '.env' : `.env.${process.env.NODE_ENV}`;
 dotenv.config({ path: path.resolve(process.cwd(), envFile) });
 
+console.log('Loaded environment variables from:', envFile);
+
 export default {
   header: {
     token: process.env.TOKEN,

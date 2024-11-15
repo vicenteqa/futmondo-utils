@@ -1,12 +1,8 @@
 {
   "type": "module",
   "scripts": {
-    "acceso": "node src/features/ultimo-acceso.feat.js",
-    "clausulazo": "node src/features/clausulazo.feat.js",
-    "mondos": "node src/features/dame-mondos.feat.js",
-    "repite-ventas": "node src/features/repetir-ventas.feat.js",
-    "ultimo-acceso": "node src/features/ultimo-acceso.feat.js",
-    "create-bids-file": "mkdir data && touch data/bids.txt"
+    "start": "node telegram_bot.js",
+    "start:dev": "NODE_ENV=development node telegram_bot.js"
   },
   "dependencies": {
     "axios": "^1.7.7",

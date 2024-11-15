@@ -2,6 +2,7 @@ import { Telegraf } from 'telegraf';
 import { payClausula } from './src/endpoints/pay-clausula.js';
 import { getSortedMarket } from './src/features/mejores-mercado.feat.js';
 import { getBestMarket } from './src/features/mejores-mercado.feat.js';
+import { getBetis } from './src/features/mejores-mercado.feat.js';
 import { getLastAccessInfo } from './src/logic/ultimo-acceso.js';
 import { setBid } from './src/logic/puja.js';
 import { formatCurrency, sleep } from './src/common/utils.js';
@@ -25,8 +26,7 @@ bot.help((ctx) =>
 );
 
 bot.command('team', async (ctx) => {
-  const message = ctx.message.text;
-  const args = message.split(' ');
+  const args = getArgs(ctx);
   const team = args[1];
   const players = await getPlayersFromSpecificUser(team);
   const answer = formatTeamPlayersDataToString(players);
@@ -54,30 +54,35 @@ bot.command('market', async (ctx) => {
 });
 
 bot.command('wanted', async (ctx) => {
-  const args = getArgs(ctx);
-  let sortingMethod = args[1];
-  const players = await getBestMarket(sortingMethod);
+  const players = await getBestMarket();
   let answer = '';
   if (players === undefined)
     answer = 'No se han podido obtener los datos del mercado';
+  else if (players.length === 0)
+    answer = 'No hay jugadores deseados en el mercado';
   else answer = formatMarketDataToString(players);
   ctx.reply(answer, { parse_mode: 'Markdown' });
 });
 
-console.log(process.env.CHAT_ID);
+bot.command('betis', async (ctx) => {
+  const players = await getBetis();
+  let answer = '';
+  if (players === undefined)
+    answer = 'No se han podido obtener los datos del mercado';
+  else if (players.length === 0)
+    answer = 'No hay jugadores del Betis en el mercado';
+  else answer = formatMarketDataToString(players);
+  ctx.reply(answer, { parse_mode: 'Markdown' });
+});
+
 cron.schedule('30 3 * * *', async () => {
   const chatId = process.env.CHAT_ID;
-  const players = await getBestMarket('cambio');
+  const players = await getBestMarket();
   if (players.length === 0) return;
   else {
     for (let i = 0; i < players.length; i++) {
-      if (
-        players[i].team !== 'Betis' &&
-        players[i].propietario === 'Computer'
-      ) {
-        const bidResult = await setBid(players[i].id);
-        bot.telegram.sendMessage(chatId, bidResult, { parse_mode: 'Markdown' });
-      }
+      const bidResult = await setBid(players[i].id);
+      bot.telegram.sendMessage(chatId, bidResult, { parse_mode: 'Markdown' });
     }
   }
 });
@@ -112,10 +117,16 @@ function formatTeamPlayersDataToString(players) {
   return answer;
 }
 
-cron.schedule('09 8 * * *', async () => {
+cron.schedule('0 0 * * *', async () => {
+  await clausulazos();
+  await clausulazos();
+  await clausulazos();
+  await clausulazos();
+});
+
+async function clausulazos() {
   const currentTime = dayjs().tz('Europe/Madrid').format('HH:mm:ss');
 
-  await sleep(500);
   const RuiSilva = payClausula(
     '55067163',
     '22252110',
@@ -150,65 +161,8 @@ cron.schedule('09 8 * * *', async () => {
       }
     }
   });
-});
-
-bot.command('clausulazo', async (ctx) => {
-  const args = getArgs(ctx);
-  if (args.length !== 5)
-    return ctx.reply(
-      'Debes especificar los datos necesarios para realizar un clausulazo'
-    );
-  else {
-    const playerSlug = args[1];
-    const playerPrice = args[2];
-    const playerId = args[3];
-    cron.schedule('0 0 * * 1', async () => {
-      await sleep(1000);
-      const response = await payClausula(playerSlug, playerPrice, playerId);
-      const currentTime = dayjs().tz('Europe/Madrid').format('HH:mm:ss');
-
-      if (response.answer.error)
-        ctx.reply(
-          `${currentTime} Clausulazo ${args[4]}: ${response.answer.code}`
-        );
-      else
-        ctx.reply(
-          `${currentTime} Clausulazo ${args[4]}: ${JSON.stringify(response.answer)}`,
-          {
-            parse_mode: 'Markdown',
-          }
-        );
-    });
-  }
-});
-
-bot.command('clausulazoya', async (ctx) => {
-  const args = getArgs(ctx);
-  if (args.length !== 5)
-    return ctx.reply(
-      'Debes especificar los datos necesarios para realizar un clausulazo'
-    );
-  else {
-    const playerSlug = args[1];
-    const playerPrice = args[2];
-    const playerId = args[3];
-    await sleep(1000);
-    const response = await payClausula(playerSlug, playerPrice, playerId);
-    const currentTime = dayjs().tz('Europe/Madrid').format('HH:mm:ss');
-
-    if (response.answer.error)
-      ctx.reply(
-        `${currentTime} Clausulazo ${args[4]}: ${response.answer.code}`
-      );
-    else
-      ctx.reply(
-        `${currentTime} Clausulazo ${args[4]}: ${JSON.stringify(response.answer)}`,
-        {
-          parse_mode: 'Markdown',
-        }
-      );
-  }
-});
+  await sleep(600);
+}
 
 bot.command('conexiones', async (ctx) => {
   const lastUserConnections = await getLastAccessInfo();
@@ -218,13 +172,10 @@ bot.command('conexiones', async (ctx) => {
 
 cron.schedule('45 06 * * *', async () => {
   const chatId = process.env.CHAT_ID;
-  const players = await getBestMarket('cambio');
-  const betisPlayers = players.filter((player) =>
-    player.equipo.includes('Betis')
-  );
+  const betisPlayers = await getBetis();
   if (betisPlayers.length === 0) return;
   else {
-    const message = formatMarketDataToString(players);
+    const message = formatMarketDataToString(betisPlayers);
     bot.telegram.sendMessage(chatId, message, { parse_mode: 'Markdown' });
   }
 });
