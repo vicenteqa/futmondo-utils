@@ -112,7 +112,7 @@ function formatTeamPlayersDataToString(players) {
   return answer;
 }
 
-cron.schedule('04 8 * * *', async () => {
+cron.schedule('09 8 * * *', async () => {
   const currentTime = dayjs().tz('Europe/Madrid').format('HH:mm:ss');
 
   await sleep(500);
