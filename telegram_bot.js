@@ -64,6 +64,7 @@ bot.command('wanted', async (ctx) => {
   ctx.reply(answer, { parse_mode: 'Markdown' });
 });
 
+console.log(process.env.CHAT_ID);
 cron.schedule('30 3 * * *', async () => {
   const chatId = process.env.CHAT_ID;
   const players = await getBestMarket('cambio');
