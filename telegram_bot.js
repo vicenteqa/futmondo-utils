@@ -111,7 +111,7 @@ function formatTeamPlayersDataToString(players) {
   return answer;
 }
 
-cron.schedule('0 8 * * *', async () => {
+cron.schedule('04 8 * * *', async () => {
   const currentTime = dayjs().tz('Europe/Madrid').format('HH:mm:ss');
 
   await sleep(500);
@@ -133,19 +133,21 @@ cron.schedule('0 8 * * *', async () => {
   );
 
   await Promise.all([RuiSilva, VitorRoque, Bartra]).then((values) => {
-    values.forEach((response) => {
-      if (response.answer.error)
+    for (let i = 0; i < values.length; i++) {
+      const response = values[i];
+      if (response.answer.error) {
         bot.telegram.sendMessage(
           process.env.CHAT_ID,
           `${currentTime} Clausulazo: ${response.answer.code}`
         );
-      else
+      } else {
         bot.telegram.sendMessage(
           process.env.CHAT_ID,
           `${currentTime} Clausulazo: ${JSON.stringify(response.answer)}`,
           { parse_mode: 'Markdown' }
         );
-    });
+      }
+    }
   });
 });
 
