@@ -7,6 +7,8 @@ import { getLastAccessInfo } from './src/logic/ultimo-acceso.js';
 import { setBid } from './src/logic/puja.js';
 import { formatCurrency, sleep } from './src/common/utils.js';
 import { getPlayersFromSpecificUser } from './src/logic/get-teams-players.js';
+import { getTodayRichmondTransfers } from './src/logic/get-today-transfers.js';
+import { getTodayTransfers } from './src/logic/get-today-transfers.js';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc.js';
 import timezone from 'dayjs/plugin/timezone.js';
@@ -17,6 +19,8 @@ dayjs.extend(timezone);
 
 const bot = new Telegraf(process.env.TELEGRAM_TOKEN);
 
+let scheduledBidStatus = true;
+
 bot.start((ctx) => ctx.reply('¡Hola! Soy tu bot de Futmondo.'));
 
 bot.help((ctx) =>
@@ -24,6 +28,59 @@ bot.help((ctx) =>
     'Puedes usar los siguientes comandos:\n/start - Iniciar el bot\n/help - Obtener ayuda\n/puja {id} {cantidad} - Pujar por un jugador\n/mejores - Obtener los mejores jugadores del mercado\n/mejores id - Obtener los mejores jugadores del mercado con su id\n/caros - Obtener los jugadores más caros del mercado\n/caros id - Obtener los jugadores más caros del mercado con su id\n'
   )
 );
+
+bot.command('misfichajes', async (ctx) => {
+  const todayOwnTransfers = await getTodayRichmondTransfers();
+  if (todayOwnTransfers.length > 0) {
+    const answer = formatOwnTransfersData(todayOwnTransfers);
+    ctx.reply(`Fichajes de hoy:\n\n${answer}`, { parse_mode: 'Markdown' });
+  } else ctx.reply('No hay fichajes de hoy');
+});
+
+cron.schedule('45 6 * * *', async () => {
+  const chatId = process.env.CHAT_ID;
+  const todayOwnTransfers = await getTodayRichmondTransfers();
+  if (todayOwnTransfers.length > 0) {
+    const answer = formatOwnTransfersData(todayOwnTransfers);
+    bot.telegram.sendMessage(chatId, `Fichajes de hoy:\n\n${answer}`, {
+      parse_mode: 'Markdown',
+    });
+  }
+});
+
+bot.command('fichajes', async (ctx) => {
+  const todayTransfers = await getTodayTransfers();
+  if (todayTransfers.length > 0) {
+    const message = formatTransfersData(todayTransfers);
+    ctx.reply(message, { parse_mode: 'Markdown' });
+  } else ctx.reply('No hay fichajes de hoy');
+});
+
+function formatTransfersData(transfers) {
+  let answer = '';
+  transfers.forEach((transfer) => {
+    answer += `*${transfer._player.name}* de *${transfer._seller === undefined ? 'CPU' : transfer._seller.name}* a *${transfer._buyer.name}* por ${formatCurrency(transfer.price)}\n`;
+  });
+  return answer;
+}
+
+function formatOwnTransfersData(transfers) {
+  let answer = '';
+  transfers.forEach((transfer) => {
+    answer += `Has fichado a *${transfer._player.name}* por ${formatCurrency(transfer.price)}\n`;
+  });
+  return answer;
+}
+
+bot.command('switchbid', async (ctx) => {
+  scheduledBidStatus = !scheduledBidStatus;
+  ctx.reply(
+    `Pujas automáticas: ${scheduledBidStatus ? 'Activadas' : 'Desactivadas'}`,
+    {
+      parse_mode: 'Markdown',
+    }
+  );
+});
 
 bot.command('team', async (ctx) => {
   const args = getArgs(ctx);
@@ -34,8 +91,7 @@ bot.command('team', async (ctx) => {
 });
 
 bot.command('puja', async (ctx) => {
-  const message = ctx.message.text;
-  const args = message.split(' ');
+  const args = getArgs(ctx);
   const id = args[1];
   const amount = args[2];
   const response = await setBid(id, amount);
@@ -72,17 +128,21 @@ bot.command('betis', async (ctx) => {
   else if (players.length === 0)
     answer = 'No hay jugadores del Betis en el mercado';
   else answer = formatMarketDataToString(players);
-  ctx.reply(answer, { parse_mode: 'Markdown' });
+  ctx.reply(`Jugadores del Betis en el mercado: \n\n${answer}`, {
+    parse_mode: 'Markdown',
+  });
 });
 
 cron.schedule('30 3 * * *', async () => {
-  const chatId = process.env.CHAT_ID;
-  const players = await getBestMarket();
-  if (players.length === 0) return;
-  else {
-    for (let i = 0; i < players.length; i++) {
-      const bidResult = await setBid(players[i].id);
-      bot.telegram.sendMessage(chatId, bidResult, { parse_mode: 'Markdown' });
+  if (scheduledBidStatus) {
+    const chatId = process.env.CHAT_ID;
+    const players = await getBestMarket();
+    if (players.length === 0) return;
+    else {
+      for (let i = 0; i < players.length; i++) {
+        const bidResult = await setBid(players[i].id);
+        bot.telegram.sendMessage(chatId, bidResult, { parse_mode: 'Markdown' });
+      }
     }
   }
 });
@@ -117,52 +177,7 @@ function formatTeamPlayersDataToString(players) {
   return answer;
 }
 
-cron.schedule('0 0 * * *', async () => {
-  await clausulazos();
-  await clausulazos();
-  await clausulazos();
-  await clausulazos();
-});
-
-async function clausulazos() {
-  const currentTime = dayjs().tz('Europe/Madrid').format('HH:mm:ss');
-
-  const RuiSilva = payClausula(
-    '55067163',
-    '22252110',
-    '520355fc634ddea00b000025'
-  );
-  const VitorRoque = payClausula(
-    '2000095783',
-    '47210229',
-    '6593d8f92ea4e76ff9ce4d44'
-  );
-
-  const Bartra = payClausula(
-    '67063004',
-    '35725060',
-    '522f8e353ce1ab673f00000b'
-  );
-
-  await Promise.all([RuiSilva, VitorRoque, Bartra]).then((values) => {
-    for (let i = 0; i < values.length; i++) {
-      const response = values[i];
-      if (response.answer.error) {
-        bot.telegram.sendMessage(
-          process.env.CHAT_ID,
-          `${currentTime} Clausulazo: ${response.answer.code}`
-        );
-      } else {
-        bot.telegram.sendMessage(
-          process.env.CHAT_ID,
-          `${currentTime} Clausulazo: ${JSON.stringify(response.answer)}`,
-          { parse_mode: 'Markdown' }
-        );
-      }
-    }
-  });
-  await sleep(600);
-}
+cron.schedule('0 0 * * *', async () => {});
 
 bot.command('conexiones', async (ctx) => {
   const lastUserConnections = await getLastAccessInfo();
@@ -176,7 +191,11 @@ cron.schedule('45 06 * * *', async () => {
   if (betisPlayers.length === 0) return;
   else {
     const message = formatMarketDataToString(betisPlayers);
-    bot.telegram.sendMessage(chatId, message, { parse_mode: 'Markdown' });
+    bot.telegram.sendMessage(
+      chatId,
+      `Jugadores del Betis en el mercado: \n\n${message}`,
+      { parse_mode: 'Markdown' }
+    );
   }
 });
 

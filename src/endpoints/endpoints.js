@@ -9,4 +9,5 @@ export default {
   PAY_PLAYER_CLAUSE: '/1/market/rosterclause',
   SET_BID: '/1/market/bid',
   GET_TEAM_PLAYERS: '/1/userteam/roster',
+  PRESSROOM: '/1/locker/pressroom',
 };
