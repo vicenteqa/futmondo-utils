@@ -6,11 +6,11 @@ const endpoint = endpoints.GET_TEAM_PLAYERS;
 
 function setBody(teamId) {
   const body = JSON.parse(JSON.stringify(bodyTemplate));
-  body.query.userteamId = teamId;
+  if (teamId !== undefined) body.query.userteamId = teamId;
   return body;
 }
 
-export async function getTeamPlayers(teamId) {
+export async function getTeamPlayers(teamId = undefined) {
   const body = setBody(teamId);
   try {
     const response = await postData(endpoint, body);

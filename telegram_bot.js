@@ -9,6 +9,7 @@ import { formatCurrency, sleep } from './src/common/utils.js';
 import { getPlayersFromSpecificUser } from './src/logic/get-teams-players.js';
 import { getTodayRichmondTransfers } from './src/logic/get-today-transfers.js';
 import { getTodayTransfers } from './src/logic/get-today-transfers.js';
+import { setPlayersInMarket } from './src/logic/get-sell-candidates.js';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc.js';
 import timezone from 'dayjs/plugin/timezone.js';
@@ -20,12 +21,44 @@ dayjs.extend(timezone);
 const bot = new Telegraf(process.env.TELEGRAM_TOKEN);
 
 let scheduledBidStatus = true;
+let scheduledSetPlayersInMarketStatus = true;
+
+const clausulazos = [];
 
 bot.start((ctx) => ctx.reply('¡Hola! Soy tu bot de Futmondo.'));
 
+bot.command('addplayer', async (ctx) => {
+  const args = getArgs(ctx);
+  const player = {
+    slug: args[1],
+    price: args[2],
+    id: args[3],
+    name: args[4],
+  };
+  clausulazos.push(player);
+  ctx.reply('Jugador añadido a la lista de clausulazos');
+});
+
+bot.command('listaClausulazos', async (ctx) => {
+  if (clausulazos.length > 0)
+    ctx.reply(JSON.stringify(clausulazos), { parse_mode: 'Markdown' });
+});
+
 bot.help((ctx) =>
   ctx.reply(
-    'Puedes usar los siguientes comandos:\n/start - Iniciar el bot\n/help - Obtener ayuda\n/puja {id} {cantidad} - Pujar por un jugador\n/mejores - Obtener los mejores jugadores del mercado\n/mejores id - Obtener los mejores jugadores del mercado con su id\n/caros - Obtener los jugadores más caros del mercado\n/caros id - Obtener los jugadores más caros del mercado con su id\n'
+    'Comandos disponibles:\n\n' +
+      '/fichajes\n' +
+      '/misfichajes\n' +
+      '/market\n' +
+      '/wanted\n' +
+      '/betis\n' +
+      '/team\n' +
+      '/puja\n' +
+      '/conexiones\n' +
+      '/switchbid\n' +
+      '/switchsell\n\n' +
+      `Pujas automáticas: ${scheduledBidStatus ? 'Activado' : 'Desactivado'}\n` +
+      `Poner en mercado automático: ${scheduledSetPlayersInMarketStatus ? 'Activado' : 'Desactivado'}`
   )
 );
 
@@ -35,6 +68,16 @@ bot.command('misfichajes', async (ctx) => {
     const answer = formatOwnTransfersData(todayOwnTransfers);
     ctx.reply(`Fichajes de hoy:\n\n${answer}`, { parse_mode: 'Markdown' });
   } else ctx.reply('No hay fichajes de hoy');
+});
+
+cron.schedule('00 4 * * *', async () => {
+  if (scheduledSetPlayersInMarketStatus) await setPlayersInMarket();
+});
+
+bot.command('switchsell', async (ctx) => {
+  scheduledSetPlayersInMarketStatus = !scheduledSetPlayersInMarketStatus;
+  const message = `Poner en mercado automático: ${scheduledSetPlayersInMarketStatus ? 'Activado' : 'Desactivado'}`;
+  ctx.reply(message);
 });
 
 cron.schedule('45 6 * * *', async () => {
@@ -74,19 +117,17 @@ function formatOwnTransfersData(transfers) {
 
 bot.command('switchbid', async (ctx) => {
   scheduledBidStatus = !scheduledBidStatus;
-  ctx.reply(
-    `Pujas automáticas: ${scheduledBidStatus ? 'Activadas' : 'Desactivadas'}`,
-    {
-      parse_mode: 'Markdown',
-    }
-  );
+  const message = `Pujas automáticas: ${scheduledBidStatus ? 'Activadas' : 'Desactivadas'}`;
+  ctx.reply(message);
 });
 
 bot.command('team', async (ctx) => {
   const args = getArgs(ctx);
   const team = args[1];
   const players = await getPlayersFromSpecificUser(team);
-  const answer = formatTeamPlayersDataToString(players);
+  let answer = '';
+  if (players === undefined) answer = 'Necesitas especificar un usuario';
+  else answer = formatTeamPlayersDataToString(players);
   ctx.reply(answer, { parse_mode: 'Markdown' });
 });
 
@@ -172,7 +213,7 @@ function formatTeamPlayersDataToString(players) {
     answer += `Cláusula: ${formatCurrency(player.clausula)}\n`;
     answer += `Media: ${player.media}\n`;
     answer += `Forma: ${player.forma}\n`;
-    answer += `\n\`/clausulazo ${player.slug} ${player.clausula} ${player.id} ${player.jugador.replace(/\s+/g, '')}\`\n\n\n`;
+    answer += `\n\`/addplayer ${player.slug} ${player.clausula} ${player.id} ${player.jugador.replace(/\s+/g, '')}\`\n\n\n`;
   });
   return answer;
 }

@@ -52,7 +52,7 @@ export async function getPlayersFromSpecificUser(user) {
   else if (user === 'herrero') user = 'Davido';
   else if (user === 'situ') user = 'Manchester Situ';
   else if (user === 'pop') user = 'Rubén Tenor';
-  else return 'Necesitas especificar un usuario';
+  else return undefined;
 
   const playersFromUser = allPlayers.filter(
     (player) => player.propietario === user
