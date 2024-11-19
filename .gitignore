@@ -4,3 +4,4 @@ node_modules/
 .env.development
 ultimo-acceso.json
 data/
+clausulazos.json

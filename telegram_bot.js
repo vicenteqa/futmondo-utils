@@ -1,4 +1,5 @@
 import { Telegraf } from 'telegraf';
+import fs from 'fs';
 import { payClausula } from './src/endpoints/pay-clausula.js';
 import { getSortedMarket } from './src/features/mejores-mercado.feat.js';
 import { getBestMarket } from './src/features/mejores-mercado.feat.js';
@@ -23,8 +24,6 @@ const bot = new Telegraf(process.env.TELEGRAM_TOKEN);
 let scheduledBidStatus = true;
 let scheduledSetPlayersInMarketStatus = true;
 
-const clausulazos = [];
-
 bot.start((ctx) => ctx.reply('¡Hola! Soy tu bot de Futmondo.'));
 
 bot.command('addplayer', async (ctx) => {
@@ -35,13 +34,29 @@ bot.command('addplayer', async (ctx) => {
     id: args[3],
     name: args[4],
   };
-  clausulazos.push(player);
+  await addPlayerClausulazosJson(player);
   ctx.reply('Jugador añadido a la lista de clausulazos');
 });
 
+async function addPlayerClausulazosJson(player) {
+  if (fs.existsSync('clausulazos.json')) {
+    const data = fs.readFileSync('clausulazos.json');
+    let clausulazos = JSON.parse(data);
+    clausulazos.push(player);
+    fs.writeFileSync('clausulazos.json', JSON.stringify(clausulazos));
+  } else fs.writeFileSync('clausulazos.json', JSON.stringify([player]));
+}
+
 bot.command('listaClausulazos', async (ctx) => {
+  const clausulazos = JSON.parse(fs.readFileSync('clausulazos.json'));
   if (clausulazos.length > 0)
-    ctx.reply(JSON.stringify(clausulazos), { parse_mode: 'Markdown' });
+    clausulazos.forEach((player) => ctx.reply(player.name));
+  else ctx.reply('No hay jugadores en la lista de clausulazos');
+});
+
+bot.command('resetClausulazos', async (ctx) => {
+  fs.writeFileSync('clausulazos.json', JSON.stringify([]));
+  ctx.reply('Lista de clausulazos reseteada');
 });
 
 bot.help((ctx) =>
@@ -101,15 +116,16 @@ bot.command('fichajes', async (ctx) => {
 
 function formatTransfersData(transfers) {
   let answer = '';
-  transfers.forEach((transfer) => {
-    answer += `*${transfer._player.name}* de *${transfer._seller === undefined ? 'CPU' : transfer._seller.name}* a *${transfer._buyer.name}* por ${formatCurrency(transfer.price)}\n`;
-  });
+  transfers.forEach(
+    (transfer) =>
+      (answer += `*${transfer._player.name}* de *${transfer._seller === undefined ? 'CPU' : transfer._seller.name}* a *${transfer._buyer === undefined ? 'CPU' : transfer._buyer.name}* por ${formatCurrency(transfer.price)}\n`)
+  );
   return answer;
 }
 
 function formatOwnTransfersData(transfers) {
   let answer = '';
-  transfers.forEach((transfer) => {
+  transfers.forEach((transfer, index) => {
     answer += `Has fichado a *${transfer._player.name}* por ${formatCurrency(transfer.price)}\n`;
   });
   return answer;
@@ -218,7 +234,31 @@ function formatTeamPlayersDataToString(players) {
   return answer;
 }
 
-cron.schedule('0 0 * * *', async () => {});
+cron.schedule('20 13 * * *', async () => {
+  const players = JSON.parse(fs.readFileSync('clausulazos.json'));
+  if (players.length > 0) {
+    const results = await Promise.allSettled(
+      players.map((player) => payClausula(player.slug, player.price, player.id))
+    );
+    let message = '';
+
+    results.forEach((result, index) => {
+      const timestamp = dayjs()
+        .tz('Europe/Madrid')
+        .format('DD/MM/YYYY HH:mm:ss');
+      if (result.status === 'fulfilled') {
+        if (result.value.answer.code === 'api.general.ok')
+          message = `Jugador ${players[index].name} comprado por ${formatCurrency(players[index].price)}€`;
+        else if (result.value.answer.error)
+          message = `Error al pagar clausula de ${players[index].name}: ${result.value.answer.code}`;
+        else
+          message = `Error desconocido al pagar la clausula de ${players[index].name}`;
+      } else
+        message = `Error en la request al pagar la clausula de ${players[index].name}`;
+      bot.telegram.sendMessage(process.env.CHAT_ID, `${timestamp}: ${message}`);
+    });
+  }
+});
 
 bot.command('conexiones', async (ctx) => {
   const lastUserConnections = await getLastAccessInfo();
