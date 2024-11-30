@@ -234,8 +234,19 @@ function formatTeamPlayersDataToString(players) {
   return answer;
 }
 
-cron.schedule('20 13 * * *', async () => {
+cron.schedule('00 00 * * *', async () => {
   const players = JSON.parse(fs.readFileSync('clausulazos.json'));
+  await payClausesFromFileNtimes(players);
+});
+
+async function payClausesFromFileNtimes(players) {
+  for (let i = 0; i < 20; i++) {
+    await payClausesFromFile(players);
+    await sleep(200);
+  }
+}
+
+async function payClausesFromFile(players) {
   if (players.length > 0) {
     const results = await Promise.allSettled(
       players.map((player) => payClausula(player.slug, player.price, player.id))
@@ -248,9 +259,9 @@ cron.schedule('20 13 * * *', async () => {
         .format('DD/MM/YYYY HH:mm:ss');
       if (result.status === 'fulfilled') {
         if (result.value.answer.code === 'api.general.ok')
-          message = `Jugador ${players[index].name} comprado por ${formatCurrency(players[index].price)}€`;
+          message = `🟢 Jugador ${players[index].name} comprado por ${formatCurrency(players[index].price)}€`;
         else if (result.value.answer.error)
-          message = `Error al pagar clausula de ${players[index].name}: ${result.value.answer.code}`;
+          message = `🔴 Error al pagar clausula de ${players[index].name}: ${result.value.answer.code}`;
         else
           message = `Error desconocido al pagar la clausula de ${players[index].name}`;
       } else
@@ -258,7 +269,7 @@ cron.schedule('20 13 * * *', async () => {
       bot.telegram.sendMessage(process.env.CHAT_ID, `${timestamp}: ${message}`);
     });
   }
-});
+}
 
 bot.command('conexiones', async (ctx) => {
   const lastUserConnections = await getLastAccessInfo();
